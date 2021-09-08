@@ -23,5 +23,10 @@ namespace SeasonLine.Controllers
             return await _db.AlleReiser();
         }
 
+        public string Performtest()
+        {
+            return "Hello";
+        }
+
     }
 }

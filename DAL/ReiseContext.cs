@@ -34,7 +34,10 @@ namespace SeasonLine.DAL
 
         public DbSet<ReiseInformasjon> ReiseInformasjoner { get; set; }
         public DbSet<Reiser> Reiser { get; set; }
-
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseLazyLoadingProxies();
+        }
 
     }
 }

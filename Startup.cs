@@ -21,6 +21,8 @@ namespace SeasonLine
             services.AddControllers();
             services.AddDbContext<ReiseContext>(options => options.UseSqlite("Data source = Reiser.db"));
             services.AddScoped<IReiseRepository, ReiseRepository>();
+            services.AddDbContext<BestillingContext>(options => options.UseSqlite("Data source = Bestillinger.db"));
+            services.AddScoped<IBestillingRepository, BestillingRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

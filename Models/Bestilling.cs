@@ -16,5 +16,12 @@ namespace SeasonLine.Models
         public int AntallBarn { get; set; }
         public int AntallVoksne { get; set; }
         public int AntallLugarer { get; set; }
+
+        // Informasjon om bestilling
+        public DateTime DatoBestilt { get; set; }
+        public string ReiseFra { get; set; }
+        public string ReiseTil { get; set; }
+        public DateTime AvreiseDato { get; set; }
+
     }
 }
