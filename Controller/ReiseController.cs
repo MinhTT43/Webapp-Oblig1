@@ -4,37 +4,23 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using SeasonLine.DAL;
 using SeasonLine.Models;
+using System.Threading.Tasks;
 
 namespace SeasonLine.Controllers
 {
     [Route("[controller]/[action]")]
-    public class ReiseController
+    public class ReiseController : ControllerBase
     {
-        private readonly ReiseContext _db;
+        private readonly IReiseRepository _db;
 
-        public ReiseController(ReiseContext db)
+        public ReiseController(IReiseRepository db)
         {
             _db = db;
         }
 
-        public List<Reise> HentReiser()
+        public async Task<List<Reise>> Reiser()
         {
-            List<Reise> AlleReiser = _db.Reiser.Select(r => new Reise
-            {
-                ReiseID = r.ReiseID,
-                PrisBarn = r.ReiseInformasjon.PrisBarn,
-                PrisLugar = r.ReiseInformasjon.PrisLugar,
-                PrisVoksne = r.ReiseInformasjon.PrisVoksne,
-                ReiseFra = r.ReiseInformasjon.ReiseFra,
-                ReiseTil = r.ReiseInformasjon.ReiseTil,
-                AvreiseTid = r.AvreiseTid,
-
-            }).ToList();
-
-
-
-            return AlleReiser;
-
+            return await _db.AlleReiser();
         }
 
     }
