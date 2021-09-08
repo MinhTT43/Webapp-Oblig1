@@ -23,9 +23,9 @@ namespace SeasonLine.Controllers
             return await _db.AlleReiser();
         }
 
-        public string Performtest()
+        public async Task<Reiser> HentEnReise(int id)
         {
-            return "Hello";
+            return await _db.HentEnReise(id);
         }
 
     }

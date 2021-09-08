@@ -43,7 +43,19 @@ namespace SeasonLine.DAL
 
         }
 
-        public async Task<Reise>
+        public async Task<Reiser> HentEnReise(int id)
+        {
+            try
+            {
+                Reiser enReise = _db.Reiser.Find(id);
+                return enReise;
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
 
     }
 }
