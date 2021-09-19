@@ -20,21 +20,28 @@ namespace SeasonLine.DAL
         {
             try
             {
-                List<Reise> AlleReiser = await _db.Reiser.Select(r => new Reise
+                List<Avreise> AlleAvreiser = await _db.Avreiser.ToListAsync();
+                List<Reise> AlleReiser = new List<Reise>();
+
+                foreach (var avreiser in AlleAvreiser)
                 {
-                    ReiseID = r.ReiseID,
-                    PrisBarn = r.ReiseInformasjon.PrisBarn,
-                    PrisLugar = r.ReiseInformasjon.PrisLugar,
-                    PrisVoksne = r.ReiseInformasjon.PrisVoksne,
-                    ReiseFra = r.ReiseInformasjon.ReiseFra,
-                    ReiseTil = r.ReiseInformasjon.ReiseTil,
-                    AvreiseTid = r.AvreiseTid,
-
-                }).ToListAsync();
-
-
-
+                    foreach (var rute in avreiser.Ruter)
+                    {
+                        Reise nyReise = new Reise
+                        {
+                            ReiseID = rute.ReiseID,
+                            PrisBarn = rute.PrisBarn,
+                            PrisLugar = rute.PrisLugar,
+                            PrisVoksne = rute.PrisVoksne,
+                            ReiseFra = rute.ReiseFra,
+                            ReiseTil = rute.ReiseTil,
+                            AvreiseTid = avreiser.AvreiseTid,
+                        };
+                        AlleReiser.Add(nyReise);
+                    }
+                }
                 return AlleReiser;
+
             }
             catch
             {
@@ -43,18 +50,34 @@ namespace SeasonLine.DAL
 
         }
 
-        public async Task<Reiser> HentEnReise(int id)
+        public async Task<List<Reise>> AlleRuter()
         {
             try
             {
-                Reiser enReise = _db.Reiser.Find(id);
-                return enReise;
+                List<Rute> AlleRuter = await _db.Rute.ToListAsync();
+                List<Reise> AlleReiser = new List<Reise>();
+
+                foreach (var rute in AlleRuter)
+                {
+                    Reise nyReise = new Reise
+                    {
+                        ReiseID = rute.ReiseID,
+                        PrisBarn = rute.PrisBarn,
+                        PrisLugar = rute.PrisLugar,
+                        PrisVoksne = rute.PrisVoksne,
+                        ReiseFra = rute.ReiseFra,
+                        ReiseTil = rute.ReiseTil,
+                    };
+                    AlleReiser.Add(nyReise);
+
+                }
+                return AlleReiser;
+
             }
             catch
             {
                 return null;
             }
-
         }
 
     }

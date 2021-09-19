@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/bestilling.js"></script>
+</head>
+<body>
+    <section class="p-5">
+        <div class="row justify-content-between">
+            <div class="col-lg-5 card p-5">
+                <h3>Billett</h3>
+                <form class="py-1">
+                    <div class="row mt-2">
+                        <div class="col-lg-6">
+                            <label class="form-label">Fornavn: </label>
+                            <input type="text" id="fornavn" class="form-control" />
+                        </div>
+                        <div class="col-lg-6">
+                            <label class="form-label">Etternavn: </label>
+                            <input type="text" id="etternavn" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <label class="form-label">Telefon: </label>
+                        <input type="text" id="telefon" class="form-control" />
+                    </div>
+                    <div class="mt-2">
+                        <label class="form-label">Epost: </label>
+                        <input type="text" id="epost" class="form-control" />
+                    </div>
+                    <div class="mt-2">
+                        <label class="form-label"> Antall barn:</label>
+                        <div class="d-flex  ">
+
+                            <div>
+                                <button type="button" onclick="fjernBarn()" class="btn btn-outline-primary rounded-circle">-</button>
+                            </div>
+                            <div class="px-3">
+                                <input id="antallBarn" type="number" value="0" />
+                            </div>
+                            <div>
+                                <button type="button" onclick="leggTilBarn()" class="btn btn-outline-primary rounded-circle">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-2">
+                        <label class="form-label"> Antall voksne:</label>
+                        <div class="d-flex  ">
+
+                            <div>
+                                <button type="button" onclick="fjernVoksen()" class="btn btn-outline-primary rounded-circle">-</button>
+                            </div>
+                            <div class="px-3">
+                                <input id="antallVoksen" type="number" value="0" />
+                            </div>
+                            <div>
+                                <button type="button" onclick="leggTilVoksen()" class="btn btn-outline-primary rounded-circle ">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <label class="form-label"> Antall Lugarer:</label>
+                        <div class="d-flex  ">
+
+                            <div>
+                                <button type="button" onclick="fjernLuggar()" class="btn btn-outline-primary rounded-circle">-</button>
+                            </div>
+                            <div class="px-3">
+                                <input id="antallLuggar" type="number" value="0" />
+                            </div>
+                            <div>
+                                <button type="button" onclick="leggTilLuggar()" class="btn btn-outline-primary rounded-circle">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="col-lg-7 card p-5">
+                <h3>Reiser</h3>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
