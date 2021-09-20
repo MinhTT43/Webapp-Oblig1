@@ -16,6 +16,17 @@
         <div class="row justify-content-between">
             <div class="col-lg-5 card p-5">
                 <h3>Billett</h3>
+                <div class="row">
+                    <div class="col-lg-5">
+                        <input id="fra" class="form-control" disabled />
+                    </div>
+                    <div class="col-lg-2">
+                        <h1>-></h1>
+                    </div>
+                    <div class="col-lg-5">
+                        <input id="til" class="form-control" disabled />
+                    </div>
+                </div>
                 <form class="py-1">
                     <div class="row mt-2">
                         <div class="col-lg-6">
@@ -81,7 +92,11 @@
                             </div>
                         </div>
                     </div>
-
+                    <div class="mt-2">
+                        <label for="avreiseDato" class="form-label"> Velg avreise</label>
+                        <select id="avreiseDato" class="form-select">
+                        </select>
+                    </div>
                 </form>
             </div>
             <div class="col-lg-7 card p-5">

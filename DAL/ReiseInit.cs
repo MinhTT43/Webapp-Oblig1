@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using SeasonLine.DAL;
 
 namespace SeasonLine
@@ -85,7 +85,7 @@ namespace SeasonLine
 
 
 
-                var date2 = new DateTime(2022, 1, 1, 00, 00, 00);
+                var date2 = new DateTime(2022, 2, 2, 13, 00, 00);
                 var reise2 = new Avreise
                 {
                     AvreiseTid = date2,
@@ -99,10 +99,37 @@ namespace SeasonLine
                 reise2.Ruter.Add(reiseInfo5);
                 reise2.Ruter.Add(reiseInfo6);
 
+                var date3 = new DateTime(2022, 3, 3, 13, 00, 00);
+                var reise3 = new Avreise
+                {
+                    AvreiseTid = date3,
+
+                };
+                reise3.Ruter = new List<Rute>();
+                reise3.Ruter.Add(reiseInfo1);
+                reise3.Ruter.Add(reiseInfo2);
+                reise3.Ruter.Add(reiseInfo3);
+
+
+                var date4 = new DateTime(2022, 4, 4, 13, 00, 00);
+                var reise4 = new Avreise
+                {
+                    AvreiseTid = date4,
+
+                };
+                reise4.Ruter = new List<Rute>();
+                reise4.Ruter.Add(reiseInfo1);
+                reise4.Ruter.Add(reiseInfo2);
+                reise4.Ruter.Add(reiseInfo3);
+
+
 
 
                 context.Avreiser.Add(reise1);
                 context.Avreiser.Add(reise2);
+                context.Avreiser.Add(reise3);
+                context.Avreiser.Add(reise4);
+
 
                 context.SaveChanges();
 

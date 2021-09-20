@@ -19,7 +19,7 @@ namespace SeasonLine.DAL
     public class Rute
     {
         [Key]
-        public int ReiseID { get; set; }
+        public int Id { get; set; }
         public string ReiseFra { get; set; }
         public string ReiseTil { get; set; }
         public int PrisBarn { get; set; }

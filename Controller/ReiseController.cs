@@ -20,14 +20,23 @@ namespace SeasonLine.Controllers
 
         public async Task<List<Reise>> Reiser()
         {
-            return await _db.AlleReiser();
+            return await _db.Reiser();
         }
 
         public async Task<List<Reise>> Ruter()
         {
-            return await _db.AlleRuter();
+            return await _db.Ruter();
         }
 
+        public async Task<Rute> EnRute(int id)
+        {
+            return await _db.EnRute(id);
+        }
+
+        public async Task<List<Reise>> AvreiseDato(int id)
+        {
+            return await _db.AvreiseDato(id);
+        }
 
     }
 }
