@@ -1,12 +1,6 @@
+body {
+  font-family: 'Ubuntu', sans-serif;
 
-.card-img-top {
-  height: 20vw;
-  object-fit: cover;
-}
-
-.card-img-suite {
-  height: 10vw;
-  object-fit: cover;
 }
 
 .nounderline {
@@ -16,7 +10,6 @@
 * {
   box-sizing: border-box;
 }
-
 
 .sidebar-item {
   position: absolute;
@@ -40,13 +33,18 @@
   object-fit: cover;
 }
 
-.box-1 {box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+.box-1 {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .sidebar {
   height: 100vh;
 }
+
 .img-left {
   flex-direction: row;
 }
 
+.input-small {
+  width: 100px;
+}
