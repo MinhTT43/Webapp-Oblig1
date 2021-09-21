@@ -1,108 +1,311 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title></title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-            crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/bestilling.js"></script>
+   <meta charset="utf-8"/>
+   <title></title>
+
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+           integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+           crossorigin="anonymous"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="js/bestilling.js"></script>
+   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <section class="p-5">
-        <div class="row justify-content-between">
-            <div class="col-lg-5 card p-5">
-                <h3>Billett</h3>
-                <div class="row">
-                    <div class="col-lg-5">
-                        <input id="fra" class="form-control" disabled />
-                    </div>
-                    <div class="col-lg-2">
-                        <h1>-></h1>
-                    </div>
-                    <div class="col-lg-5">
-                        <input id="til" class="form-control" disabled />
-                    </div>
-                </div>
-                <form class="py-1">
-                    <div class="row mt-2">
-                        <div class="col-lg-6">
-                            <label class="form-label">Fornavn: </label>
-                            <input type="text" id="fornavn" class="form-control" />
-                        </div>
-                        <div class="col-lg-6">
-                            <label class="form-label">Etternavn: </label>
-                            <input type="text" id="etternavn" class="form-control" />
-                        </div>
-                    </div>
-                    <div class="mt-2">
-                        <label class="form-label">Telefon: </label>
-                        <input type="text" id="telefon" class="form-control" />
-                    </div>
-                    <div class="mt-2">
-                        <label class="form-label">Epost: </label>
-                        <input type="text" id="epost" class="form-control" />
-                    </div>
-                    <div class="mt-2">
-                        <label class="form-label"> Antall barn:</label>
-                        <div class="d-flex  ">
+<div class="container">
+   <div class="row ">
+      <div class="col mp-4">
+         <div class="py-5 text-center ">
+            <h2>Velkommen til Deez Sailing</h2>
+            <p class="lead">Deez Sailing er et norsk båtselskap eid av Charlie Boats AS.</p>
+         </div>
+      </div>
+   </div>
 
-                            <div>
-                                <button type="button" onclick="fjernBarn()" class="btn btn-outline-primary rounded-circle">-</button>
-                            </div>
-                            <div class="px-3">
-                                <input id="antallBarn" type="number" value="0" />
-                            </div>
-                            <div>
-                                <button type="button" onclick="leggTilBarn()" class="btn btn-outline-primary rounded-circle">+</button>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="mt-2">
-                        <label class="form-label"> Antall voksne:</label>
-                        <div class="d-flex  ">
-
-                            <div>
-                                <button type="button" onclick="fjernVoksen()" class="btn btn-outline-primary rounded-circle">-</button>
-                            </div>
-                            <div class="px-3">
-                                <input id="antallVoksen" type="number" value="0" />
-                            </div>
-                            <div>
-                                <button type="button" onclick="leggTilVoksen()" class="btn btn-outline-primary rounded-circle ">+</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-2">
-                        <label class="form-label"> Antall Lugarer:</label>
-                        <div class="d-flex  ">
-
-                            <div>
-                                <button type="button" onclick="fjernLuggar()" class="btn btn-outline-primary rounded-circle">-</button>
-                            </div>
-                            <div class="px-3">
-                                <input id="antallLuggar" type="number" value="0" />
-                            </div>
-                            <div>
-                                <button type="button" onclick="leggTilLuggar()" class="btn btn-outline-primary rounded-circle">+</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-2">
-                        <label for="avreiseDato" class="form-label"> Velg avreise</label>
-                        <select id="avreiseDato" class="form-select">
-                        </select>
-                    </div>
-                </form>
+   <div class="row ">
+      <div class="col-md-4 ">
+         <div class="card mb-4 make-me-sticky">
+            <div class="card-body">
+               <div>
+                  <h5 class="text-muted">Informasjon om reisen</h5>
+                  <h1 id="fra"></h1>
+                  <h1> - </h1>
+                  <h1 id="til"></h1>
+                  <h6 class="text-primary">Avreise kl. 14:00 - reisetid 14 timer. </h6>
+                  <hr>
+                  <small>Skip: St. Nutella 4th</small> <br>
+                  <small>Kapasitet: 2325 plasser</small>
+                  <hr>
+                  <h5>Inkludert i prisen</h5>
+                  <p class="text-success"> ✔ Frokost</p>
+                  <p class="text-success"> ✔ Aktiviteter</p>
+                  <p class="text-success"> ✔ Underholdning</p>
+                  <p class="text-success"> ✔ Havneavgifter</p>
+                  <p class="text-success"> ✔ Spillautomater</p>
+               </div>
+               <hr>
+               <h5>Vi tilbyr</h5>
+               <h6 class="text-muted">Restauranter</h6>
+               <h6 class="text-muted">Aktiviteter</h6>
+               <h6 class="text-muted">Underholdning</h6>
+               <h6 class="text-muted">Havneavgifter</h6>
+               <h6 class="text-muted">Spillautomater</h6>
             </div>
-            <div class="col-lg-7 card p-5">
-                <h3>Reiser</h3>
+         </div>
+      </div>
+
+      <div class="col-md-8 ">
+         <div class="card mb-4">
+            <div class="card-body">
+               <h3 class="card-titl mb-4">Du har valgt reisen</h3>
+               <form class="needs-validation" novalidate="">
+                  <div class="row pb-3">
+                     <div class="col-lg-6">
+                        <div class="card-title text-muted">Avreise</div>
+                        <input id="fra" class="form-control" disabled/>
+                     </div>
+                     <div class="col-lg-6">
+                        <div class="card-title text-muted">Destinasjon</div>
+                        <input id="til" class="form-control" disabled/>
+                     </div>
+                  </div>
+                  <div class="row pb-2">
+                     <div class="col mb-3">
+                        <div class="card-title text-muted">Velg reisedato</div>
+                        <input type="date" id="dagTilbake" class="form-control" value=""
+                               placeholder="">
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col">
+                        <div class="card">
+                           <div class="card-header p-2">Vi fant disse reisene basert på din dato</div>
+                           <div class="card-body p-2">
+                              <p class="border rounded p-2 ">25. Januar 2021</p>
+                           </div>
+                        </div>
+                     </div>
+
+                     <p class="form-text text-muted">Du får et utvalg reiser basert på ditt valg.</p>
+                  </div>
+                  <a href="index.html" class="link nounderline">Endre reisedestinasjon ?</a>
+               </form>
             </div>
-        </div>
-    </section>
+         </div>
+         <div class="card mb-4  ">
+            <div class="card-body">
+               <h3 class="card-title mb-4">Pasasjerer</h3>
+               <form class="needs-validation" novalidate="">
+                  <div class="row">
+                     <div class="col ">
+                        <label class="sr-only" for="inlineFormInputGroup">Voksen</label>
+                        <div class="input-group mb-2">
+                           <button type="button" onclick="fjernVoksen()" class="btn btn-outline-secondary">➖
+                           </button>
+                           <input id="antallVoksen" type="number" min="0" class="form-control "
+                                  id="inlineFormInputGroup" placeholder="0">
+                           <button type="button" onclick="leggTilVoksen()" class="btn btn-outline-secondary">➕
+                           </button>
+                        </div>
+                     </div>
+                     <div class="col ">
+                        <label class="sr-only" for="inlineFormInputGroup">Barn</label>
+                        <div class="input-group mb-2">
+                           <button type="button" onclick="fjernBarn()" class="btn btn-outline-secondary">➖
+                           </button>
+                           <input id="antallBarn" type="number" min="0" class="form-control " id="inlineFormInputGroup"
+                                  placeholder="0">
+                           <button type="button" onclick="leggTilBarn()" class="btn btn-outline-secondary">➕
+                           </button>
+                        </div>
+                     </div>
+                     <small class="form-text text-muted">Barn fra 0 til og med 17 år betaler barnepris. </small>
+                  </div>
+               </form>
+            </div>
+         </div>
+         <div class="card mb-4  ">
+            <div class="card-body">
+               <h3 class="card-title mb-4">Lugarer</h3>
+               <div class="card-title text-muted"></div>
+               <form class="needs-validation" novalidate="">
+                  <div class="row">
+                     <div class="col-md-4">                        <div class="card">
+                        <div class="card-header p-2">Vi fant disse reisene basert på din dato</div>
+                        <div class="card-body p-2">
+                           <p class="border rounded p-2 ">25. Januar 2021</p>
+                        </div>
+                     </div></div>
+                     <div class="col-md-8">HEY</div>
+
+                  </div>
+               </form>
+            </div>
+         </div>
+         <div class="card mb-4  ">
+            <div class="card-body">
+               <h3 class="card-title mb-4">Lugarer</h3>
+               <div class="card-title text-muted"></div>
+               <form class="needs-validation" novalidate="">
+                  <div class="row">
+                     <div class="col">
+                        <label class="sr-only" for="inlineFormInputGroup" hidden></label>
+                        <div class="input-group mb-2">
+                           <div class="input-group-prepend">
+                              <div class="input-group-text">Antall</div>
+                           </div>
+                           <input type="number" class="form-control" id="inlineFormInputGroup">
+                        </div>
+                        <small class="form-text text-muted">Velg antall slugerer. Per lugar er det plass til 6
+                           personer.</small>
+                     </div>
+                  </div>
+               </form>
+            </div>
+         </div>
+         <div class="card mb-4  ">
+            <div class="card-body">
+               <h3 class="card-title mb-4">Lugarer</h3>
+               <div class="card-title text-muted"></div>
+               <form class="needs-validation" novalidate="">
+                  <div class="row">
+                     <div class="col">
+                        <label class="sr-only" for="inlineFormInputGroup" hidden></label>
+                        <div class="input-group mb-2">
+                           <div class="input-group-prepend">
+                              <div class="input-group-text">Antall</div>
+                           </div>
+                           <input type="number" class="form-control" id="inlineFormInputGroup">
+                        </div>
+                        <small class="form-text text-muted">Velg antall slugerer. Per lugar er det plass til 6
+                           personer.</small>
+                     </div>
+                  </div>
+               </form>
+            </div>
+         </div>
+         <div class="card mb-4  ">
+            <div class="card-body">
+               <h3 class="card-title mb-4">Lugarer</h3>
+               <div class="card-title text-muted"></div>
+               <form class="needs-validation" novalidate="">
+                  <div class="row">
+                     <div class="col">
+                        <label class="sr-only" for="inlineFormInputGroup" hidden></label>
+                        <div class="input-group mb-2">
+                           <div class="input-group-prepend">
+                              <div class="input-group-text">Antall</div>
+                           </div>
+                           <input type="number" class="form-control" id="inlineFormInputGroup">
+                        </div>
+                        <small class="form-text text-muted">Velg antall slugerer. Per lugar er det plass til 6
+                           personer.</small>
+                     </div>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+
+</div>
+<!--  Old HTML  -->
+<!--  Old HTML  -->
+<!--  Old HTML  -->
+<!--  Old HTML  -->
+<section class="p-5">
+   <div class="row justify-content-between">
+      <div class="col-lg-5 card p-5">
+         <h3>Billett</h3>
+         <div class="row">
+            <div class="col-lg-5">
+               <input id="fra" class="form-control" disabled/>
+            </div>
+            <div class="col-lg-2">
+               <h1>-></h1>
+            </div>
+            <div class="col-lg-5">
+               <input id="til" class="form-control" disabled/>
+            </div>
+         </div>
+         <form class="py-1">
+            <div class="row mt-2">
+               <div class="col-lg-6">
+                  <label class="form-label">Fornavn: </label>
+                  <input type="text" id="fornavn" class="form-control"/>
+               </div>
+               <div class="col-lg-6">
+                  <label class="form-label">Etternavn: </label>
+                  <input type="text" id="etternavn" class="form-control"/>
+               </div>
+            </div>
+            <div class="mt-2">
+               <label class="form-label">Telefon: </label>
+               <input type="text" id="telefon" class="form-control"/>
+            </div>
+            <div class="mt-2">
+               <label class="form-label">Epost: </label>
+               <input type="text" id="epost" class="form-control"/>
+            </div>
+            <div class="mt-2">
+               <label class="form-label"> Antall barn:</label>
+               <div class="d-flex  ">
+                  <button type="button" onclick="fjernBarn()" class="btn btn-outline-primary rounded-circle">-
+                  </button>
+                  <input id="antallBarn" type="number" value="0" placeholder="0"/>
+                  <button type="button" onclick="leggTilBarn()" class="btn btn-outline-primary rounded-circle">+
+                  </button>
+               </div>
+            </div>
+
+            <div class="mt-2">
+               <label class="form-label"> Antall voksne:</label>
+               <div class="d-flex  ">
+
+                  <div>
+                     <button type="button" onclick="fjernVoksen()" class="btn btn-outline-primary rounded-circle">-
+                     </button>
+                  </div>
+                  <div class="px-3">
+                     <input id="antallVoksen" type="number" value="0"/>
+                  </div>
+                  <div>
+                     <button type="button" onclick="leggTilVoksen()" class="btn btn-outline-primary rounded-circle ">+
+                     </button>
+                  </div>
+               </div>
+            </div>
+            <div class="mt-2">
+               <label class="form-label"> Antall Lugarer:</label>
+               <div class="d-flex  ">
+
+                  <div>
+                     <button type="button" onclick="fjernLuggar()" class="btn btn-outline-primary rounded-circle">-
+                     </button>
+                  </div>
+                  <div class="px-3">
+                     <input id="antallLuggar" type="number" value="0"/>
+                  </div>
+                  <div>
+                     <button type="button" onclick="leggTilLuggar()" class="btn btn-outline-primary rounded-circle">+
+                     </button>
+                  </div>
+               </div>
+            </div>
+            <div class="mt-2">
+               <label for="avreiseDato" class="form-label"> Velg avreise</label>
+               <select id="avreiseDato" class="form-select">
+               </select>
+            </div>
+         </form>
+      </div>
+      <div class="col-lg-7 card p-5">
+         <h3>Reiser</h3>
+      </div>
+   </div>
+</section>
 </body>
 </html>
