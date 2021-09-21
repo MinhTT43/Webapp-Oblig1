@@ -66,7 +66,7 @@ namespace SeasonLine.DAL
                 {
                     foreach (var rute in avreiser.Ruter)
                     {
-                        if (rute.Id == 2)
+                        if (rute.Id == id)
                         {
                             Reise nyReise = new Reise
                             {

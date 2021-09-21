@@ -12,6 +12,7 @@ namespace SeasonLine.DAL
     {
         private readonly BestillingContext _db;
 
+
         public BestillingRepository(BestillingContext db)
         {
             _db = db;
@@ -57,48 +58,52 @@ namespace SeasonLine.DAL
         }
 
         [HttpPost]
-        public async Task<Boolean> NyBestilling(Bestilling nyBestilling)
+        public async Task<bool> NyBestilling(Bestilling nyBestilling)
         {
             try
             {
-                // Fyll ut informasjon knyttet til bestillingen
-                var bestillinfo = new BestillingInformasjon
-                {
-                    AntallBarn = nyBestilling.AntallBarn,
-                    AntallLugarer = nyBestilling.AntallLugarer,
-                    AntallVoksne = nyBestilling.AntallVoksne,
-                    DatoBestilt = nyBestilling.DatoBestilt,
-                    ReiseFra = nyBestilling.ReiseFra,
-                    ReiseTil = nyBestilling.ReiseTil,
-                    AvreiseDato = nyBestilling.AvreiseDato,
-                };
 
-                // Sjekk om kunden eksisterer
-                Kunde kundeExist = await _db.Kunder.FirstOrDefaultAsync(k => k.Epost == nyBestilling.Epost);
-
-                if (kundeExist == null) // Kunde ikke funnet
                 {
-                    // Opprett kunde
-                    var nyKunde = new Kunde
+                    // Fyll ut informasjon knyttet til bestillingen
+                    var bestillinfo = new BestillingInformasjon
                     {
-                        Fornavn = nyBestilling.Fornavn,
-                        Etternavn = nyBestilling.Etternavn,
-                        Telefon = nyBestilling.Telefon,
-                        Epost = nyBestilling.Epost,
+                        AntallBarn = nyBestilling.AntallBarn,
+                        AntallLugarer = nyBestilling.AntallLugarer,
+                        AntallVoksne = nyBestilling.AntallVoksne,
+                        DatoBestilt = nyBestilling.DatoBestilt,
+                        ReiseFra = nyBestilling.ReiseFra,
+                        ReiseTil = nyBestilling.ReiseTil,
+                        AvreiseDato = nyBestilling.AvreiseDato,
                     };
 
-                    // Legg inn bestillings informasjon
-                    nyKunde.Info = new List<BestillingInformasjon>();
-                    nyKunde.Info.Add(bestillinfo);
-                    _db.Kunder.Add(nyKunde);
-                    await _db.SaveChangesAsync();
+                    // Sjekk om kunden eksisterer
+                    Kunde kundeExist = await _db.Kunder.FirstOrDefaultAsync(k => k.Epost == nyBestilling.Epost);
+
+                    if (kundeExist == null) // Kunde ikke funnet
+                    {
+                        // Opprett kunde
+                        var nyKunde = new Kunde
+                        {
+                            Fornavn = nyBestilling.Fornavn,
+                            Etternavn = nyBestilling.Etternavn,
+                            Telefon = nyBestilling.Telefon,
+                            Epost = nyBestilling.Epost,
+                        };
+
+                        // Legg inn bestillings informasjon
+                        nyKunde.Info = new List<BestillingInformasjon>();
+                        nyKunde.Info.Add(bestillinfo);
+                        _db.Kunder.Add(nyKunde);
+                        await _db.SaveChangesAsync();
+                    }
+                    else
+                    {
+                        kundeExist.Info.Add(bestillinfo);
+                        await _db.SaveChangesAsync();
+                    }
+                    return true;
                 }
-                else
-                {
-                    kundeExist.Info.Add(bestillinfo);
-                    await _db.SaveChangesAsync();
-                }
-                return true;
+
             }
             catch
             {

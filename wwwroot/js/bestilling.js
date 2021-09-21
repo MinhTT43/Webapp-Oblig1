@@ -31,9 +31,8 @@ function formaterAvreiseDato(avreiseDato) {
     console.log("test")
     for (let dato of avreiseDato) {
         let datony = new Date(dato.avreiseTid);
-        var datestring = moment(datony).format('')
-        console.log(dato.avreiseTid)
-        print += '<option>' +
+
+        print += '<option value="' + dato.avreiseTid + '">' +
             datony + '</option>'
     }
     $("#avreiseDato").html(print);
@@ -89,3 +88,28 @@ function leggTilLuggar() {
     $("#antallLuggar").val(kvantitet);
 }
 
+// Lagre ny bestilling
+function nyBestilling() {
+    const currDate = new Date();
+    const bestilling = {
+        reiseFra: $("#fra").val(),
+        reiseTil: $("#til").val(),
+        fornavn: $("#fornavn").val(),
+        etternavn: $("#etternavn").val(),
+        telefon: $("#telefon").val(),
+        epost: $("#epost").val(),
+        antallBarn: $("#antallBarn").val(),
+        antallVoksne: $("#antallVoksen").val(),
+        antallLugarer: $("#antallLuggar").val(),
+        datoBestilt: currDate.toISOString(),
+        avreiseDato: $("#avreiseDato").val(),
+    };
+    const url = "bestilling/nybestilling";
+    $.post(url, bestilling, function (OK) {
+        if (OK) {
+            console.log("OK")
+        } else {
+            console.log("FEIL")
+        }
+    })
+}
