@@ -22,22 +22,10 @@ function hentAvreiseDato() {
     let url = "reise/avreisedato?" + id;
     $.get(url, function (data) {
         formaterAvreiseDato(data)
+        console.log("test")
     })
 }
 
-// Formater avreise dato
-function formaterAvreiseDato(avreiseDato) {
-    let print = "";
-    console.log("test")
-    for (let dato of avreiseDato) {
-        let datony = new Date(dato.avreiseTid);
-        var datestring = moment(datony).format('')
-        console.log(dato.avreiseTid)
-        print += '<option>' +
-            datony + '</option>'
-    }
-    $("#avreiseDato").html(print);
-}
 
 // Øker antall barn
 function fjernBarn() {
@@ -54,7 +42,6 @@ function leggTilBarn() {
     kvantitet++;
     $("#antallBarn").val(kvantitet);
 }
-
 
 
 // Øker antall voksne
@@ -89,3 +76,57 @@ function leggTilLuggar() {
     $("#antallLuggar").val(kvantitet);
 }
 
+// Formatering*
+
+function formaterAvreiseDato(avreiseDato) {
+
+
+    const måneder = [
+        'Januar',
+        'Februar',
+        'Mars',
+        'April',
+        'Mai',
+        'Juni',
+        'Juli',
+        'August',
+        'September',
+        'Oktober',
+        'November',
+        'Desember'
+    ]
+
+    const dager = [
+        'Søndag',
+        'Mandag',
+        'Tirsdag',
+        'Onsdag',
+        'Torsdag',
+        'Fredag',
+        'Lørdag'
+    ]
+
+    let print = `
+                <div class="card-title text-muted">Velg reisedato</div>
+                <select class="form-select" aria-label="Default select example ">
+                <option selected>Velg en dato</option>
+                `;
+    console.log("test")
+    for (let dato of avreiseDato) {
+        let enDato = new Date(dato.avreiseTid);
+        let månedIndex = enDato.getMonth();
+        let dagIndex = enDato.getDay();
+        let time = enDato.getHours();
+        let minutter = enDato.getMinutes();
+        let måned = måneder[månedIndex];
+        let dag = dager[dagIndex];
+
+        print += `<option value="${dato.avreiseDato}"> ${dag}, ${dagIndex} ${måned}. </option>`;
+    }
+    print += `
+            </select>
+            </div>
+            `;
+    
+    $("#printDato").html(print);
+}
