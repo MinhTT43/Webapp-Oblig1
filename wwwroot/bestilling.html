@@ -28,7 +28,7 @@
    <div class="row mb-5">
       <div class="col-lg-4 col-md-5">
          <div class="make-me-sticky">
-            <div class="card mb-2">
+            <div class="card mb-2 p-4">
                <div class="card-body">
                   <h5 class="text-muted">Informasjon om reisen</h5>
                   <h1>Oslo - Berlin</h1>
@@ -43,7 +43,7 @@
                </div>
             </div>
 
-            <div class="card mb-2">
+            <div class="card mb-2 p-4">
                <div class="card-body ">
 
                   <h5>Inkludert i prisen</h5>
@@ -179,22 +179,20 @@
          </div>
 
          <div id="lugarInformasjon" class="card mb-2 p-4">
-            <div class="card-body ">
+            <div class="card-body">
                <h2 class="card-title mb-4">Bestill lugar</h2>
-               <div class="row">
-                  <div class="col-md-6">
-                     <img  style="object-fit: cover; height: 250px; width: 100%" class="img-fluid rounded" src="https://images.unsplash.com/photo-1510525009512-ad7fc13eefab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80" class="img-fluid" alt="Responsive image">
-                  </div>
-                  <div class="col-md-6">
+               <div class="row border mb-4">
+                  <div class="col p-3">
                      <h4>Premium lugar</h4>
-                     <p>Commodorelugarene inkluderer en dobbeltseng med myke sengeklær, håndklær, bad med dusj og toalett, hårføner, tilgang til wifi, flatskjerm-TV og herlig havutsikt.</p>
+                     <p>Commodorelugarene inkluderer en dobbeltseng med myke sengeklær, håndklær, bad med dusj og
+                        toalett, hårføner, tilgang til wifi, flatskjerm-TV og herlig havutsikt.</p>
                      <form class="needs-validation" novalidate="">
                         <div class="input-group">
-                           <button type="button" onclick="fjernLuggar()" class="btn btn-dark"><i class="bi bi-dash"></i>
+                           <button type="button" onclick="fjernPremLugar()" class="btn btn-dark"><i class="bi bi-dash"></i>
                            </button>
-                           <input id="antallLuggar" type="number" min="0" class="form-control text-center"
+                           <input id="antallPremLugar" type="number" min="0" class="form-control text-center"
                                   placeholder="0" size="4">
-                           <button type="button" onclick="leggTilLuggar()" class="btn btn-dark"><i
+                           <button type="button" onclick="leggTilPremLugar()" class="btn btn-dark"><i
                                  class="bi bi-plus"></i>
                            </button>
                         </div>
@@ -203,17 +201,41 @@
                         </p>
                      </form>
                   </div>
+                  <div class="col p-3 d-md-none d-sm-none d-lg-block">
+                     <img style="object-fit: cover; height: 250px; width: 100%" class="img-fluid "
+                          src="https://images.unsplash.com/photo-1510525009512-ad7fc13eefab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80"
+                          alt="Responsive image">
+                  </div>
+               </div>
+
+               <div class="row border">
+                  <div class="col p-3">
+                     <h4>Premium lugar</h4>
+                     <p>Commodorelugarene inkluderer en dobbeltseng med myke sengeklær, håndklær, bad med dusj og
+                        toalett, hårføner, tilgang til wifi, flatskjerm-TV og herlig havutsikt.</p>
+                     <form class="needs-validation" novalidate="">
+                        <div class="input-group">
+                           <button type="button" onclick="fjernStandLugar()" class="btn btn-dark"><i class="bi bi-dash"></i>
+                           </button>
+                           <input id="antallStandLugar" type="number" min="0" class="form-control text-center"
+                                  placeholder="0" size="4">
+                           <button type="button" onclick="leggTilStandLugar()" class="btn btn-dark"><i
+                                 class="bi bi-plus"></i>
+                           </button>
+                        </div>
+                        <p class="card-text mt-3"><small class="text-muted">Recommended for 4
+                           people</small>
+                        </p>
+                     </form>
+                  </div>
+                  <div class="col p-3 d-md-none d-sm-none d-lg-block">
+                     <img style="object-fit: cover; height: 250px; width: 100%" class="img-fluid "
+                          src="https://images.unsplash.com/photo-1510525009512-ad7fc13eefab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80"
+                          alt="Responsive image">
+                  </div>
                </div>
             </div>
          </div>
-         <div class="col-lg-7 d-sm-none  d-md-none d-lg-block">
-            <img class="img-fluid"
-                 src="https://images.unsplash.com/photo-1565329921943-7e537b7a2ea9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
-                 class="card-img" alt="...">
-         </div>
-      </div>
-   </div>
-
    <div id="oppsummering" class="row">
       <div class="col-lg-12">
          <div class="card">
@@ -228,10 +250,10 @@
             </div>
          </div>
       </div>
-
    </div>
-</div>
-</div>
+      </div>
+   </div>
+
 </div>
 
 
@@ -260,23 +282,7 @@
 
             </div>
 
-            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-2">
-               <h6 class="text-uppercase fw-bold mb-2">
-                  Services
-               </h6>
-               <p>
-                  <a href="#!" class="text-reset">Brakefast services</a>
-               </p>
-               <p>
-                  <a href="#!" class="text-reset">Sailing services</a>
-               </p>
-               <p>
-                  <a href="#!" class="text-reset">Bookings</a>
-               </p>
-               <p>
-                  <a href="#!" class="text-reset">Contact us</a>
-               </p>
-            </div>
+
 
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-2">
                <h6 class="text-uppercase fw-bold mb-2">
