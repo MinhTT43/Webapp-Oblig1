@@ -97,19 +97,34 @@ function leggTilVoksen() {
 }
 
 // Øker antall luggarer
-function fjernLuggar() {
-    var kvantitet = $("#antallLuggar").val();
+function fjernPremLugar() {
+    var kvantitet = $("#antallPremLugar").val();
     if (kvantitet > 0) {
         kvantitet--;
-        $("#antallLuggar").val(kvantitet);
+        $("#antallPremLugar").val(kvantitet);
     }
 }
 
 // Reduserer antall luggarer
-function leggTilLuggar() {
-    var kvantitet = $("#antallLuggar").val();
+function leggTilPremLugar() {
+    var kvantitet = $("#antallPremLugar").val();
     kvantitet++;
-    $("#antallLuggar").val(kvantitet);
+    $("#antallPremLugar").val(kvantitet);
+}
+
+function fjernStandLugar() {
+    var kvantitet = $("#antallStandLugar").val();
+    if (kvantitet > 0) {
+        kvantitet--;
+        $("#antallStandLugar").val(kvantitet);
+    }
+}
+
+// Reduserer antall luggarer
+function leggTilStandLugar() {
+    var kvantitet = $("#antallStandLugar").val();
+    kvantitet++;
+    $("#antallStandLugar").val(kvantitet);
 }
 
 // Formatering*
