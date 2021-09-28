@@ -12,9 +12,30 @@ function lagreData() {
         etternavn: $("#etternavn").val(),
         telefon: $("#telefon").val(),
         epost: $("#epost").val(),
-        
+
+        avreiseSted: $("#avreisested").val(),
+        destinasjon: $("#destinasjon").val(),
+        avreisetid: $("#avreisetid").val(),
+
+        antallBarn: $("#antallBarn").val(),
+        antallVoksen: $("#antallVoksen").val(),
+        antallStandLugar: $("#antallStandLugar").val(),
+        antallPremLugar: $("#antallPremLugar").val(),
+
+        totalPris: $("#totalPris").val(),
     }
-    
+
+    $.post("Bestilling/LagreData", bestilling, function (OK) {
+        if (validering) {
+            window.location.href = "kvittering.html";
+        } else {
+            $("#feilMelding").html("Feil oppsto, prøv igjen senere.");
+        }
+    });
+}
+
+function validering() {
+    // Boolean validering for html.
 }
 
 // Hent data for rute
