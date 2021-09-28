@@ -46,7 +46,7 @@ function hentData() {
         $("#fra").val(ruter.avreisested)
         $("#til").val(ruter.destinasjon)
 
-        $("#fraText").html(`<h1>${ruter.avreisested}</h1>`)
+        $("#fraText").html(`<h1>${ruter.avreisested}-</h1>`)
         $("#tilText").html(`<h1>${ruter.destinasjon}</h1>`)
     })
 }
