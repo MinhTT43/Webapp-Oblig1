@@ -5,6 +5,18 @@
 
 })
 
+// Lagre data for rute
+function lagreData() {
+    const bestilling = {
+        fornavn: $("#fornavn").val(),
+        etternavn: $("#etternavn").val(),
+        telefon: $("#telefon").val(),
+        epost: $("#epost").val(),
+        
+    }
+    
+}
+
 // Hent data for rute
 function hentData() {
     const id = window.location.search.substring(1);
