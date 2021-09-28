@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using DeezSalings.DAL;
+using DeezSalings.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -10,9 +11,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using SeasonLine.DAL;
 
-namespace SeasonLine
+namespace DeezSalings
 {
     public class Startup
     {
@@ -21,10 +21,10 @@ namespace SeasonLine
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<ReiseContext>(options => options.UseSqlite("Data source = Reiser.db"));
+            services.AddDbContext<DB>(options => options.UseSqlite("Data source = Database.db"));
             services.AddScoped<IReiseRepository, ReiseRepository>();
-            services.AddDbContext<BestillingContext>(options => options.UseSqlite("Data source = Bestillinger.db"));
-            services.AddScoped<IBestillingRepository, BestillingRepository>();
+            services.AddScoped<IBillettRepository, BillettRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,15 +33,11 @@ namespace SeasonLine
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                loggerFactory.AddFile("Logs/BestillingLog.txt");
-                ReiseInit.Initialize(app);
-                BestillingInit.Initialize(app);
+                loggerFactory.AddFile("Logs/ReiseLog.txt");
+                DBInit.Initialize(app);
             }
 
             app.UseRouting();
-            app.UseStaticFiles();
-
-
 
             app.UseEndpoints(endpoints =>
             {

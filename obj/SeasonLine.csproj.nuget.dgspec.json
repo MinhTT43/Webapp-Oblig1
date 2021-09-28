@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/minh/Desktop/Skole/ITPE3200 - Webapplikasjoner/SeasonLine/SeasonLine/SeasonLine.csproj": {}
+    "/Users/minh/Documents/GitHub/Webapp-Oblig1/SeasonLine.csproj": {}
   },
   "projects": {
-    "/Users/minh/Desktop/Skole/ITPE3200 - Webapplikasjoner/SeasonLine/SeasonLine/SeasonLine.csproj": {
+    "/Users/minh/Documents/GitHub/Webapp-Oblig1/SeasonLine.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/minh/Desktop/Skole/ITPE3200 - Webapplikasjoner/SeasonLine/SeasonLine/SeasonLine.csproj",
+        "projectUniqueName": "/Users/minh/Documents/GitHub/Webapp-Oblig1/SeasonLine.csproj",
         "projectName": "SeasonLine",
-        "projectPath": "/Users/minh/Desktop/Skole/ITPE3200 - Webapplikasjoner/SeasonLine/SeasonLine/SeasonLine.csproj",
+        "projectPath": "/Users/minh/Documents/GitHub/Webapp-Oblig1/SeasonLine.csproj",
         "packagesPath": "/Users/minh/.nuget/packages/",
-        "outputPath": "/Users/minh/Desktop/Skole/ITPE3200 - Webapplikasjoner/SeasonLine/SeasonLine/obj/",
+        "outputPath": "/Users/minh/Documents/GitHub/Webapp-Oblig1/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/minh/.config/NuGet/NuGet.Config"
@@ -40,15 +40,15 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.9, )"
+              "version": "[5.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.Proxies": {
               "target": "Package",
-              "version": "[5.0.9, )"
+              "version": "[5.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[5.0.9, )"
+              "version": "[5.0.10, )"
             },
             "Serilog.Extensions.Logging.File": {
               "target": "Package",

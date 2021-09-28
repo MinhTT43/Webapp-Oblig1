@@ -1,115 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using DeezSalings.Model;
 using Microsoft.EntityFrameworkCore;
-using SeasonLine.Models;
 
-namespace SeasonLine.DAL
+namespace DeezSalings.DAL
 {
     public class ReiseRepository : IReiseRepository
     {
-        private readonly ReiseContext _db;
+        // Opprett objekt _db av rypen ReiseContext
+        private readonly DB _db;
 
-        public ReiseRepository(ReiseContext db)
+        public ReiseRepository(DB db)
         {
+            // Tildel verdi til _db
             _db = db;
         }
 
+        // Hent ALLE reiseruter
         public async Task<List<Reise>> Reiser()
         {
             try
             {
-                List<Avreise> AlleAvreiser = await _db.Avreiser.ToListAsync();
-                List<Reise> AlleReiser = new List<Reise>();
+                List<Reiserute> alleRuter = await _db.Reiseruter.ToListAsync();
+                List<Reise> alleReiser = new List<Reise>();
 
-                foreach (var avreiser in AlleAvreiser)
-                {
-                    foreach (var rute in avreiser.Ruter)
-                    {
-                        if (rute.Id == 2)
-                        {
-                            Reise nyReise = new Reise
-                            {
-                                ReiseID = rute.Id,
-                                PrisBarn = rute.PrisBarn,
-                                PrisLugar = rute.PrisLugar,
-                                PrisVoksne = rute.PrisVoksne,
-                                ReiseFra = rute.ReiseFra,
-                                ReiseTil = rute.ReiseTil,
-                                AvreiseTid = avreiser.AvreiseTid,
-                            };
-                            AlleReiser.Add(nyReise);
-                        }
-                    }
-                }
-                return AlleReiser;
-
-            }
-            catch
-            {
-                return null;
-            }
-
-        }
-
-
-        public async Task<List<Reise>> AvreiseDato(int id)
-        {
-            try
-            {
-                List<Avreise> AlleAvreiser = await _db.Avreiser.ToListAsync();
-                List<Reise> Avreiser = new List<Reise>();
-
-                foreach (var avreiser in AlleAvreiser)
-                {
-                    foreach (var rute in avreiser.Ruter)
-                    {
-                        if (rute.Id == id)
-                        {
-                            Reise nyReise = new Reise
-                            {
-                                ReiseID = rute.Id,
-                                AvreiseTid = avreiser.AvreiseTid,
-                            };
-                            Avreiser.Add(nyReise);
-                        }
-                    }
-                }
-                return Avreiser;
-
-            }
-            catch
-            {
-                return null;
-            }
-
-        }
-
-        public async Task<List<Reise>> Ruter()
-        {
-            try
-            {
-                List<Rute> AlleRuter = await _db.Rute.ToListAsync();
-                List<Reise> AlleReiser = new List<Reise>();
-
-                foreach (var rute in AlleRuter)
+                foreach (var rute in alleRuter)
                 {
                     Reise nyReise = new Reise
                     {
-                        ReiseID = rute.Id,
-                        PrisBarn = rute.PrisBarn,
-                        PrisLugar = rute.PrisLugar,
-                        PrisVoksne = rute.PrisVoksne,
-                        ReiseFra = rute.ReiseFra,
-                        ReiseTil = rute.ReiseTil,
+                        id = rute.ruteNr,
+                        avreisested = rute.avreisested,
+                        destinasjon = rute.destinasjon,
+                        prisBarn = rute.prisBarn,
+                        prisVoken = rute.prisVoksen,
+                        standardLugar = rute.standardLugar,
+                        premiumLugar = rute.premiumLugar,
+
                     };
-                    AlleReiser.Add(nyReise);
 
+                    alleReiser.Add(nyReise);
                 }
-                return AlleReiser;
 
+                return alleReiser;
             }
             catch
             {
@@ -117,31 +50,32 @@ namespace SeasonLine.DAL
             }
         }
 
-
-        public async Task<Rute> EnRute(int id)
+        // Hent avreistid knyttet til en reise
+        public async Task<List<Reise>> Avreisetid(int id)
         {
             try
             {
-                Rute enRute = await _db.Rute.FindAsync(keyValues: id);
-                var hentetRute = new Rute()
+                List<Avreise> alleAvreiser = await _db.Avreiser.ToListAsync();
+                List<Reise> utvalgteAvreiser = new List<Reise>();
+                foreach (var avreise in alleAvreiser)
                 {
-                    Id = enRute.Id,
-                    ReiseFra = enRute.ReiseFra,
-                    ReiseTil = enRute.ReiseTil,
-                    PrisBarn = enRute.PrisBarn,
-                    PrisLugar = enRute.PrisLugar,
-                    PrisVoksne = enRute.PrisVoksne
+                    if (avreise.rute.ruteNr == id)
+                    {
+                        Reise nyReise = new Reise
+                        {
+                            avreisetid = avreise.avreisetid
+                        };
 
-                };
-
-                return hentetRute;
+                        utvalgteAvreiser.Add(nyReise);
+                    }
+                }
+                return utvalgteAvreiser;
             }
             catch
             {
                 return null;
-            };
-
+            }
         }
     }
-}
 
+}

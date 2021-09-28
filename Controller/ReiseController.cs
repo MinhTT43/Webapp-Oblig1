@@ -1,41 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
-using System.Linq;
-using SeasonLine.DAL;
-using SeasonLine.Models;
 using System.Threading.Tasks;
+using Castle.Core.Internal;
+using DeezSalings.DAL;
+using DeezSalings.Model;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
-namespace SeasonLine.Controllers
+namespace DeezSalings.Controller
 {
     [Route("[controller]/[action]")]
     public class ReiseController : ControllerBase
     {
         private readonly IReiseRepository _db;
 
-        public ReiseController(IReiseRepository db)
+        private ILogger<ReiseController> _log;
+
+        public ReiseController(IReiseRepository db, ILogger<ReiseController> log)
         {
             _db = db;
+            _log = log;
         }
 
-        public async Task<List<Reise>> Reiser()
+        public async Task<ActionResult> Reiser()
         {
-            return await _db.Reiser();
+            List<Reise> alleReiser = await _db.Reiser();
+
+            return Ok(alleReiser);
+
         }
 
-        public async Task<List<Reise>> Ruter()
+        public async Task<ActionResult> Avreisetid(int id)
         {
-            return await _db.Ruter();
-        }
-
-        public async Task<Rute> EnRute(int id)
-        {
-            return await _db.EnRute(id);
-        }
-
-        public async Task<List<Reise>> AvreiseDato(int id)
-        {
-            return await _db.AvreiseDato(id);
+            List<Reise> alleAvreisetider = await _db.Avreisetid(id);
+            if (alleAvreisetider.IsNullOrEmpty())
+            {
+                _log.LogInformation("Fant ingen avgangstider med ruteNr : " + id);
+                return NotFound("Fant ingen avgangstider med ruteNr : " + id);
+            }
+            return Ok(alleAvreisetider);
         }
 
     }
