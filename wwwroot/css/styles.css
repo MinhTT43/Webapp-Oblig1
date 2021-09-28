@@ -1,55 +1,74 @@
 body {
-  font-family: 'Ubuntu', sans-serif;
-
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .nounderline {
-  text-decoration: none !important
+    text-decoration: none !important
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .sidebar-item {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 
 .make-me-sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 2vw;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 2vw;
 }
 
 .travel-image {
-  height: 20vw;
-  object-fit: cover;
+    height: 20vw;
+    object-fit: cover;
 }
 
 .box-1 {
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .sidebar {
-  height: 100vh;
+    height: 100vh;
 }
 
 .img-left {
-  flex-direction: row;
+    flex-direction: row;
 }
 
 .input-small {
-  width: 100px;
+    width: 100px;
+}
+
+.no-border {
+    border-width: 0px;
+    border: none;
+    outline: none;
+}
+
+.radio-hidden {
+    visibility: hidden;
+}
+
+.labl > input + div { /* DIV STYLES */
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.labl > input:checked + div { /* (RADIO CHECKED) DIV STYLES */
+    background-color: #ffd6bb;
+    border: 1px solid #ff6600;
 }
 /**/
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }

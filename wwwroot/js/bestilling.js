@@ -5,6 +5,10 @@
 
 })
 
+
+
+
+
 // Lagre data for rute
 function lagreData() {
     const bestilling = {
@@ -34,10 +38,6 @@ function lagreData() {
     });
 }
 
-function validering() {
-    // Boolean validering for html.
-}
-
 // Hent data for rute
 function hentData() {
     const id = window.location.search.substring(1);
@@ -63,12 +63,71 @@ function hentAvreiseDato() {
 }
 
 
+function formaterAvreiseDato(data) {
+    console.log(data)
+    print = '';
+
+    const måneder = [
+        'Januar',
+        'Februar',
+        'Mars',
+        'April',
+        'Mai',
+        'Juni',
+        'Juli',
+        'August',
+        'September',
+        'Oktober',
+        'November',
+        'Desember'
+    ]
+
+    const dager = [
+        'Søndag',
+        'Mandag',
+        'Tirsdag',
+        'Onsdag',
+        'Torsdag',
+        'Fredag',
+        'Lørdag'
+    ]
+
+
+    for (var dato of data) {
+        let enDato = new Date(dato.avreisetid);
+        let månedIndex = enDato.getMonth();
+        let dagIndex = enDato.getDay();
+        let time = enDato.getHours();
+        let minutter = enDato.getMinutes();
+        let måned = måneder[månedIndex];
+        let dag = dager[dagIndex];
+        let dagdato = enDato.getDate();
+
+
+
+        print += '<div class="col-lg-3 card p-4 my-3 text-center hover">' +
+            '<label><input type="radio"/>' + '<p>' +
+            dag + "<br> " + dagdato + "." + måned + '</p></label></div>'
+    }
+
+    $("#printAvreise").html(print);
+}
+
+
+
+
+
+
+
+
 // Øker antall barn
 function fjernBarn() {
     var kvantitet = $("#antallBarn").val();
     if (kvantitet > 0) {
         kvantitet--;
         $("#antallBarn").val(kvantitet);
+        $("#barnTeller").val(kvantitet);
+        totalpris();
     }
 }
 
@@ -77,6 +136,8 @@ function leggTilBarn() {
     var kvantitet = $("#antallBarn").val();
     kvantitet++;
     $("#antallBarn").val(kvantitet);
+    $("#barnTeller").val(kvantitet);
+    totalpris();
 }
 
 
@@ -86,6 +147,8 @@ function fjernVoksen() {
     if (kvantitet > 0) {
         kvantitet--;
         $("#antallVoksen").val(kvantitet);
+        $("#voksenTeller").val(kvantitet);
+        totalpris();
     }
 }
 
@@ -94,6 +157,8 @@ function leggTilVoksen() {
     var kvantitet = $("#antallVoksen").val();
     kvantitet++;
     $("#antallVoksen").val(kvantitet);
+    $("#voksenTeller").val(kvantitet);
+    totalpris();
 }
 
 // Øker antall luggarer
@@ -102,6 +167,8 @@ function fjernPremLugar() {
     if (kvantitet > 0) {
         kvantitet--;
         $("#antallPremLugar").val(kvantitet);
+        $("#premLugarTeller").val(kvantitet);
+        totalpris();
     }
 }
 
@@ -110,6 +177,8 @@ function leggTilPremLugar() {
     var kvantitet = $("#antallPremLugar").val();
     kvantitet++;
     $("#antallPremLugar").val(kvantitet);
+    $("#premLugarTeller").val(kvantitet);
+    totalpris();
 }
 
 function fjernStandLugar() {
@@ -117,6 +186,8 @@ function fjernStandLugar() {
     if (kvantitet > 0) {
         kvantitet--;
         $("#antallStandLugar").val(kvantitet);
+        $("#standLugarTeller").val(kvantitet);
+        totalpris();
     }
 }
 
@@ -125,10 +196,30 @@ function leggTilStandLugar() {
     var kvantitet = $("#antallStandLugar").val();
     kvantitet++;
     $("#antallStandLugar").val(kvantitet);
+    $("#standLugarTeller").val(kvantitet);
+    totalpris();
 }
 
-// Formatering*
+// Beregn pris
+function totalpris() {
 
-function formaterAvreiseDato(avreiseDato) {
-    console.log(avreiseDato);
+    var antallBarn = $("#barnTeller").val();
+    var barnPris = antallBarn * 50;
+
+    var antallVoksen = $("#voksenTeller").val();
+    var voksenPris = antallVoksen * 100;
+
+    var antallStandLugar = $("#standLugarTeller").val();
+    var standLugar = antallStandLugar * 150;
+
+
+    var antallPremLugar = $("#premLugarTeller").val();
+    var premLugar = antallPremLugar * 150;
+
+    var totalPris = barnPris + voksenPris + premLugar + standLugar;
+
+    $("#pris").val(totalPris);
+
+
+
 }
