@@ -1,0 +1,5 @@
+2021-09-26T12:43:16.5438050+02:00  [INF] Now listening on: "https://localhost:5001" (d826f4b8)
+2021-09-26T12:43:16.5542050+02:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-09-26T12:43:16.5576510+02:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-09-26T12:43:16.5586680+02:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-09-26T12:43:16.5590460+02:00  [INF] Content root path: "/Users/minh/Projects/DeezSalings/DeezSalings" (b5d60022)
