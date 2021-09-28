@@ -9,5 +9,6 @@ namespace DeezSalings.DAL
     {
         Task<List<Reise>> Reiser();
         Task<List<Reise>> Avreisetid(int id);
+        Task<Reiserute> Reiserute(int id);
     }
 }

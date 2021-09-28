@@ -63,6 +63,8 @@ namespace DeezSalings.DAL
                     {
                         Reise nyReise = new Reise
                         {
+                            avreisested = avreise.rute.avreisested,
+                            destinasjon = avreise.rute.destinasjon,
                             avreisetid = avreise.avreisetid
                         };
 
@@ -75,6 +77,14 @@ namespace DeezSalings.DAL
             {
                 return null;
             }
+        }
+
+        // Hent informasjon knytte til reiserute
+        public async Task<Reiserute> Reiserute(int id)
+        {
+            return await _db.Reiseruter.FirstOrDefaultAsync(r => r.ruteNr == id);
+
+
         }
     }
 

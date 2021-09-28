@@ -66,3 +66,4 @@
 /Users/minh/Documents/GitHub/Webapp-Oblig1/obj/Debug/netcoreapp3.1/SeasonLine.dll
 /Users/minh/Documents/GitHub/Webapp-Oblig1/obj/Debug/netcoreapp3.1/SeasonLine.pdb
 /Users/minh/Documents/GitHub/Webapp-Oblig1/obj/Debug/netcoreapp3.1/SeasonLine.genruntimeconfig.cache
+/Users/minh/Documents/GitHub/Webapp-Oblig1/bin/Debug/netcoreapp3.1/package-lock.json

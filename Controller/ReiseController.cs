@@ -41,5 +41,10 @@ namespace DeezSalings.Controller
             return Ok(alleAvreisetider);
         }
 
+        public async Task<ActionResult> Reiserute(int id)
+        {
+            return Ok(await _db.Reiserute(id));
+        }
+
     }
 }
