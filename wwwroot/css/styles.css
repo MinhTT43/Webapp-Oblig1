@@ -173,21 +173,12 @@ footer #copyR {
     margin-bottom: 25px;
 }
 
-.order, .car, .points {
+.content-flex h4 {
     position: absolute;
-    top: 50%;
-}
-
-.order {
-    left: 35%;
-}
-
-.car {
-    left: 30%;
-}
-
-.points {
+    text-align: center;
     left: 10%;
+    right: 10%;
+    top: 45%;
 }
 
 .overlay {

@@ -61,3 +61,6 @@
 2021-09-29T17:38:30.1952439+02:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
 2021-09-29T17:38:30.2056892+02:00  [INF] Hosting environment: "Development" (c3307c92)
 2021-09-29T17:38:30.2081247+02:00  [INF] Content root path: "C:\Users\RamiM\Documents\GitHub\Webapp-Oblig1" (b5d60022)
+2021-09-29T18:48:33.9246144+02:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-09-29T18:48:33.9335644+02:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-09-29T18:48:33.9351309+02:00  [INF] Content root path: "C:\Users\RamiM\Documents\GitHub\Webapp-Oblig1" (b5d60022)
