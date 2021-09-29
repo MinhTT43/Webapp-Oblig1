@@ -1,7 +1,7 @@
 ﻿$(() => {
     console.log("Ready")
     hentData();
-    hentAvreiseDato();
+
 
 })
 
@@ -39,6 +39,7 @@ function lagreData() {
 }
 
 // Hent data for rute
+
 function hentData() {
     const id = window.location.search.substring(1);
     const url = "reise/reiserute?" + id;
@@ -52,13 +53,21 @@ function hentData() {
 }
 
 // Hent avreise datoer
-function hentAvreiseDato() {
+function getDate() {
+
     const id = window.location.search.substring(1);
-    console.log(id)
-    let url = "reise/avreisetid?" + id;
+
+    var date = new Date($('#datoinput').val());
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+
+
+
+    let url = "reise/valgtAvreisetid?" + id + "&day=" + day + "&month=" + month + "&year=" + year;
     $.get(url, function (data) {
-        formaterAvreiseDato(data)
-        console.log("test")
+        console.log(data)
+        formaterAvreiseDato(data);
     })
 }
 
