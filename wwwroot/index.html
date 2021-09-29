@@ -18,14 +18,16 @@
 </head>
 <body class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-dark justify-content-center fixed-top">
-        <a class="navbar-brand" href="index.html"><img src="images/ship.png" alt="ship logo" width="100px"></a>
+        <a class="navbar-brand" href="#"><img src="images/ship.png" alt="ship logo" width="100px"></a>
         <button class="navbar-toggler" type="button"
                 data-toggle="collapse"
                 data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent"
-                aria-expanded="false"
+                aria-expanded="true"
                 aria-label="Toggle-navigation">
-            <span class="navbar-toggler-icon"></span>
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav col-8">
@@ -35,13 +37,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Experience Norway</a>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+                <li class="nav-item "><a class="nav-link" href="#">Help</a></li>
             </ul>
             <ul class="navbar-nav col-4 justify-content-end">
                 <li class="nav-item">
                     <a class="nav-link" href="#">TimeTables</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item ">
                     <a class="nav-link" href="#">MyPage</a>
                 </li>
             </ul>
@@ -221,7 +223,7 @@
         $(document).ready(function () {
             $(window).scroll(function () {
                 let scroll = $(window).scrollTop();
-                if (scroll > 500) {
+                if (scroll > 0) {
                     $(".navbar").css("background", "#364b62");
 
                 }
