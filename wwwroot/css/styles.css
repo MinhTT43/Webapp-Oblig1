@@ -60,11 +60,16 @@ input[type=number]::-webkit-outer-spin-button {
 
 */
 
-.navbar {
-    background-color: #2e4054;
+.nav-link {
+    color: #e5dada;
 }
-.navbar img{
-    margin-left: 20px;
+
+.blue {
+    position: fixed;
+    top: 0;
+    background: #364b62;
+    width: 100%;
+    height: 50px;
 }
 
 .navbar-nav li {
@@ -73,15 +78,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 .navbar a {
     text-transform: uppercase;
+    font-weight: bold;
 }
-
-#navbarSupportedContent a {
-    color: #e5dada;
-}
-
-    #navbarSupportedContent a:hover {
-        color: aqua;
-    }
 
 #container .shadow {
     width: 100%;
@@ -90,26 +88,27 @@ input[type=number]::-webkit-outer-spin-button {
 .shadow a {
     text-decoration: none;
 }
+footer {
+    background-color: #364b62;
+}
 
 #footer_1 {
-    background-color: #2e4054;
     color: #e5dada;
     padding: 15px;
 }
 
 #footer_2 {
-    background-color: #527193;
     padding: 15px;
 }
 
 footer a {
     text-decoration: none;
-    color: aqua;
+    color: #e5dada;
     text-transform: uppercase;
 }
 
     footer a:hover {
-        color: #e5dada;
+        color: #02a2af;
     }
 
 footer .col-10 {
@@ -164,4 +163,61 @@ footer #copyR {
 
 #text {
     background-color: #577494;
+}
+.content {
+    position: relative;
+    width: 100%;
+    background-color: #2e4054;
+    color: #e5dada;
+    height: 250px;
+    margin-bottom: 25px;
+}
+
+.order, .car, .points {
+    position: absolute;
+    top: 50%;
+}
+
+.order {
+    left: 35%;
+}
+
+.car {
+    left: 30%;
+}
+
+.points {
+    left: 10%;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+    word-break: break-word;
+}
+
+.content:hover .overlay {
+    height: 100%;
+}
+
+.text {
+    white-space: normal;
+    color: #2e4054;
+    font-size: 20px;
+    position: absolute;
+    overflow: hidden;
+    top: 35%;
+    left: 25%;
+    transform: translate(-20%, -30%);
+    -ms-transform: translate(-20%, -20%);
+}
+.content p{
+    font-size: 18px;
 }
