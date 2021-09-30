@@ -45,5 +45,7 @@ namespace DeezSalings.Controller
             _log.LogInformation("Feil i inputvalidering");
             return BadRequest("Feil i inputvalidering");
         }
+
+
     }
 }

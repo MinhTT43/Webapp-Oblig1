@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DeezSalings.Model;
@@ -63,6 +64,8 @@ namespace DeezSalings.DAL
                     {
                         Reise nyReise = new Reise
                         {
+                            avreisested = avreise.rute.avreisested,
+                            destinasjon = avreise.rute.destinasjon,
                             avreisetid = avreise.avreisetid
                         };
 
@@ -75,6 +78,52 @@ namespace DeezSalings.DAL
             {
                 return null;
             }
+        }
+
+        // Hent avreisetid utifra valgt dato
+        public async Task<List<Avreise>> valgtAvreisetid(int id, int day, int month, int year)
+        {
+            DateTime tid = new DateTime(year, month, day, 00, 00, 00);
+            Avreise forsteAvreise = await _db.Avreiser.FirstOrDefaultAsync(a => a.avreisetid.Month == tid.Month && a.avreisetid.Date == tid.Date && a.avreisetid.Year == tid.Year && a.rute.ruteNr == id);
+            List<Avreise> funnetAvreiser = new List<Avreise>();
+
+
+
+            for (int i = 2; i > 0; i--)
+            {
+                var nyTid = tid.AddDays(-i);
+                Console.Write("i : " + nyTid + " ");
+                funnetAvreiser.Add(await _db.Avreiser.FirstOrDefaultAsync(a => a.avreisetid.Month == nyTid.Month && a.avreisetid.Date == nyTid.Date && a.avreisetid.Year == nyTid.Year && a.rute.ruteNr == id));
+            }
+
+            funnetAvreiser.Add(forsteAvreise);
+
+
+            for (int i = 1; i < 4; i++)
+            {
+                var nyTid = tid.AddDays(+i);
+                Console.Write("i : " + nyTid);
+                if (nyTid.Day == 31)
+                {
+                    nyTid.AddDays(-30);
+                    nyTid.AddMonths(+1);
+                    funnetAvreiser.Add(await _db.Avreiser.FirstOrDefaultAsync(a => a.avreisetid.Month == nyTid.Month && a.avreisetid.Date == nyTid.Date && a.avreisetid.Year == nyTid.Year && a.rute.ruteNr == id));
+                }
+                else
+                {
+                    funnetAvreiser.Add(await _db.Avreiser.FirstOrDefaultAsync(a => a.avreisetid.Month == nyTid.Month && a.avreisetid.Date == nyTid.Date && a.avreisetid.Year == nyTid.Year && a.rute.ruteNr == id));
+                }
+            }
+
+            return funnetAvreiser;
+
+        }
+
+
+        // Hent informasjon knytte til reiserute
+        public async Task<Reiserute> Reiserute(int id)
+        {
+            return await _db.Reiseruter.FirstOrDefaultAsync(r => r.ruteNr == id);
         }
     }
 
