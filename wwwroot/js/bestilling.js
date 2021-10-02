@@ -201,20 +201,20 @@ function leggTilStandLugar() {
 function totalpris() {
 
    let antallBarn = $("#barnTeller").val();
-   let barnPris = antallBarn * 50;
+   let barnPris = antallBarn * 490;
 
    let antallVoksen = $("#voksenTeller").val();
-   let voksenPris = antallVoksen * 100;
+   let voksenPris = antallVoksen * 990;
 
    let antallStandLugar = $("#standLugarTeller").val();
-   let standLugar = antallStandLugar * 150;
+   let standLugar = antallStandLugar * 1290;
 
 
    let antallPremLugar = $("#premLugarTeller").val();
-   let premLugar = antallPremLugar * 150;
+   let premLugar = antallPremLugar * 1990;
 
    let totalPris = barnPris + voksenPris + premLugar + standLugar;
 
-   $("#pris").val(totalPris);
+   $("#pris").html(totalPris);
 }
 

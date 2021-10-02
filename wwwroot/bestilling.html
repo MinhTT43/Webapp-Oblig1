@@ -39,31 +39,30 @@
 
             <div class="card mb-2 p-4">
                <div class="card-body m-0">
-                  <h4>Oversikt</h4>
-                  <div class="border-bottom">
-                     <div class="row my-3">
+                  <h3>Oversikt</h3>
+                  <hr>
+                  <div class="my-3">
+                     <div class="row">
                         <input readonly class="no-border col-2 text-center" type="number" value="0" id="barnTeller"/>
-                        <p class="col-10 h-100 m-0 align-middle">x Barn</p>
+                        <p class="col-10  m-0 align-middle">Barn</p>
                      </div>
-                     <div class="row my-3">
+                     <div class="row">
                         <input readonly class="no-border col-2 text-center" type="number" value="0" id="voksenTeller"/>
-                        <p class="col-10 h-100 m-0">x Voksen(e)</p>
+                        <p class="col-10  m-0">Voksen(e)</p>
                      </div>
-                     <div class="row my-3">
-                        <input readonly class="no-border col-2 text-center" type="number" value="0"
-                               id="standLugarTeller"/>
-                        <p class="col-10 h-100 m-0">x Standard Lugar(er)</p>
+                     <div class="row">
+                        <input readonly class="no-border col-2 text-center" type="number" value="0" id="standLugarTeller"/>
+                        <p class="col-10  m-0">Standard Lugar(er)</p>
                      </div>
-                     <div class="row my-3">
-                        <input readonly class="no-border col-2 text-center" type="number" value="0"
-                               id="premLugarTeller"/>
-                        <p class="col-10 h-100 m-0">x Premium Lugar(er)</p>
+                     <div class="row">
+                        <input readonly class="no-border col-2 text-center" type="number" value="0" id="premLugarTeller"/>
+                        <p class="col-10  m-0">Premium Lugar(er)</p>
                      </div>
                   </div>
-                  <div class="my-3 d-flex">
-                     <h4 class="col-7">Total Pris:</h4>
-                     <input readonly class="no-border col-5 text-center h3" type="number" value="0" id="pris"/><h4>
-                     kr</h4>
+                  <hr>
+                  <div >
+                     <p class="">Total Pris:</p>
+                     <p>Kr. <span id="pris">0</span>,-</p>
                   </div>
 
                </div>
@@ -76,7 +75,8 @@
       <div id="kontaktInformasjon" class="col-lg-8 col-md-7">
          <div class="card mb-2 p-4">
             <div class="card-body">
-               <h2 class="card-title mb-2 text-primary">Kontaktinformasjon</h2>
+               <h2 class="card-title mb-2">Kontaktinformasjon</h2>
+               <p class="text-muted">Fyll ut kontaktinformasjon basert på hvem som skal være hovedansvarlig for denne reisen-</p>
                <div id="div1" class="fa"></div>
                <div class="card-title text-muted"></div>
                <form class="needs-validation" novalidate="">
@@ -114,7 +114,9 @@
 
          <div id="reiseInformasjon" class="card mb-2 p-4">
             <div class="card-body">
-               <h2 class="card-titl mb-4">Reiseinformasjon</h2>
+               <h2 class="card-titl mb-2">Reiseinformasjon</h2>
+               <p class="text-muted">Basert på valgt reiserute og reisedato vil du få et utvalg reisealternativ. Ønsker du å endre på reiserute kan du trykke på lenken under. </p>
+
                <form class="needs-validation" novalidate="">
                   <div class="row pb-3">
                      <div class="col-lg-6">
@@ -128,7 +130,7 @@
                   </div>
                   <div class="row pb-3">
                      <div class="col-6">
-                        <div class="card-title text-muted">Velg reisedato</div>
+                        <div class="card-title ">Velg reisedato</div>
                         <input type="date" id="datoinput" class="form-control" onchange="getDate()">
                      </div>
                      <div class="col-12">
@@ -139,10 +141,7 @@
                <div id="loadingReise">
                </div>
                <div>
-                  <small id="errorReiseinformasjon" class="mt-3" style="color: red">Error: invalid error message</small>
-               </div>
-               <div>
-                  <a href="index.html" class="link nounderline">Endre reisedestinasjon ?</a>
+                  <a href="index.html" class="link nounderline">Endre reisedestinasjon.</a>
                </div>
             </div>
          </div>
@@ -153,45 +152,51 @@
          <div id="billettInformasjon" class="card mb-2 p-4">
             <div class="col">
                <div class="card-body">
-                  <h2 class="card-title mb-2">Antall reisende</h2>
+                  <h2 class="card-title mb-2">Billettinformasjon</h2>
+                  <p class="text-muted">Reisende alene evt. med barn må ha fylt 18. Barn fra 0 til og med 17 år betaler
+                     barnepris.</p>
                   <div class="row">
                      <form>
                         <div class="row">
                            <div class="col-md-6">
                               <label class="card-title sr-only" for="antallVoksen">Voksen</label>
                               <div class="input-group mb-2">
-                                 <button type="button" onclick="fjernVoksen()" class="btn btn-dark">
+                                 <button type="button" onclick="fjernVoksen();validerPersoner()" class="btn btn-dark">
                                     <i class="bi bi-dash"></i>
                                  </button>
                                  <input id="antallVoksen" type="number" min="0"
-                                        class="form-control text-center" placeholder="0">
-                                 <button type="button" onclick="leggTilVoksen()" class="btn btn-dark">
+                                        class="form-control text-center" placeholder="0" onchange="validerPersoner()">
+                                 <button type="button" onclick="leggTilVoksen();validerPersoner()" class="btn btn-dark">
                                     <i class="bi bi-plus"></i>
                                  </button>
                               </div>
+                              <small class="text-muted">
+                                 kr. 990,- per billett.
+                              </small>
                            </div>
                            <div class="col-md-6">
                               <label class="card-title sr-only" for="antallBarn">Barn</label>
                               <div class="input-group mb-2">
-                                 <button type="button" onclick="fjernBarn()" class="btn btn-dark">
+                                 <button type="button" onclick="fjernBarn();validerPersoner()" class="btn btn-dark">
                                     <i class="bi bi-dash"></i>
                                  </button>
                                  <input id="antallBarn" type="number" min="0"
                                         class="form-control text-center" placeholder="0">
-                                 <button type="button" onclick="leggTilBarn()" class="btn btn-dark">
+                                 <button type="button" onclick="leggTilBarn();validerPersoner()" class="btn btn-dark">
                                     <i class="bi bi-plus"></i>
                                  </button>
                               </div>
+                              <small class="text-muted">
+                                 kr. 490,- per billett.
+                              </small>
                            </div>
                         </div>
-                        <small class="form-text text-muted">
-                           Barn fra 0 til og med 17 år betaler
-                           barnepris.
-                        </small>
+
                      </form>
                   </div>
-                  <div>
-                     <small id="errorBillettinformasjon" class="mt-3" style="color: red">Error: invalid error message</small>
+
+                  <div class="mt-3">
+                     <small id="errorBillettinformasjon" class="mt-3" style="color: red"></small>
                   </div>
                </div>
             </div>
@@ -226,15 +231,14 @@
                         </div>
                         <p class="card-text mt-3">
                            <small class="text-muted">
-                              Recommended for 4
-                              people
+                              kr. 1290,- per lugar / 4 personer
                            </small>
                         </p>
                      </form>
                   </div>
                   <div class="col p-3 d-md-none d-sm-none d-lg-block">
                      <img style="object-fit: cover; height: 250px; width: 100%" class="img-fluid "
-                          src="https://images.unsplash.com/photo-1510525009512-ad7fc13eefab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80"
+                          src="https://images.unsplash.com/photo-1600488999129-e49662f4020c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80"
                           alt="Responsive image">
                   </div>
                </div>
@@ -259,15 +263,14 @@
                         </div>
                         <p class="card-text mt-3">
                            <small class="text-muted">
-                              Recommended for 4
-                              people
+                              kr. 1990,- per lugar / 4 personer
                            </small>
                         </p>
                      </form>
                   </div>
                   <div class="col p-3 d-md-none d-sm-none d-lg-block">
                      <img style="object-fit: cover; height: 250px; width: 100%" class="img-fluid "
-                          src="https://images.unsplash.com/photo-1510525009512-ad7fc13eefab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80"
+                          src="https://images.unsplash.com/photo-1587874522487-fe10e954d035?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
                           alt="Responsive image">
                   </div>
                </div>

@@ -60,3 +60,14 @@ const validerEpost = () => {
       return true;
    }
 }
+
+const validerPersoner = () => {
+   let personer = $("#antallVoksen").val();
+   if (personer <= 0) {
+      $("#errorBillettinformasjon").html("Minst 1 voksen på denne reisen.");
+      return false;
+   } else {
+      $("#errorBillettinformasjon").html("");
+      return true;
+   }
+}
