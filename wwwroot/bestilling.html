@@ -1,322 +1,343 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="utf-8">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Koh+Santepheap:wght@300&family=Montserrat:wght@200;400&family=Ubuntu:wght@500&display=swap"
-          rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/bestilling.js"></script>
-    <link rel="stylesheet" href="css/styles.css">
+   <meta charset="utf-8"/>
+   <title></title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Koh+Santepheap:wght@300&family=Montserrat:wght@200;400&family=Ubuntu:wght@500&display=swap"
+         rel="stylesheet">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="js/bestilling.js"></script>
+   <script src="js/valider.js"></script>
+   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="">
-    <div class="container">
-        <div class="row ">
-            <div class="col mp-4">
-                <div class="py-5 text-center ">
-                    <h2>Velkommen til Deez Sailing</h2>
-                    <p class="lead">Deez Sailing er et norsk båtselskap eid av Charlie Boats AS.</p>
-                </div>
-            </div>
-        </div>
+<div class="container">
+   <div class="row ">
+      <div class="col mp-4">
+         <div class="py-5 text-center ">
+            <h2>Velkommen til Deez Sailing</h2>
+            <p class="lead">Deez Sailing er et norsk båtselskap eid av Charlie Boats AS.</p>
+         </div>
+      </div>
+   </div>
 
-
-        <div class="row mb-5">
-            <div class="col-lg-4 col-md-5">
-                <div class="make-me-sticky">
-                    <div class="card mb-2 p-4">
-                        <div class="card-body">
-                            <h5 class="text-muted">Informasjon om reisen</h5>
-                            <h1 class="d-flex"><span id="fraText"></span> <span id="tilText"></span></h1>
-                            <p class="card-text">Skip: St. Nutella 4th</p>
-                            <h6 class="text-primary">Avreise kl. 14:00 - reisetid 14 timer. </h6>
-                        </div>
-                    </div>
-
-                    <div class="card mb-2 p-4">
-                        <div class="card-body m-0">
-                            <h1>Oversikt</h1>
-                            <div class="border-bottom">
-                                <div class="row my-3">
-                                    <input readonly class="no-border col-2 text-center" type="number" value="0" id="barnTeller" />
-                                    <p class="col-10 h-100 m-0 align-middle">x Barn</p>
-                                </div>
-                                <div class="row my-3">
-                                    <input readonly class="no-border col-2 text-center" type="number" value="0" id="voksenTeller" />
-                                    <p class="col-10 h-100 m-0">x Voksen(e)</p>
-                                </div>
-                                <div class="row my-3">
-                                    <input readonly class="no-border col-2 text-center" type="number" value="0" id="standLugarTeller" />
-                                    <p class="col-10 h-100 m-0">x Standard Lugar(er)</p>
-                                </div>
-                                <div class="row my-3">
-                                    <input readonly class="no-border col-2 text-center" type="number" value="0" id="premLugarTeller" />
-                                    <p class="col-10 h-100 m-0">x Premium Lugar(er)</p>
-                                </div>
-                            </div>
-                            <div class="my-3 d-flex">
-                                <h4 class="col-7">Total Pris:</h4>
-                                <input readonly class="no-border col-5 text-center h3" type="number" value="0" id="pris" /><h4>kr</h4>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+   <div class="row mb-5">
+      <div class="col-lg-4 col-md-5">
+         <div class="make-me-sticky">
+            <div class="card mb-2 p-4">
+               <div class="card-body">
+                  <h5 class="text-muted">Informasjon om reisen</h5>
+                  <h1 class="d-flex"><span id="fraText"></span> <span id="tilText"></span></h1>
+                  <p class="card-text">Skip: St. Nutella 4th</p>
+                  <h6 class="text-primary">Avreise kl. 14:00 - reisetid 14 timer. </h6>
+               </div>
             </div>
 
-            <div class="col-lg-8 col-md-7">
-                <div id="kontaktInformasjon" class="card mb-2 p-4">
-                    <div class="card-body">
-                        <h2 class="card-title mb-2 text-primary">Kontaktinformasjon</h2>
-                        <div id="div1" class="fa"></div>
-                        <div class="card-title text-muted"></div>
-                        <form class="needs-validation" novalidate="">
-                            <div class="row mt-2">
-                                <div class="col-lg-6">
-                                    <label class="form-label">Fornavn: </label>
-                                    <input type="text" id="fornavn" class="form-control" />
-                                </div>
-                                <div class="col-lg-6">
-                                    <label class="form-label">Etternavn: </label>
-                                    <input type="text" id="etternavn" class="form-control" />
-                                </div>
-                            </div>
-                            <div class="mt-2">
-                                <label class="form-label">Telefon: </label>
-                                <input type="text" id="telefon" class="form-control" />
-                            </div>
-                            <div class="mt-2">
-                                <label class="form-label">Epost: </label>
-                                <input type="text" id="epost" class="form-control" />
-                            </div>
-                            <p id="errorKontaktinformasjon" class="mt-3" style="color: red"></p>
-                        </form>
-                    </div>
-                </div>
+            <div class="card mb-2 p-4">
+               <div class="card-body m-0">
+                  <h4>Oversikt</h4>
+                  <div class="border-bottom">
+                     <div class="row my-3">
+                        <input readonly class="no-border col-2 text-center" type="number" value="0" id="barnTeller"/>
+                        <p class="col-10 h-100 m-0 align-middle">x Barn</p>
+                     </div>
+                     <div class="row my-3">
+                        <input readonly class="no-border col-2 text-center" type="number" value="0" id="voksenTeller"/>
+                        <p class="col-10 h-100 m-0">x Voksen(e)</p>
+                     </div>
+                     <div class="row my-3">
+                        <input readonly class="no-border col-2 text-center" type="number" value="0"
+                               id="standLugarTeller"/>
+                        <p class="col-10 h-100 m-0">x Standard Lugar(er)</p>
+                     </div>
+                     <div class="row my-3">
+                        <input readonly class="no-border col-2 text-center" type="number" value="0"
+                               id="premLugarTeller"/>
+                        <p class="col-10 h-100 m-0">x Premium Lugar(er)</p>
+                     </div>
+                  </div>
+                  <div class="my-3 d-flex">
+                     <h4 class="col-7">Total Pris:</h4>
+                     <input readonly class="no-border col-5 text-center h3" type="number" value="0" id="pris"/><h4>
+                     kr</h4>
+                  </div>
 
-                <div id="reiseInformasjon" class="card mb-2 p-4">
-                    <div class="card-body">
-                        <h2 class="card-titl mb-4">Reiseinformasjon</h2>
-                        <form class="needs-validation" novalidate="">
-                            <div class="row pb-3">
-                                <div class="col-lg-6">
-                                    <div class="card-title text-muted">Avreise</div>
-                                    <input id="fra" class="form-control" disabled />
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="card-title text-muted">Destinasjon</div>
-                                    <input id="til" class="form-control" disabled />
-                                </div>
-                            </div>
-                            <div class="row pb-3">
-                                <div class="col-6">
-                                    <div class="card-title text-muted">Velg reisedato</div>
-                                    <input type="date" id="datoinput" class="form-control" onchange="getDate()">
-                                </div>
-
-                                <div class="col-12">
-                                    <div class="row" id="printAvreise">
-
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </form>
-                        <div id="loadingReise">
-
-                        </div>
-                        <p id="errorReiseinformasjon" class="" style="color: red"></p>
-
-                        <a href="index.html" class="link nounderline">Endre reisedestinasjon ?</a>
-                    </div>
-                </div>
-
-                <div id="billettInformasjon" class="card mb-2 p-4">
-                    <div class="col">
-                        <div class="card-body">
-                            <h2 class="card-title mb-2">Antall reisende</h2>
-                            <div class="row">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label class="card-title sr-only" for="antallVoksen">Voksen</label>
-                                            <div class="input-group mb-2">
-                                                <button type="button" onclick="fjernVoksen()" class="btn btn-dark">
-                                                    <i class="bi bi-dash"></i>
-                                                </button>
-                                                <input id="antallVoksen" type="number" min="0"
-                                                       class="form-control text-center" placeholder="0">
-                                                <button type="button" onclick="leggTilVoksen()" class="btn btn-dark">
-                                                    <i class="bi bi-plus"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="card-title sr-only" for="antallBarn">Barn</label>
-                                            <div class="input-group mb-2">
-                                                <button type="button" onclick="fjernBarn()" class="btn btn-dark">
-                                                    <i class="bi bi-dash"></i>
-                                                </button>
-                                                <input id="antallBarn" type="number" min="0"
-                                                       class="form-control text-center" placeholder="0">
-                                                <button type="button" onclick="leggTilBarn()" class="btn btn-dark">
-                                                    <i class="bi bi-plus"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <small class="form-text text-muted">
-                                        Barn fra 0 til og med 17 år betaler
-                                        barnepris.
-                                    </small>
-                                </form>
-                            </div>
-                            <div class="row"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="lugarInformasjon" class="card mb-2 p-4">
-                    <div class="card-body">
-                        <h2 class="card-title mb-4">Bestill lugar</h2>
-                        <div class="row border mb-4">
-                            <div class="col p-3">
-                                <h4>Premium lugar</h4>
-                                <p>
-                                    Commodorelugarene inkluderer en dobbeltseng med myke sengeklær, håndklær, bad med dusj og
-                                    toalett, hårføner, tilgang til wifi, flatskjerm-TV og herlig havutsikt.
-                                </p>
-                                <form class="needs-validation" novalidate="">
-                                    <div class="input-group">
-                                        <button type="button" onclick="fjernPremLugar()" class="btn btn-dark">
-                                            <i class="bi bi-dash"></i>
-                                        </button>
-                                        <input id="antallPremLugar" type="number" min="0" class="form-control text-center"
-                                               placeholder="0" size="4">
-                                        <button type="button" onclick="leggTilPremLugar()" class="btn btn-dark">
-                                            <i class="bi bi-plus"></i>
-                                        </button>
-                                    </div>
-                                    <p class="card-text mt-3">
-                                        <small class="text-muted">
-                                            Recommended for 4
-                                            people
-                                        </small>
-                                    </p>
-                                </form>
-                            </div>
-                            <div class="col p-3 d-md-none d-sm-none d-lg-block">
-                                <img style="object-fit: cover; height: 250px; width: 100%" class="img-fluid "
-                                     src="https://images.unsplash.com/photo-1510525009512-ad7fc13eefab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80"
-                                     alt="Responsive image">
-                            </div>
-                        </div>
-
-                        <div class="row border">
-                            <div class="col p-3">
-                                <h4>Premium lugar</h4>
-                                <p>
-                                    Commodorelugarene inkluderer en dobbeltseng med myke sengeklær, håndklær, bad med dusj og
-                                    toalett, hårføner, tilgang til wifi, flatskjerm-TV og herlig havutsikt.
-                                </p>
-                                <form class="needs-validation" novalidate="">
-                                    <div class="input-group">
-                                        <button type="button" onclick="fjernStandLugar()" class="btn btn-dark">
-                                            <i class="bi bi-dash"></i>
-                                        </button>
-                                        <input id="antallStandLugar" type="number" min="0" class="form-control text-center"
-                                               placeholder="0" size="4">
-                                        <button type="button" onclick="leggTilStandLugar()" class="btn btn-dark">
-                                            <i class="bi bi-plus"></i>
-                                        </button>
-                                    </div>
-                                    <p class="card-text mt-3">
-                                        <small class="text-muted">
-                                            Recommended for 4
-                                            people
-                                        </small>
-                                    </p>
-                                </form>
-                            </div>
-                            <div class="col p-3 d-md-none d-sm-none d-lg-block">
-                                <img style="object-fit: cover; height: 250px; width: 100%" class="img-fluid "
-                                     src="https://images.unsplash.com/photo-1510525009512-ad7fc13eefab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80"
-                                     alt="Responsive image">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="oppsummering" class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <p>
-                                    A Terms and Conditions agreement is the agreement that includes the terms, the rules and
-                                    the guidelines of acceptable behavior and other useful sections to which users must
-                                    agree in order to use or access your website and mobile app.
-                                </p>
-
-                                <button class="btn btn-primary pl-4">
-                                    Legg inn bestilling
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               </div>
             </div>
-        </div>
+         </div>
+      </div>
+      <!-- Kontaktinformasjon -->
+      <!-- Kontaktinformasjon -->
 
-    </div>
+      <div id="kontaktInformasjon" class="col-lg-8 col-md-7">
+         <div class="card mb-2 p-4">
+            <div class="card-body">
+               <h2 class="card-title mb-2 text-primary">Kontaktinformasjon</h2>
+               <div id="div1" class="fa"></div>
+               <div class="card-title text-muted"></div>
+               <form class="needs-validation" novalidate="">
+                  <div class="row mt-2">
+                     <div class="col-lg-6">
+                        <label class="form-label">Fornavn: </label>
+                        <input type="text" id="fornavn" class="form-control" onchange="validerFornavn()"/>
+                        <small id="errorFornavn" class="mt-3" style="color: red"></small>
+                     </div>
+                     <div class="col-lg-6">
+                        <label class="form-label">Etternavn: </label>
+                        <input type="text" id="etternavn" class="form-control" onchange="validerEtternavn()"/>
+                        <small id="errorEtternavn" class="mt-3" style="color: red"></small>
+                     </div>
+                  </div>
+
+                  <div class="mt-2">
+                     <label class="form-label">Telefon: </label>
+                     <input type="text" id="telefon" class="form-control" onchange="validerTelefonnr()"/>
+                     <small id="errorTelefon" class="mt-3" style="color: red"></small>
+                  </div>
+
+                  <div class="mt-2">
+                     <label class="form-label">Epost: </label>
+                     <input type="text" id="epost" class="form-control" onchange="validerEpost()"/>
+                     <small id="errorEpost" class="mt-3" style="color: red"></small>
+                  </div>
+               </form>
+
+            </div>
+         </div>
+
+         <!-- Reiseinformasjon -->
+         <!-- Reiseinformasjon -->
+
+         <div id="reiseInformasjon" class="card mb-2 p-4">
+            <div class="card-body">
+               <h2 class="card-titl mb-4">Reiseinformasjon</h2>
+               <form class="needs-validation" novalidate="">
+                  <div class="row pb-3">
+                     <div class="col-lg-6">
+                        <div class="card-title text-muted">Avreise</div>
+                        <input id="fra" class="form-control" disabled/>
+                     </div>
+                     <div class="col-lg-6">
+                        <div class="card-title text-muted">Destinasjon</div>
+                        <input id="til" class="form-control" disabled/>
+                     </div>
+                  </div>
+                  <div class="row pb-3">
+                     <div class="col-6">
+                        <div class="card-title text-muted">Velg reisedato</div>
+                        <input type="date" id="datoinput" class="form-control" onchange="getDate()">
+                     </div>
+                     <div class="col-12">
+                        <div class="row" id="printAvreise"></div>
+                     </div>
+                  </div>
+               </form>
+               <div id="loadingReise">
+               </div>
+               <div>
+                  <small id="errorReiseinformasjon" class="mt-3" style="color: red">Error: invalid error message</small>
+               </div>
+               <div>
+                  <a href="index.html" class="link nounderline">Endre reisedestinasjon ?</a>
+               </div>
+            </div>
+         </div>
+
+         <!-- Billettinformasjon -->
+         <!-- Billettinformasjon -->
+
+         <div id="billettInformasjon" class="card mb-2 p-4">
+            <div class="col">
+               <div class="card-body">
+                  <h2 class="card-title mb-2">Antall reisende</h2>
+                  <div class="row">
+                     <form>
+                        <div class="row">
+                           <div class="col-md-6">
+                              <label class="card-title sr-only" for="antallVoksen">Voksen</label>
+                              <div class="input-group mb-2">
+                                 <button type="button" onclick="fjernVoksen()" class="btn btn-dark">
+                                    <i class="bi bi-dash"></i>
+                                 </button>
+                                 <input id="antallVoksen" type="number" min="0"
+                                        class="form-control text-center" placeholder="0">
+                                 <button type="button" onclick="leggTilVoksen()" class="btn btn-dark">
+                                    <i class="bi bi-plus"></i>
+                                 </button>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <label class="card-title sr-only" for="antallBarn">Barn</label>
+                              <div class="input-group mb-2">
+                                 <button type="button" onclick="fjernBarn()" class="btn btn-dark">
+                                    <i class="bi bi-dash"></i>
+                                 </button>
+                                 <input id="antallBarn" type="number" min="0"
+                                        class="form-control text-center" placeholder="0">
+                                 <button type="button" onclick="leggTilBarn()" class="btn btn-dark">
+                                    <i class="bi bi-plus"></i>
+                                 </button>
+                              </div>
+                           </div>
+                        </div>
+                        <small class="form-text text-muted">
+                           Barn fra 0 til og med 17 år betaler
+                           barnepris.
+                        </small>
+                     </form>
+                  </div>
+                  <div>
+                     <small id="errorBillettinformasjon" class="mt-3" style="color: red">Error: invalid error message</small>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- Lugarinformasjon -->
+         <!-- Lugarinformasjon -->
+
+         <div id="lugarInformasjon" class="card mb-2 p-4">
+            <div class="card-body">
+               <h2 class="card-title ">Bestill lugar</h2>
+               <hr>
 
 
-    <!-- Footer -->
-    <footer class="text-center text-lg-start bg-light text-muted">
-        <section class="pt-3">
-            <div class="container text-center text-md-start mt-5">
-                <div class="row mt-3">
-                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-2">
-                        <h6 class="text-uppercase fw-bold mb-2">
-                            🚢 Deez Sailing
-                        </h6>
-                        <p>
-                            Thank you for sialing with Deez Nutella Co.
+               <div class="row mb-3">
+                  <div class="col p-3">
+                     <h4>Standard lugar</h4>
+                     <p>
+                        Commodorelugarene inkluderer en dobbeltseng med myke sengeklær, håndklær, bad med dusj og
+                        toalett, hårføner, tilgang til wifi, flatskjerm-TV og herlig havutsikt.
+                     </p>
+                     <form class="needs-validation" novalidate="">
+                        <div class="input-group">
+                           <button type="button" onclick="fjernStandLugar()" class="btn btn-dark">
+                              <i class="bi bi-dash"></i>
+                           </button>
+                           <input id="antallStandLugar" type="number" min="0" class="form-control text-center"
+                                  placeholder="0" size="4">
+                           <button type="button" onclick="leggTilStandLugar()" class="btn btn-dark">
+                              <i class="bi bi-plus"></i>
+                           </button>
+                        </div>
+                        <p class="card-text mt-3">
+                           <small class="text-muted">
+                              Recommended for 4
+                              people
+                           </small>
                         </p>
-                    </div>
+                     </form>
+                  </div>
+                  <div class="col p-3 d-md-none d-sm-none d-lg-block">
+                     <img style="object-fit: cover; height: 250px; width: 100%" class="img-fluid "
+                          src="https://images.unsplash.com/photo-1510525009512-ad7fc13eefab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80"
+                          alt="Responsive image">
+                  </div>
+               </div>
 
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-2">
-                        <h6 class="text-uppercase fw-bold mb-2">
-                            Our boats
-                        </h6>
-                        <p>
-                            <a href="https://www.google.com/search?q=cruise+ships&tbm=isch&ved=2ahUKEwiNg6n-m5DzAhWNwSoKHT0QAe4Q2-cCegQIABAA&oq=cruise+ships&gs_lcp=CgNpbWcQAzIFCAAQgAQyBAgAEB4yBAgAEB4yBAgAEB4yBAgAEB4yBAgAEB4yBAgAEB4yBAgAEB4yBAgAEB4yBAgAEB46BwgjEO8DECc6BAgAEEM6BwgAELEDEEM6CAgAEIAEELEDUNsPWOkZYOIaaABwAHgAgAFeiAGLB5IBAjEymAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=TORJYY2tBo2DqwG9oITwDg&bih=997&biw=1560&rlz=1C1SQJL_enNO941NO941"
-                               class="text-reset">Images of our boats</a>
+               <div class="row  mb-4">
+                  <div class="col p-3">
+                     <h4>Premium lugar</h4>
+                     <p>
+                        Commodorelugarene inkluderer en dobbeltseng med myke sengeklær, håndklær, bad med dusj og
+                        toalett, hårføner, tilgang til wifi, flatskjerm-TV og herlig havutsikt.
+                     </p>
+                     <form class="needs-validation" novalidate="">
+                        <div class="input-group">
+                           <button type="button" onclick="fjernPremLugar()" class="btn btn-dark">
+                              <i class="bi bi-dash"></i>
+                           </button>
+                           <input id="antallPremLugar" type="number" min="0" class="form-control text-center"
+                                  placeholder="0" size="4">
+                           <button type="button" onclick="leggTilPremLugar()" class="btn btn-dark">
+                              <i class="bi bi-plus"></i>
+                           </button>
+                        </div>
+                        <p class="card-text mt-3">
+                           <small class="text-muted">
+                              Recommended for 4
+                              people
+                           </small>
                         </p>
-
-                    </div>
-
-
-
-                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-2">
-                        <h6 class="text-uppercase fw-bold mb-2">
-                            Contact
-                        </h6>
-                        <p><i class="fas fa-home me-3"></i> Pilestredet 46, 0167 Oslo </p>
-                        <p>
-                            <i class="fas fa-envelope me-3"></i>
-                            s188910@oslomet.no
-                        </p>
-                    </div>
-                </div>
+                     </form>
+                  </div>
+                  <div class="col p-3 d-md-none d-sm-none d-lg-block">
+                     <img style="object-fit: cover; height: 250px; width: 100%" class="img-fluid "
+                          src="https://images.unsplash.com/photo-1510525009512-ad7fc13eefab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80"
+                          alt="Responsive image">
+                  </div>
+               </div>
             </div>
-        </section>
-    </footer>
+         </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+         <!-- Bestill billett -->
+         <!-- Bestill billett -->
 
-</body>
+         <div id="oppsummering" class="row">
+            <div class="col-lg-12">
+               <div class="card p-3">
+                  <div class="card-body">
+                     <p>
+                        A Terms and Conditions agreement is the agreement that includes the terms, the rules and
+                        the guidelines of acceptable behavior and other useful sections to which users must
+                        agree in order to use or access your website and mobile app.
+                     </p>
+                     <button class="btn btn-primary pl-4">
+                        Legg inn bestilling
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+</div>
+
+
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+   <section class="pt-3">
+      <div class="container text-center text-md-start mt-5">
+         <div class="row mt-3">
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-2">
+               <h6 class="text-uppercase fw-bold mb-2">
+                  🚢 Deez Sailing
+               </h6>
+               <p>
+                  Thank you for sialing with Deez Nutella Co.
+               </p>
+            </div>
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-2">
+               <h6 class="text-uppercase fw-bold mb-2">
+                  Our boats
+               </h6>
+               <p>
+                  <a href="https://www.google.com/search?q=cruise+ships&tbm=isch&ved=2ahUKEwiNg6n-m5DzAhWNwSoKHT0QAe4Q2-cCegQIABAA&oq=cruise+ships&gs_lcp=CgNpbWcQAzIFCAAQgAQyBAgAEB4yBAgAEB4yBAgAEB4yBAgAEB4yBAgAEB4yBAgAEB4yBAgAEB4yBAgAEB4yBAgAEB46BwgjEO8DECc6BAgAEEM6BwgAELEDEEM6CAgAEIAEELEDUNsPWOkZYOIaaABwAHgAgAFeiAGLB5IBAjEymAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=TORJYY2tBo2DqwG9oITwDg&bih=997&biw=1560&rlz=1C1SQJL_enNO941NO941"
+                     class="text-reset">Images of our boats</a>
+               </p>
+
+            </div>
+
+
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-2">
+               <h6 class="text-uppercase fw-bold mb-2">
+                  Contact
+               </h6>
+               <p><i class="fas fa-home me-3"></i> Pilestredet 46, 0167 Oslo </p>
+               <p>
+                  <i class="fas fa-envelope me-3"></i>
+                  s188910@oslomet.no
+               </p>
+            </div>
+         </div>
+      </div>
+   </section>
+</footer>
+</div></body>
 </html>
