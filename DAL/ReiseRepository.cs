@@ -18,7 +18,7 @@ namespace DeezSalings.DAL
             _db = db;
         }
 
-        // Hent ALLE reiseruter
+        // Hent ALLE reiseruterb
         public async Task<List<Reise>> Reiser()
         {
             try

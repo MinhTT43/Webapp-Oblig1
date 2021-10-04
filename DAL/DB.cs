@@ -12,7 +12,7 @@ namespace DeezSalings.DAL
         public int billettNr { get; set; }
         public int antallBarn { get; set; }
         public int antallVoksen { get; set; }
-        public int antallStandLugar { get; set; }
+        public int antallStandLugar { get; set; }com
         public int antallPremLugar { get; set; }
         public DateTime datoBestilt { get; set; }
         public int totalPris { get; set; }

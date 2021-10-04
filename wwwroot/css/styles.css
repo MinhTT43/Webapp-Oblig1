@@ -1,10 +1,39 @@
 body {
-  font-family: 'Quicksand', sans-serif;}
+  font-family: 'Quicksand', sans-serif;
+}
 
 #landingpage {
   height: 70vw;
   max-height: 80vh;
+}
 
+.bg-cta {
+  background-color: #8BE8D2;
+}
+
+#ticketFirst {
+  width: 100vw;
+  height: 100vh;
+}
+
+#ticketSecond {
+  width: 100vw;
+  height: 100vh;
+}
+
+.btn-cta {
+  background-color: #8BE8D2;
+}
+
+
+.btn-cta:hover {
+  background-color: #ff6600;
+  color: white;
+}
+
+
+.bookBilletter {
+  height: 80vh;
 }
 
 .nounderline {
@@ -14,6 +43,7 @@ body {
 * {
   box-sizing: border-box;
 }
+
 .centered {
   position: absolute;
   top: 50%;
@@ -29,12 +59,12 @@ body {
   height: 100%;
 }
 
-
 .make-me-sticky {
   position: -webkit-sticky;
   position: sticky;
   top: 2vw;
 }
+
 
 .travel-image {
   height: 20vw;
@@ -102,37 +132,57 @@ input[type=number]::-webkit-outer-spin-button {
 
 .navbar-nav li {
   margin: 0 15px 0 15px;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: white;
   border: 5px #4C241D;
   border-radius: 5px;
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: #324A5E;
+  color: #4CAB98;
+
 }
+
 .navbar-dark .navbar-nav .nav-link:hover {
   color: #ff6600;
 }
 
+.text-hover {
+  color: #ff6600;
+
+}
 
 .navbar a {
   text-transform: uppercase;
 }
 
 
-#container .shadow {
-  width: 100%;
-}
-
 .shadow a {
   text-decoration: none;
 }
 
+/* CARDS */
+/* CARDS */
+/* CARDS */
+
+.card-body {
+  padding: 0.8rem;
+}
+.card-hover:hover a{
+  transition: 0.3s;
+  color: #ff6600;
+
+}
+
+
+.card-hover:hover{
+  transition: 0.3s;
+  border-color: #ff6600;
+}
 
 .card-img-cover {
   width: 100%;
-  height: 200px;
+  height: 150px;
   object-fit: cover;
 }
 
@@ -140,10 +190,7 @@ input[type=number]::-webkit-outer-spin-button {
   display: block;
   top: 0px;
   position: relative;
-  border-radius: 4px;
-  text-decoration: none;
-  z-index: 0;
-  overflow: hidden
+  transition-timing-function: ease;
 }
 
 .card a {
@@ -151,13 +198,6 @@ input[type=number]::-webkit-outer-spin-button {
   color: black;
 }
 
-.card:hover {
-  transition: all 0.2s ease-out;
-  box-shadow: 0px 4px 10px rgba(38, 38, 38, 0.2);
-  top: -2px;
-  border: 1px solid #cccccc;
-  background-color: white;
-}
 
 .bg-cover {
   min-height: 40vw;
@@ -197,10 +237,6 @@ input[type=number]::-webkit-outer-spin-button {
   word-break: break-word;
 }
 
-.content:hover .overlay {
-  height: 100%;
-}
-
 .text {
   white-space: normal;
   color: #2e4054;
@@ -215,43 +251,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 .content p {
   font-size: 18px;
-}
-
-/* FOOTER */
-/* FOOTER */
-
-footer {
-  background-color: #364b62;
-}
-
-#footer_1 {
-  color: #e5dada;
-  padding: 15px;
-}
-
-footer a {
-  text-decoration: none;
-  color: #e5dada;
-  text-transform: uppercase;
-}
-
-footer a:hover {
-  color: #02a2af;
-}
-
-footer .col-10 {
-  text-align: end;
-}
-
-footer .col-md-4 {
-  text-align: -webkit-center;
-}
-
-footer #copyR {
-  background-color: #e5dada;
-  padding: 15px;
-  color: black;
-  text-align: center;
 }
 
 /* Charlie */
