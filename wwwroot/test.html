@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+   <meta charset="utf-8"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+   <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+   <title></title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="js/bestilling.js"></script>
+   <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark justify-content-center">
+   <a class="navbar-brand" href="#"><img src="images/ship.svg" alt="ship logo" width="40px"
+                                         style="margin-left: 20px"></a>
+   <button class="navbar-toggler" type="button"
+           data-toggle="collapse"
+           data-target="#navbarSupportedContent"
+           aria-controls="navbarSupportedContent"
+           aria-expanded="true"
+           aria-label="Toggle-navigation">
+      <div class="icon"></div>
+      <div class="icon"></div>
+      <div class="icon"></div>
+   </button>
+   <div class="collapse navbar-collapse">
+      <ul class="navbar-nav col-lg-8">
+         <li class="nav-item">
+            <a class="nav-link" href="#ticketFirst">From Norway</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="#ticketSecond">To Norway</a>
+         </li>
+      </ul>
+      <ul class="navbar-nav col-lg-4 justify-content-end">
+
+         <li class="nav-item ">
+            <a class="nav-link" href="#contact-us">Contact us</a>
+         </li>
+      </ul>
+   </div>
+</nav>
+
+<div id="landing" class="d-flex align-items-center" style="height: 100vh;">
+   <div class="container">
+      <div class="row justify-content-center">
+         <div class="col-md-6 col-sm-12">
+            <h1 class="text-uppercase" style="font-size: 3rem">Klar for ferie?</h1>
+            <h4 class="pb-3">Har ferien dins tartet? Da har du ingen tid å miste!</h4>
+            <forms>
+               <div class="row">
+                  <div class="col-6">
+                     <input type="date" class="form-control" placeholder="Last name" aria-label="Last name">
+                  </div>
+                  <div class="col-4">
+                     <input type="checkbox" checked data-toggle="toggle" data-on="Én vei" data-off="Tur - retur" data-onstyle="success" data-offstyle="warning" data-offstyle="danger">
+                  </div>
+               </div>
+            </forms>
+            <div class="pt-4 ">
+               <a class="nounderline" onclick="validateDates();" href="#" >Trykk for å finne reise!</a>
+            </div>
+         </div>
+         <div class="col-md-4 d-none d-md-block overflow-shown">
+            <img src="images/cruise.jpg" alt="" width="400px">
+            <a href="https://www.freepik.com/vectors/abstract" hidden>Abstract vector created by macrovector -
+               www.freepik.com</a>
+         </div>
+      </div>
+   </div>
+</div>
+
+<div id="ticketFirst" class="py-5 h-sm-100 d-flex align-items-center">
+   <div id="bookBilletter" class="container ">
+      <div class="p-5 ">
+         <div class="row pb-2 pt-4">
+            <div id="header-title">
+               <h2 id="title" class="text-uppercase" style="font-weight: bold; color: #ff6600">To veis reiser</h2>
+               <h4 id="suntitle" class="pb-4">Uansett hvor du velger å reise, vil vi sørge for at du alltid reiser
+                  trygt.</h4>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-2 ">
+               <div class="card card-hover">
+                  <a href="">
+                     <img class="card-img-top card-img-cover  d-none d-sm-block" style="height: 80px;"
+                          src="https://images.unsplash.com/photo-1543169108-32ac15a21e05?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1169&q=80"
+                          alt="Card image cap card-img-cover">
+                     <div class="card-body">
+                        <h5 href="#" class="" style="color: black; font-weight: bold;">Oslo - Kiel</h5>
+                        <a href="#ticketSecond" class="a-hover m-0">Se reiser</a>
+                     </div>
+                  </a>
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-2 ">
+               <div class="card card-hover">
+                  <a href="">
+                     <img class="card-img-top card-img-cover  d-none d-sm-block" style="height: 80px;"
+                          src="https://images.unsplash.com/photo-1492294112339-ea831887e5d7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1032&q=80"
+                          alt="Card image cap">
+                     <div class="card-body">
+                        <h5 href="#" class="" style="color: black; font-weight: bold;"><span>Oslo</span><span> - </span><span>Kiel</span></h5>
+                        <a href="#ticketSecond" class="a-hover m-0">Se reiser</a>
+                     </div>
+                  </a>
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-2 ">
+               <div class="card card-hover">
+                  <a href="">
+                     <img class="card-img-top card-img-cover  d-none d-sm-block" style="height: 80px;"
+                          src="https://images.unsplash.com/photo-1484037832928-afe345637f55?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                          alt="Card image cap">
+                     <div class="card-body">
+                        <h5 href="#" class="" style="color: black; font-weight: bold;">Oslo - Strømstad</h5>
+                        <a href="#ticketSecond" class="a-hover m-0">Se reiser</a>
+                     </div>
+                  </a>
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-2 ">
+               <div class="card card-hover">
+                  <a href="">
+                     <img class="card-img-top card-img-cover  d-none d-sm-block" style="height: 80px;"
+                          src="https://images.unsplash.com/photo-1543169108-32ac15a21e05?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1169&q=80"
+                          alt="Card image cap card-img-cover">
+                     <div class="card-body">
+                        <h5 href="#" class="" style="color: black; font-weight: bold;">Oslo - Kiel</h5>
+                        <a href="#ticketSecond" class="a-hover m-0">Se reiser</a>
+                     </div>
+                  </a>
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-2 ">
+               <div class="card card-hover">
+                  <a href="">
+                     <img class="card-img-top card-img-cover  d-none d-sm-block" style="height: 80px;"
+                          src="https://images.unsplash.com/photo-1492294112339-ea831887e5d7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1032&q=80"
+                          alt="Card image cap">
+                     <div class="card-body">
+                        <h5 href="#" class="" style="color: black; font-weight: bold;">Oslo - København</h5>
+                        <a href="#ticketSecond" class="a-hover m-0">Se reiser</a>
+                     </div>
+                  </a>
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-2 ">
+               <div class="card card-hover">
+                  <a href="">
+                     <img class="card-img-top card-img-cover  d-none d-sm-block" style="height: 80px;"
+                          src="https://images.unsplash.com/photo-1484037832928-afe345637f55?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                          alt="Card image cap">
+                     <div class="card-body">
+                        <h5 href="#" class="" style="color: black; font-weight: bold;">Oslo - Strømstad</h5>
+                        <a href="#ticketSecond" class="a-hover m-0">Se reiser</a>
+                     </div>
+                  </a>
+               </div>
+            </div>
+         </div>
+         <hr class="mt-4">
+      </div>
+   </div>
+</div>
+
+<footer id="contact-us" class="bg-cta">
+   <section class="py-5 ">
+      <div class="container text-center  mt-5">
+         <div class="row mt-4">
+            <div class="col-md-4 col-lg-3  mx-auto  mb-2">
+               <h6 class=" fw-bold mb-2">Ackerman - Cruises</h6>
+               <p>Thank you for sailing with the Ackermans</p>
+            </div>
+
+            <div class="col-md-4 col-lg-3  mx-auto  mb-2">
+               <h6 class=" fw-bold mb-2">
+                  Cruise ships
+               </h6>
+               <p>
+                  <a href="https://www.google.com/search?q=cruise+ships&tbm=isch&ved=2ahUKEwiNg6n-m5DzAhWNwSoKHT0QAe4Q2-cCegQIABAA&oq=cruise+ships&gs_lcp=CgNpbWcQAzIFCAAQgAQyBAgAEB4yBAgAEB4yBAgAEB4yBAgAEB4yBAgAEB4yBAgAEB4yBAgAEB4yBAgAEB4yBAgAEB46BwgjEO8DECc6BAgAEEM6BwgAELEDEEM6CAgAEIAEELEDUNsPWOkZYOIaaABwAHgAgAFeiAGLB5IBAjEymAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=TORJYY2tBo2DqwG9oITwDg&bih=997&biw=1560&rlz=1C1SQJL_enNO941NO941"
+                     class=" text-reset ">Galery of our ship</a>
+               </p>
+            </div>
+
+            <div class="col-md-4 col-lg-3  mx-auto  mb-2">
+               <h6 class=" fw-bold">Contact</h6>
+               <p>Pilestredet 46, 0167 Oslo</p>
+               <p>s188910@oslomet.no</p>
+            </div>
+         </div>
+      </div>
+   </section>
+</footer>
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+</html>
