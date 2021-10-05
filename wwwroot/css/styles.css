@@ -1,164 +1,161 @@
 body {
-  font-family: 'Quicksand', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 #landingpage {
-  height: 70vw;
-  max-height: 80vh;
+    height: 70vw;
+    max-height: 80vh;
 }
 
 .bg-cta {
-  background-color: #8BE8D2;
+    background-color: #8BE8D2;
 }
 
 #ticketFirst {
-  height: 100%;
-  min-height: 100vh;
-
+    height: 100%;
+    min-height: 100vh;
 }
 
 #ticketSecond {
-  height: 100vh;
+    height: 100vh;
 }
 
 .btn-cta {
-  background-color: #8BE8D2;
+    background-color: #8BE8D2;
 }
 
 
-.btn-cta:hover {
-  background-color: #ff6600;
-  color: white;
-}
+    .btn-cta:hover {
+        background-color: #ff6600;
+        color: white;
+    }
 
 
 .bookBilletter {
-  height: 80vh;
+    height: 80vh;
 }
 
 .nounderline {
-  text-decoration: none !important
+    text-decoration: none !important
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .sidebar-item {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .make-me-sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 2vw;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 2vw;
 }
 
 
 .travel-image {
-  height: 20vw;
-  object-fit: cover;
+    height: 20vw;
+    object-fit: cover;
 }
 
 .box-1 {
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .sidebar {
-  height: 100vh;
+    height: 100vh;
 }
 
 .img-left {
-  flex-direction: row;
+    flex-direction: row;
 }
 
 .input-small {
-  width: 100px;
+    width: 100px;
 }
 
 .no-border {
-  border-width: 0px;
-  border: none;
-  outline: none;
+    border-width: 0px;
+    border: none;
+    outline: none;
 }
 
 .radio-hidden {
-  visibility: hidden;
+    visibility: hidden;
 }
 
 .labl > input + div { /* DIV STYLES */
-  cursor: pointer;
-  border: 2px solid transparent;
+    cursor: pointer;
+    border: 2px solid transparent;
 }
 
 .labl > input:checked + div { /* (RADIO CHECKED) DIV STYLES */
-  background-color: #ffd6bb;
-  border: 1px solid #ff6600;
+    background-color: #ffd6bb;
+    border: 1px solid #ff6600;
 }
 
 /**/
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .icon {
-  width: 35px;
-  height: 3px;
-  background-color: #2e4054;
-  margin: 6px 0;
+    width: 35px;
+    height: 3px;
+    background-color: #2e4054;
+    margin: 6px 0;
 }
 
 .blue {
-  position: fixed;
-  top: 0;
-  background: #364b62;
-  width: 100%;
-  height: 50px;
+    position: fixed;
+    top: 0;
+    background: #364b62;
+    width: 100%;
+    height: 50px;
 }
 
 .navbar-nav li {
-  margin: 0 15px 0 15px;
-  font-size: 1.6rem;
-  color: white;
-  border: 5px #4C241D;
-  border-radius: 5px;
+    margin: 0 15px 0 15px;
+    font-size: 1.6rem;
+    color: white;
+    border: 5px #4C241D;
+    border-radius: 5px;
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: #4CAB98;
-
+    color: #4CAB98;
 }
 
-.navbar-dark .navbar-nav .nav-link:hover {
-  color: #ff6600;
-}
+    .navbar-dark .navbar-nav .nav-link:hover {
+        color: #ff6600;
+    }
 
 .text-hover {
-  color: #ff6600;
-
+    color: #ff6600;
 }
 
 .navbar a {
-  text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 
 .shadow a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 /* CARDS */
@@ -166,90 +163,90 @@ input[type=number]::-webkit-outer-spin-button {
 /* CARDS */
 
 .card-body {
-  padding: 0.8rem;
-}
-.card-hover:hover a{
-  transition: 0.3s;
-  color: #ff6600;
-
+    padding: 0.8rem;
 }
 
+.card-hover:hover a {
+    transition: 0.3s;
+    color: #ff6600;
+}
 
-.card-hover:hover{
-  transition: 0.3s;
-  border-color: #ff6600;
+
+.card-hover:hover {
+    transition: 0.3s;
+    border-color: #ff6600;
 }
 
 .card-img-cover {
-  width: 100%;
-  object-fit: cover;
+    width: 100%;
+    object-fit: cover;
 }
 
 .card {
-  display: block;
-  top: 0px;
-  position: relative;
-  transition-timing-function: ease;
+    display: block;
+    top: 0px;
+    position: relative;
+    transition-timing-function: ease;
 }
 
-.card a {
-  text-decoration: none;
-  color: black;
-}
+    .card a {
+        text-decoration: none;
+        color: black;
+    }
 
 
 .bg-cover {
-  min-height: 40vw;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    min-height: 40vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
 .content {
-  position: relative;
-  width: 100%;
-  background-color: #2e4054;
-  color: #e5dada;
-  height: 250px;
-  margin-bottom: 25px;
+    position: relative;
+    width: 100%;
+    background-color: #2e4054;
+    color: #e5dada;
+    height: 250px;
+    margin-bottom: 25px;
 }
 
 .content-flex h4 {
-  position: absolute;
-  text-align: center;
-  left: 10%;
-  right: 10%;
-  top: 45%;
+    position: absolute;
+    text-align: center;
+    left: 10%;
+    right: 10%;
+    top: 45%;
 }
 
 .overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: white;
-  overflow: hidden;
-  width: 100%;
-  height: 0;
-  transition: .5s ease;
-  word-break: break-word;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+    word-break: break-word;
 }
 
 .text {
-  white-space: normal;
-  color: #2e4054;
-  font-size: 20px;
-  position: absolute;
-  overflow: hidden;
-  top: 35%;
-  left: 25%;
-  transform: translate(-20%, -30%);
-  -ms-transform: translate(-20%, -20%);
+    white-space: normal;
+    color: #2e4054;
+    font-size: 20px;
+    position: absolute;
+    overflow: hidden;
+    top: 35%;
+    left: 25%;
+    transform: translate(-20%, -30%);
+    -ms-transform: translate(-20%, -20%);
 }
 
 .content p {
-  font-size: 18px;
+    font-size: 18px;
 }
 
 /* Charlie */

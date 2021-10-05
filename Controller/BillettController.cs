@@ -13,6 +13,7 @@ namespace DeezSalings.Controller
     public class BillettController : ControllerBase
     {
         private readonly IBillettRepository _db;
+
         private readonly ILogger<BillettController> _log;
 
         public BillettController(IBillettRepository db, ILogger<BillettController> log)
@@ -30,26 +31,31 @@ namespace DeezSalings.Controller
 
         public async Task<ActionResult> Lagre(Billett b)
         {
-            Console.Write(ModelState.IsValid);
             if (ModelState.IsValid)
             {
-                bool returOk = await _db.Lagre(b);
-                if (!returOk)
+                int returOk = await _db.Lagre(b);
+                if (returOk == -1)
                 {
                     _log.LogInformation("Bestilling mislykket");
                     return BadRequest("Bestilling mislykket");
                 }
 
-                return Ok("Bestilling velykket");
+                return Ok(returOk);
             }
             _log.LogInformation("Feil i inputvalidering");
             return BadRequest("Feil i inputvalidering");
         }
 
-        public async Task<Avreise> avreisetest(Billett b)
+        public async Task<ActionResult> Billett(int id)
         {
-            return await _db.avreisetest(b);
-        }
+            Billett returBillett = await _db.Billett(id);
+            if (returBillett == null)
+            {
+                _log.LogInformation("Billett ikke funnet");
+                return BadRequest("Billett ikke funnet");
+            }
 
+            return Ok(returBillett);
+        }
     }
 }
