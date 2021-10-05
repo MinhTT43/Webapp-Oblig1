@@ -7,31 +7,6 @@
   <component name="ChangeListManager">
     <list default="true" id="aff6c39b-8c63-41df-814a-f4cdfdc67bef" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SeasonLine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SeasonLine/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/config/applicationhost.config" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/config/applicationhost.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DAL/DB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL/DB.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DAL/ReiseRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL/ReiseRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database.db" beforeDir="false" afterPath="$PROJECT_DIR$/Database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/SeasonLine.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/SeasonLine.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/SeasonLine.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/SeasonLine.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/SeasonLine.runtimeconfig.dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/SeasonLine.runtimeconfig.dev.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.genruntimeconfig.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/SeasonLine.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/SeasonLine.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/SeasonLine.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/SeasonLine.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/bestilling.html" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/bestilling.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/js/valider.js" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/js/valider.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,8 +85,16 @@
       <option name="presentableId" value="Default" />
       <updated>1633180984998</updated>
       <workItem from="1633180998111" duration="163000" />
-      <workItem from="1633422924863" duration="9901000" />
+      <workItem from="1633422924863" duration="9914000" />
     </task>
+    <task id="LOCAL-00001" summary="calendar functions imp.">
+      <created>1633432912534</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1633432912534</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,5 +113,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="calendar functions imp." />
+    <option name="LAST_COMMIT_MESSAGE" value="calendar functions imp." />
   </component>
 </project>
