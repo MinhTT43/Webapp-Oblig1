@@ -7,12 +7,25 @@
   <component name="ChangeListManager">
     <list default="true" id="aff6c39b-8c63-41df-814a-f4cdfdc67bef" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SeasonLine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SeasonLine/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/ReiseLog-20211005.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ReiseLog-20211005.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database.db" beforeDir="false" afterPath="$PROJECT_DIR$/Database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/ReiseLog-20211006.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ReiseLog-20211006.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/SeasonLine.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/SeasonLine.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/SeasonLine.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/SeasonLine.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/SeasonLine.runtimeconfig.dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/SeasonLine.runtimeconfig.dev.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.genruntimeconfig.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/SeasonLine.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/SeasonLine.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/SeasonLine.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/SeasonLine.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/SeasonLine.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wwwroot/bestilling.html" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/bestilling.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/js/bestilling.js" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/js/bestilling.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/js/kvittering.js" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/js/kvittering.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wwwroot/js/valider.js" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/js/valider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wwwroot/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wwwroot/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/wwwroot/js/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +53,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor.code.editing" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.SeasonLine: IIS Express">
@@ -88,6 +101,7 @@
       <workItem from="1633445087399" duration="30000" />
       <workItem from="1633445219037" duration="215000" />
       <workItem from="1633460681078" duration="5392000" />
+      <workItem from="1633471382457" duration="3707000" />
     </task>
     <servers />
   </component>

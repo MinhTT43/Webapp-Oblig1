@@ -51,11 +51,9 @@ const formaterRuter = (data) => {
                 <span id="avreiseDestinasjon">${d.destinasjon}</span>
                 </h5>
                 <div id="tripDates${d.id}"></div>
-                </div>
-                <div class="card-footer">
+                <div id="avreisetid${d.id}" class="row p-3"></div>
                 <button class="btn btn-cta btn-sm m-0" onclick="hentReiserTider(${d.id})">Se reiser</button>
                 </div>
-                <div id="avreisetid${d.id}" class="row p-3"></div>
             </div>
         </div>
         `
@@ -63,8 +61,8 @@ const formaterRuter = (data) => {
 
     deck += `<div><button class="btn btn-cta btn-sm m-0" onclick="videre()">Videre</button></div>`
 
-    window.location.hash = "#ticketFirst";
     $("#title").html(deck);
+    document.location.hash = "#ticketFirst"
 };
 
 // Hent reise informasjon
@@ -94,8 +92,7 @@ function formaterReiseDato(datoListe) {
 
     console.log(datoListe)
 
-    let printDato = `<div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">`
-        ;
+    let printDato = `<div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">`;
 
     for (var dato of datoListe) {
 
@@ -110,8 +107,9 @@ function formaterReiseDato(datoListe) {
             let dagdato = enDato.getDate();
 
 
-            printDato += ` <input type="radio" class="btn-check" name="datochecked" id="btnradio${dato.avreiseId}" autocomplete="off" value="${dato.avreiseId}">
-        <label class="btn btn-outline-primary col-lg-12 " for="btnradio${dato.avreiseId}">${dag}(${dagdato}.${måned})</label>`
+            printDato += ` 
+            <input type="radio" class="btn-check" name="datochecked" id="btnradio${dato.avreiseId}" autocomplete="off" value="${dato.avreiseId}">
+            <label class="btn btn-outline-primary col-lg-12 " for="btnradio${dato.avreiseId}">${dag}, ${dagdato}.${måned}</label>`
         }
 
         print += `</div>`
@@ -120,34 +118,31 @@ function formaterReiseDato(datoListe) {
 
     }
 
-    const testDates = (id) => {
+}
+
+const testDates = (id) => {
         let dates = `
-<hr>
-    <p>newDate</p>
-    <p>newDate</p>
-    <p>newDate</p>
-    `;
+            <hr>
+            <p>newDate</p>
+            <p>newDate</p>
+            <p>newDate</p>
+            `;
         $("#tripDates" + id).html(dates);
     }
-        ;
+;
+const showCalendar = () => {
+    //HTML for inputboks
+    let visibleHTML = `
+        <input id="kalender2" type="date" class="form-control " value=""
+        placeholder="Date">
+        `;
 
-    const showDate = () => {
-        //HTML for inputboks
-        let visibleHTML = `
-    <div class="col-4"></div>
-    <div class="col-5">
-    <input id="kalender2" type="date" class="form-control " value=""
-    placeholder="Date">
-    </div>
-    `;
+    if ($("#tur").is(':checked')) {
+        $("#calendarDiv").html(visibleHTML);
 
-        if ($("#tur").is(':checked')) {
-            $("#calendarDiv").html(visibleHTML);
-
-        } else {
-            $("#calendarDiv").html("");
-            $("#kalender").val("");
-        }
-
+    } else {
+        $("#calendarDiv").html("");
+        $("#kalender2").val("");
     }
+
 }
