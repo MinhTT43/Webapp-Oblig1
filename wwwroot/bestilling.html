@@ -60,9 +60,11 @@
                     <div class="card mb-2 p-4">
                         <div class="card-body">
                             <h5 class="text-muted">Informasjon om reisen</h5>
-                            <h1 class="d-flex"><span id="fraText"></span> <span id="tilText"></span></h1>
+                            <h1 class="d-flex"><span id="fra"></span> <span id="til"></span></h1>
                             <p class="card-text">Skip: St. Nutella 4th</p>
                             <h6 class="text-primary">Avreise kl. 14:00 - reisetid 14 timer. </h6>
+                            <input hidden id="fraHidden" />
+                            <input hidden id="tilHidden" />
                         </div>
                     </div>
 
@@ -98,7 +100,7 @@
                             <div>
                                 <p class="">Total Pris:</p>
                                 <p>Kr. <span id="pris">0</span>,-</p>
-                                <input type="number" id="pris" hidden />
+                                <input type="number" id="prisHidden" hidden />
                             </div>
 
                         </div>
@@ -148,6 +150,9 @@
                     </div>
                 </div>
 
+                <!-- Billettinformasjon -->
+                <!-- Billettinformasjon -->
+                <input id="dato" hidden />
 
                 <!-- Billettinformasjon -->
                 <!-- Billettinformasjon -->

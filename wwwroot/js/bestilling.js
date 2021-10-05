@@ -13,11 +13,11 @@ $(() => {
     // Hent informasjon om reiseruten
     hentData();
 
-    // Beregn prisen 0.5 sekunder etter page-load
+    // Beregn prisen 0.5 sekunder etter page-load 
     setTimeout(totalpris, 500);
 })
 
-// Post-kall for å lagre billetten i db
+// Post-kall for å lagre billetten i db 
 function lagreData() {
 
     // Henter dagens dato
@@ -29,16 +29,16 @@ function lagreData() {
     validerFornavn();
     validerEtternavn();
 
-    // Oppretter billett objekt
+    // Oppretter billett objekt 
     const bestilling = {
         fornavn: $("#fornavn").val(),
         etternavn: $("#etternavn").val(),
         telefon: $("#telefon").val(),
         epost: $("#epost").val(),
 
-        avreiseSted: $("#fra").val(),
-        destinasjon: $("#til").val(),
-        avreisetid: $('input[name="datoAvreise"]:checked').val(),
+        avreiseSted: $("#fraHidden").val(),
+        destinasjon: $("#tilHidden").val(),
+        avreisetid: $("#dato").val(),
 
         antallBarn: $("#antallBarn").val(),
         antallVoksen: $("#antallVoksen").val(),
@@ -46,10 +46,11 @@ function lagreData() {
         antallPremLugar: $("#antallPremLugar").val(),
         datoBestilt: today.toISOString(),
 
-        totalPris: $("#pris").val(),
+        totalPris: $("#prisHidden").val(),
     }
 
-    // Post-kall 
+    console.log(bestilling)
+    // Post-kall
     $.post("billett/lagre", bestilling, function (id) {
         window.location.href = "kvittering.html?id=" + id + "&ruteNr=" + reiseruteNr;
     })
@@ -63,15 +64,16 @@ function lagreData() {
 // Hente informasjon om reiseruten
 function hentData() {
 
+
     const id = window.location.search.substring(1);
     const url = "reise/reiserute?" + id;
 
     $.get(url, function (ruter) {
 
-        reiseruteNr = ruter.ruteNr
-
-        $("#fraText").html(`<h1>${ruter.avreisested}-</h1>`)
-        $("#tilText").html(`<h1>${ruter.destinasjon}</h1>`)
+        $("#fra").html(`<h1>${ruter.avreisested}-</h1>`)
+        $("#til").html(`<h1>${ruter.destinasjon}</h1>`)
+        $("#fraHidden").val(ruter.avreisested);
+        $("#tilHidden").val(ruter.destinasjon);
 
         prisBarn = ruter.prisBarn;
         prisVoksen = ruter.prisVoksen;
@@ -93,6 +95,11 @@ function hentData() {
         } else if (ruter.dagsreise == true) {
             erDagsreise = true;
         }
+    })
+
+    const url2 = "reise/enavreise?" + id;
+    $.get(url2, function (data) {
+        $("#dato").val(data.avreisetid);
     })
 }
 
@@ -198,6 +205,7 @@ function totalpris() {
 
 
     $("#pris").html(totalPris);
+    $("#prisHidden").val(totalPris);
 }
 
 // HTML-kode som printes ut på html-doc

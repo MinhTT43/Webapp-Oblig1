@@ -46,9 +46,14 @@ namespace DeezSalings.Controller
             return Ok(await _db.Reiserute(id));
         }
 
-        public async Task<List<Avreise>> valgtAvreisetid(int id, int day, int month, int year)
+        public async Task<ActionResult> valgtAvreisetid(int id, int day, int month, int year)
         {
-            return await _db.valgtAvreisetid(id, day, month, year);
+            return Ok(await _db.valgtAvreisetid(id, day, month, year));
+        }
+
+        public async Task<ActionResult> EnAvreise(int id)
+        {
+            return Ok(await _db.EnAvreise(id));
         }
 
     }
