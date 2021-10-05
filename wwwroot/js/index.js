@@ -1,5 +1,6 @@
 $(() => {
     console.log("index.js ready")
+    hentRuter();
 })
 
 
@@ -8,11 +9,22 @@ const hentRuter = () => {
     validerKalender();
 
     if (validerKalender() == true) {
-        $.get("Reise/Reiser", (data) => {
-            console.log(data)
-            formaterRuter(data);
-        });
     }
+    $.get("Reise/Reiser", (data) => {
+        console.log(data)
+        formaterRuter(data);
+    });
+
+    let changeTitleHTML = `
+    <h2 class="text-uppercase" style="font-weight: bold; color: #ff6600">Reiser funnet!</h2>
+    <h4 id="subtitle" class="pb-4">Velg en av disse destinasjonene</h4>   
+    <button class="btn btn-cta" type="button" onclick="formaterAvreiseDato()">TEST</button>
+    <hr>
+    `;
+
+    $("#title").html(changeTitleHTML);
+    $("#title").html(changeTitle);
+
 }
 
 const formaterRuter = (data) => {
@@ -34,13 +46,14 @@ const formaterRuter = (data) => {
                 <div id="tripDates${d.id}"></div>
                 </div>
                 <div class="card-footer">
-                <button class="btn btn-cta m-0" onclick="hentReiser(${d.id})">Se reiser</button>
+                <button class="btn btn-cta btn-sm m-0" onclick="hentReiser(${d.id})">Se reiser</button>
                 </div>
             </div>
         </div>
         `;
         deck += card;
     }
+    window.location.hash = "#ticketFirst";
     $("#ticketOffice").html(deck);
 };
 
@@ -51,15 +64,15 @@ const hentReiser = (id) => {
     let mm = date.getMonth() + 1;
     let yyyy = date.getFullYear();
 
+    url = `reise/valgtAvreisetid?id=${id}&day=${dd}&month=${mm}&year=${yyyy}`;
+    url = `reise/valgtAvreisetid?id=1&day=29&month=9&year=2021`;
 
-    
-
-        url = `reise/valgtAvreisetid?id=${id}&day=${dd}&month=${mm}&year=${yyyy}`;
-        $.get(url, (data) => {
-            console.log(data)
-        })
+    $.get(url, (data) => {
+        console.log(data)
+    })
 
 };
+
 const formaterReiser = () => {
 
 };
@@ -81,34 +94,21 @@ function hentDato(id) {
 }
 
 function formaterAvreiseDato(data) {
-    console.log(data)
-    print = '';
+    let print
+    `
+    <div className="btn-group" role="group" aria-label="Basic radio toggle button group">
+    <input type="radio" className="btn-check" name="btnradio" id="btnradio1" autoComplete="off" checked>
+    <label className="btn btn-outline-primary" htmlFor="btnradio1">Radio 1</label>
+    <input type="radio" className="btn-check" name="btnradio" id="btnradio2" autoComplete="off">
+    <label className="btn btn-outline-primary" htmlFor="btnradio2">Radio 2</label>
+    <input type="radio" className="btn-check" name="btnradio" id="btnradio3" autoComplete="off">
+    <label className="btn btn-outline-primary" htmlFor="btnradio3">Radio 3</label>
+    </div>
+    `;
 
-    const måneder = [
-        'Januar',
-        'Februar',
-        'Mars',
-        'April',
-        'Mai',
-        'Juni',
-        'Juli',
-        'August',
-        'September',
-        'Oktober',
-        'November',
-        'Desember'
-    ]
-
-    const dager = [
-        'Søndag',
-        'Mandag',
-        'Tirsdag',
-        'Onsdag',
-        'Torsdag',
-        'Fredag',
-        'Lørdag'
-    ]
-
+    const måneder = ['Januar', 'Februar', 'Mars', 'April', 'Mai', 'Juni'
+        , 'Juli', 'August', 'September', 'Oktober', 'November', 'Desember']
+    const dager = ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag']
 
     for (var dato of data) {
         let enDato = new Date(dato.avreisetid);
@@ -127,34 +127,37 @@ function formaterAvreiseDato(data) {
     }
 
     $("#printAvreise").html(print);
+
 }
 
-const getEntries = () => {
-    let changeTitle = `
-<h2 class="text-uppercase" style="font-weight: bold; color: #ff6600">Funnet reiser!</h2>
-<h4 id="subtitle" class="pb-4">Velg en av disse destinasjonene</h4>   `;
-
-    let ok = validerKalender();
-    /*
-       if (!ok) {
-          console.log("false");
-          return testCards();
-       } else {
-          location.hash = "#ticketFirst";
-          $("#ticketOffice").append(testCards());
-       }
-      */
-    location.hash = "#ticketFirst";
-    $("#title").html(changeTitle);
-    $("#ticketOffice").append(hentRuter());
-};
-
 const testDates = (id) => {
-    let dates = `
+        let dates = `
 <hr>
     <p>newDate</p>
     <p>newDate</p>
     <p>newDate</p>
     `;
-    $("#tripDates" + id).html(dates);
-};
+        $("#tripDates" + id).html(dates);
+    }
+;
+
+const showDate = () => {
+        //HTML for inputboks
+        let visibleHTML = `
+    <div class="col-4"></div>
+    <div class="col-5">
+    <input id="kalender2" type="date" class="form-control " value=""
+    placeholder="Date">
+    </div>
+    `;
+
+        if ($("#tur").is(':checked')) {
+            $("#calendarDiv").html(visibleHTML);
+
+        } else {
+            $("#calendarDiv").html("");
+            $("#kalender").val("");
+        }
+
+    }
+;

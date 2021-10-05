@@ -50,6 +50,7 @@
     </div>
 </nav>
 
+
 <div id="landing" class="d-flex align-items-center" style="height: 100vh;">
     <div class="container">
         <div class="row justify-content-center">
@@ -58,23 +59,29 @@
                 <h4 class="pb-3">Har ferien dins tartet? Da har du ingen tid å miste!</h4>
                 <forms>
                     <div class="row">
-                        <div class="col-6">
-                            <input id="kalender" type="date" class="form-control text-center" value=""
-                                   placeholder="Date"
-                                   aria-label="">
-                        </div>
                         <div class="col-4">
-                            <input type="checkbox" checked data-toggle="toggle" data-on="Én vei" data-off="Tur - retur"
-                                   data-onstyle="light" data-offstyle="dark" data-offstyle="danger">
+                            <input  id="tur" type="checkbox" data-toggle="toggle" data-on="Tur-retur"
+                                   data-off="Én vei"
+                                   data-onstyle="primary" data-offstyle="success" data-offstyle="danger"
+                                   onchange="showDate()">
+                        </div>
+                        <div class="col-5">
+                            <input id="kalender" type="date" class="form-control " value=""
+                                   placeholder="Date" aria-label="" width="300px">
                         </div>
                     </div>
+                    <div id="calendarDiv" class="row pt-2">
+                    </div>
+                    <br>
+                    <div class="row pt-2">
+                        <div class="col-5">
+                            <button class="btn btn-cta" type="button" onclick="hentRuter()">Finn reise!</button>
+                        </div>
+
+                    </div>
+
                 </forms>
-                <div class="pt-4 ">
-                    <button class="btn btn-cta" type="button" onclick="hentRuter()">Trykk for å finne reise!</button>
-                </div>
-                <div class="pt-4 ">
-                    <button class="btn btn-cta" type="button" onclick="hentReiser()">Test</button>
-                </div>
+                </button>
             </div>
             <div class="col-md-4 d-none d-md-block overflow-shown fade-in-card">
                 <img src="images/cruise.jpg" alt="" width="400px">
@@ -84,7 +91,18 @@
         </div>
     </div>
 </div>
+
+<div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
+    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+    <label class="btn btn-outline-primary" for="btnradio1">Radio 1</label>
+
+    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+    <label class="btn btn-outline-primary" for="btnradio2">Radio 2</label>
+
+    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+    <label class="btn btn-outline-primary" for="btnradio3">Radio 3</label>
 </div>
+
 <div id="ticketFirst" class="py-5 h-sm-100 d-flex align-items-center">
     <div id="bookBilletter" class="container ">
         <div class="p-5">
