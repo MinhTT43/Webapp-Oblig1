@@ -88,17 +88,10 @@ namespace DeezSalings.DAL
             List<Avreise> funnetAvreiser = new List<Avreise>();
 
 
-
-            for (int i = 2; i > 0; i--)
-            {
-                var nyTid = tid.AddDays(-i);
-                funnetAvreiser.Add(await _db.Avreiser.FirstOrDefaultAsync(a => a.avreisetid.Month == nyTid.Month && a.avreisetid.Date == nyTid.Date && a.avreisetid.Year == nyTid.Year && a.rute.ruteNr == id));
-            }
-
             funnetAvreiser.Add(forsteAvreise);
 
 
-            for (int i = 1; i < 4; i++)
+            for (int i = 1; i < 7; i++)
             {
                 var nyTid = tid.AddDays(+i);
                 if (nyTid.Day == 31)

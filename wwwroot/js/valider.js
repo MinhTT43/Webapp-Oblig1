@@ -1,6 +1,5 @@
 $(() => {
     console.log("valider.js ready")
-    hentData();
 })
 const validerFornavn = () => {
     let fornavn = $("#fornavn").val();
@@ -89,12 +88,24 @@ const validerLuggarPersonRatio = () => {
     }
 }
 
+// Yoinked kode fra
+// https://stackoverflow.com/questions/1353684/detecting-an-invalid-date-date-instance-in-javascript
 
 const validerKalender = () => {
-    let kalender = $("#kalender").val();
-    if (kalender === "") {
-        return false;
+    var dato = new Date($('#kalender').val());
+
+    if (Object.prototype.toString.call(dato) === "[object Date]") {
+        // it is a date
+        if (isNaN(dato.getTime())) {  // d.valueOf() could also work
+            console.log("Validation failed")
+            return false
+        } else {
+            console.log("Validation true")
+            return true
+        }
+    } else {
+        console.log("VALIDATION FAILED")
+        return false
     }
-    return true;
 
 }
