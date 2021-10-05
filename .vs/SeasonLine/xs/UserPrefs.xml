@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{3BA7347E-B461-4588-B5B1-874DA04AEDAD}|DeezSalings">
   <MonoDevelop.Ide.ItemProperties.SeasonLine PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="wwwroot/index.html">
+  <MonoDevelop.Ide.Workbench ActiveDocument="wwwroot/kvittering.html">
     <Files>
       <File FileName="wwwroot/index.html" Line="13" Column="1" />
       <File FileName="wwwroot/js/bestilling.js" />
       <File FileName="DAL/ReiseRepository.cs" />
       <File FileName="DAL/IReiseRepository.cs" />
-      <File FileName="wwwroot/kvittering.html" />
+      <File FileName="wwwroot/kvittering.html" Line="27" Column="55" />
       <File FileName="wwwroot/js/index.js" Line="24" Column="26" NotebookId="1" />
       <File FileName="DAL/DB.cs" NotebookId="1" />
       <File FileName="Controller/ReiseController.cs" NotebookId="1" />
@@ -26,7 +26,7 @@
               <Node name="wwwroot" expanded="True">
                 <Node name="css" expanded="True" />
                 <Node name="js" expanded="True" />
-                <Node name="index.html" selected="True" />
+                <Node name="kvittering.html" selected="True" />
               </Node>
             </Node>
           </Node>
