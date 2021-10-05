@@ -2,7 +2,74 @@ $(() => {
    console.log("index.js ready")
    hentData();
 })
-const testCards = () => {
+
+
+// Hent avreise datoer
+function getDate(id) {
+   var date = new Date($('#datoinput').val());
+   var day = date.getDate();
+   var month = date.getMonth() + 1;
+   var year = date.getFullYear();
+
+   let url = "reise/valgtAvreisetid?" + id + "&day=" + day + "&month=" + month + "&year=" + year;
+   $.get(url, function (data) {
+      console.log(data)
+      formaterAvreiseDato(data);
+   })
+}
+
+function formaterAvreiseDato(data) {
+   console.log(data)
+   print = '';
+
+   const måneder = [
+      'Januar',
+      'Februar',
+      'Mars',
+      'April',
+      'Mai',
+      'Juni',
+      'Juli',
+      'August',
+      'September',
+      'Oktober',
+      'November',
+      'Desember'
+   ]
+
+   const dager = [
+      'Søndag',
+      'Mandag',
+      'Tirsdag',
+      'Onsdag',
+      'Torsdag',
+      'Fredag',
+      'Lørdag'
+   ]
+
+
+   for (var dato of data) {
+      let enDato = new Date(dato.avreisetid);
+      let månedIndex = enDato.getMonth();
+      let dagIndex = enDato.getDay();
+      let time = enDato.getHours();
+      let minutter = enDato.getMinutes();
+      let måned = måneder[månedIndex];
+      let dag = dager[dagIndex];
+      let dagdato = enDato.getDate();
+
+
+      print += '<div class="col-lg-3 card p-4 my-3 text-center hover">' +
+            '<label><input type="radio" value="' + dato.avreisetid + '" name="datoAvreise"/>' + '<p>' +
+            dag + "<br> " + dagdato + "." + måned + '</p></label></div>'
+   }
+
+   $("#printAvreise").html(print);
+}
+
+
+const testCards = (times) => {
+   let print = "";
    let testCards = `
             <div class="col-lg-4 col-md-6 mb-2 ">
                <div class="card card-hover">
@@ -18,22 +85,28 @@ const testCards = () => {
                </div>
             </div>
    `;
-
-   return testCards;
-}
-
-const validateDate = () => {
-   let date = $("#dateSelected").val();
-
-   $("#header-title").html(testCards());
-   console.log("true")
-}
-
-const date = () => {
-   let date = $("#dateSelected").val();
-   let text = "";
-   if (date === "") {
-      text = "inden dato valgtAvreisetid";
-      console.log("not ok");
+   for (i = 0; i < times; i++) {
+      print += testCards;
    }
+   return print;
 }
+
+const getEntries = () => {
+   let changeTitle = `
+<h2 class="text-uppercase" style="font-weight: bold; color: #ff6600">Funnet reiser!</h2>
+<h4 id="subtitle" class="pb-4">Velg en av disse destinasjonene</h4>   `;
+
+   let ok = validerKalender();
+   /*
+      if (!ok) {
+         console.log("false");
+         return testCards();
+      } else {
+         location.hash = "#ticketFirst";
+         $("#ticketOffice").append(testCards());
+      }
+     */
+   location.hash = "#ticketFirst";
+   $("#title").html(changeTitle);
+   $("#ticketOffice").append(testCards(10));
+};

@@ -16,6 +16,7 @@
    <script src="js/bestilling.js"></script>
    <script src="js/index.js"></script>
    <link rel="stylesheet" href="css/styles.css">
+   <script src="js/valider.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark justify-content-center">
@@ -58,7 +59,8 @@
             <forms>
                <div class="row">
                   <div class="col-6">
-                     <input id="dateSelected" type="date" class="form-control text-center" value="dato" placeholder="Date" aria-label="">
+                     <input id="kalender" type="date" class="form-control text-center" value="" placeholder="Date"
+                            aria-label="">
                   </div>
                   <div class="col-4">
                      <input type="checkbox" checked data-toggle="toggle" data-on="Én vei" data-off="Tur - retur"
@@ -67,7 +69,7 @@
                </div>
             </forms>
             <div class="pt-4 ">
-               <button class="btn btn-cta" type="button" onclick="date();">Trykk for å finne reise!</button>
+               <button class="btn btn-cta" type="button" onclick="getEntries()">Trykk for å finne reise!</button>
             </div>
          </div>
          <div class="col-md-4 d-none d-md-block overflow-shown">
@@ -75,20 +77,21 @@
             <a href="https://www.freepik.com/vectors/abstract" hidden>Abstract vector created by macrovector -
                www.freepik.com</a>
          </div>
-         </div>
       </div>
    </div>
+</div>
 </div>
 <div id="ticketFirst" class="py-5 h-sm-100 d-flex align-items-center">
    <div id="bookBilletter" class="container ">
       <div class="p-5">
-         <div id="header-title" class="row pb-2 pt-4 text-center">
-            <div  >
-               <h2 id="title" class="text-uppercase" style="font-weight: bold; color: #ff6600">Ingen reiser er valgt
+         <div class="row pb-2 pt-4 text-center">
+            <div id="title">
+               <h2 class="text-uppercase" style="font-weight: bold; color: #ff6600">Ingen reiser er valgt
                   enda</h2>
-               <h4 id="suntitle" class="pb-4">Du vil få reisevalg baser på dato valgt over.</h4>
+               <h4 id="subtitle" class="pb-4">Du vil få reisevalg baser på dato valgt over.</h4>
                <a class="btn btn-cta" href="#landing">Den er grei !</a>
             </div>
+            <div class="row" id="ticketOffice"></div>
          </div>
       </div>
    </div>

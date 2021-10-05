@@ -87,7 +87,14 @@ const validerLuggarPersonRatio = () => {
     } else {
         return false;
     }
-
-
 }
 
+
+const validerKalender = () => {
+    let kalender = $("#kalender").val();
+    if (kalender === "") {
+        return false;
+    }
+    return true;
+
+}
