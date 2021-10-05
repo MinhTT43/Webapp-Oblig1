@@ -1,26 +1,35 @@
-﻿$(() => {
-    console.log("bestilline.js ready")
-    hentData();
-    setTimeout(totalpris, 500); // Beregn pris på onload
+﻿// Variabler
 
+var prisBarn = 0;
+var prisVoksen = 0;
+var prisStandardLuggar = 0;
+var prisPremiumLuggar = 0;
+var erDagsreise = false;
+var reiseruteNr;
+
+$(() => {
+    console.log("bestilline.js ready")
+
+    // Hent informasjon om reiseruten
+    hentData();
+
+    // Beregn prisen 0.5 sekunder etter page-load
+    setTimeout(totalpris, 500);
 })
 
-// Variabler
-var barn_billett = 0;
-var voksen_billett = 0;
-var standard = 0;
-var premium = 0;
-var dagsreise = false;
-
-
+// Post-kall for å lagre billetten i db
 function lagreData() {
 
-    var today = new Date(); // Henter dagens dato
-    validerEpost(); // Valider epost
-    validerTelefonnr(); // Valider telefonnr
-    validerFornavn();  // Valider fornavn
-    validerEtternavn(); // Valider etternavn
+    // Henter dagens dato
+    var today = new Date();
 
+    // Validerer input
+    validerEpost();
+    validerTelefonnr();
+    validerFornavn();
+    validerEtternavn();
+
+    // Oppretter billett objekt
     const bestilling = {
         fornavn: $("#fornavn").val(),
         etternavn: $("#etternavn").val(),
@@ -37,130 +46,52 @@ function lagreData() {
         antallPremLugar: $("#antallPremLugar").val(),
         datoBestilt: today.toISOString(),
 
-
         totalPris: $("#pris").val(),
     }
 
-    console.log(bestilling)
-
+    // Post-kall 
     $.post("billett/lagre", bestilling, function (id) {
-        console.log("Bestilling funket")
-        window.location.href = "kvittering.html?id=" + id;
-    });
+        window.location.href = "kvittering.html?id=" + id + "&ruteNr=" + reiseruteNr;
+    })
+        .fail(function () {
+            $("#errorFailHTML").html("Feil oppstod vennligst prøv igjen!")
+        });
 
 
 }
 
-// Hent data for rute
-// Print html utifra dagstur true/false
+// Hente informasjon om reiseruten
 function hentData() {
+
     const id = window.location.search.substring(1);
     const url = "reise/reiserute?" + id;
+
     $.get(url, function (ruter) {
-        $("#fra").val(ruter.avreisested)
-        $("#til").val(ruter.destinasjon)
+
+        reiseruteNr = ruter.ruteNr
 
         $("#fraText").html(`<h1>${ruter.avreisested}-</h1>`)
         $("#tilText").html(`<h1>${ruter.destinasjon}</h1>`)
 
-        barn_billett = ruter.prisBarn;
-        voksen_billett = ruter.prisVoksen;
-        $("#barnbillett").html(barn_billett)
-        $("#voksenbillettt").html(voksen_billett)
+        prisBarn = ruter.prisBarn;
+        prisVoksen = ruter.prisVoksen;
+
+        $("#barnbillett").html(prisBarn)
+        $("#voksenbillettt").html(prisVoksen)
 
         if (ruter.dagstur == false) {
-            standard = ruter.standardLugar;
-            premium = ruter.premiumLugar;
 
-            var print1 = '<div class="row">' +
-                '<input readonly class="no-border col-2 text-center" type="number" value="1" min="0"' +
-                'id="standLugarTeller" />' +
-                '<p class="col-10  m-0">Standard Lugar(er)</p>' +
-                '</div>' +
-                '<div class="row">' +
-                '<input readonly class="no-border col-2 text-center" type="number" value="0"' +
-                'id="premLugarTeller" />' +
-                '<p class="col-10  m-0">Premium Lugar(er)</p>' +
-                '</div>';
+            prisStandardLuggar = ruter.standardLugar;
+            prisPremiumLuggar = ruter.premiumLugar;
 
-            $("#luggarTrue").html(print1);
+            $("#luggarOversiktHTML").html(luggarOversiktHTML);
+            $("#luggarInfoHTML").html(luggarInfoHTML);
 
-            var print2 = '<div id="lugarInformasjon" class="card mb-2 p-4">' +
-                '<div class="card-body">' +
-                '<h2 class="card-title ">Bestill lugar</h2>' +
-                '<hr>' +
-                '<div class="row mb-3">' +
-                '<div class="col p-3">' +
-                '<h4>Standard lugar</h4>' +
-                '<p>' +
-                'Commodorelugarene inkluderer en dobbeltseng med myke sengeklær, håndklær, bad med dusj og' +
-                'toalett, hårføner, tilgang til wifi, flatskjerm-TV og herlig havutsikt.' +
-                '</p>' +
-                '<form class="needs-validation" novalidate="">' +
-                '<div class="input-group">' +
-                '<button type="button" onclick="fjernStandLugar()" class="btn btn-dark">' +
-                '<i class="bi bi-dash"></i>' +
-                '</button>' +
-                '<input readonly id="antallStandLugar" type="number" min="1" value="1" class="form-control text-center"' +
-                'placeholder="0" size="4">' +
-                '<button type="button" onclick="leggTilStandLugar()" class="btn btn-dark">' +
-                '<i class="bi bi-plus"></i>' +
-                '</button>' +
-                '</div>' +
-                '<p class="card-text mt-3">' +
-                '<small class="text-muted">' +
-                'kr.  <span id="standardLuggarPris"></span>,- per lugar / 4 personer' +
-                '</small>' +
-                '</p>' +
-                '</form>' +
-                '</div>' +
-                '<div class="col p-3 d-md-none d-sm-none d-lg-block">' +
-                '<img style="object-fit: cover; height: 250px; width: 100%" class="img-fluid "' +
-                'src="https://images.unsplash.com/photo-1600488999129-e49662f4020c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80"' +
-                'alt="Responsive image">' +
-                '</div>' +
-                '</div>' +
-
-                ' <div class="row  mb-4">' +
-                '<div class="col p-3">' +
-                '<h4>Premium lugar</h4>' +
-                '<p>' +
-                'Commodorelugarene inkluderer en dobbeltseng med myke sengeklær, håndklær, bad med dusj og' +
-                'toalett, hårføner, tilgang til wifi, flatskjerm-TV og herlig havutsikt.' +
-                '</p>' +
-                ' <form class="needs-validation" novalidate="">' +
-                '<div class="input-group">' +
-                '<button type="button" onclick="fjernPremLugar()" class="btn btn-dark">' +
-                '<i class="bi bi-dash"></i>' +
-                '</button>' +
-                '<input readonly id="antallPremLugar" type="number" min="0" class="form-control text-center"' +
-                'value="0" size="4">' +
-                '<button type="button" onclick="leggTilPremLugar()" class="btn btn-dark">' +
-                '<i class="bi bi-plus"></i>' +
-                '</button>' +
-                '</div>' +
-                '   <p class="card-text mt-3">' +
-                '<small class="text-muted">' +
-                'kr.  <span id="premiumLuggarPris"></span>,- per lugar / 4 personer' +
-                '</small>' +
-                '</p>' +
-                '</form>' +
-                '</div>' +
-                ' <div class="col p-3 d-md-none d-sm-none d-lg-block">' +
-                '<img style="object-fit: cover; height: 250px; width: 100%" class="img-fluid "' +
-                'src="https://images.unsplash.com/photo-1587874522487-fe10e954d035?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"' +
-                'alt="Responsive image">' +
-                '</div>' +
-                '   </div>' +
-                '</div>' +
-                '</div>';
-            $("#luggarinfo").html(print2);
-
-            $("#standardLuggarPris").html(standard);
-            $("#premiumLuggarPris").html(premium);
+            $("#standardLuggarPris").html(prisStandardLuggar);
+            $("#premiumLuggarPris").html(prisPremiumLuggar);
 
         } else if (ruter.dagsreise == true) {
-            dagsreise = true;
+            erDagsreise = true;
         }
     })
 }
@@ -251,21 +182,103 @@ function leggTilStandLugar() {
 function totalpris() {
 
     let antallBarn = $("#barnTeller").val();
-    let barnPris = antallBarn * barn_billett;
+    let barnPris = antallBarn * prisBarn;
 
     let antallVoksen = $("#voksenTeller").val();
-    let voksenPris = antallVoksen * voksen_billett;
+    let voksenPris = antallVoksen * prisVoksen;
 
     let antallStandLugar = $("#standLugarTeller").val();
-    let standLugar = antallStandLugar * standard;
+    let standLugar = antallStandLugar * prisStandardLuggar;
 
 
     let antallPremLugar = $("#premLugarTeller").val();
-    let premLugar = antallPremLugar * premium;
+    let premLugar = antallPremLugar * prisPremiumLuggar;
 
     let totalPris = barnPris + voksenPris + premLugar + standLugar;
 
-    $("#pris").val(totalPris);
+
     $("#pris").html(totalPris);
 }
 
+// HTML-kode som printes ut på html-doc
+
+var luggarOversiktHTML = '<div class="row">' +
+    '<input readonly class="no-border col-2 text-center" type="number" value="1" min="0"' +
+    'id="standLugarTeller" />' +
+    '<p class="col-10  m-0">Standard Lugar(er)</p>' +
+    '</div>' +
+    '<div class="row">' +
+    '<input readonly class="no-border col-2 text-center" type="number" value="0"' +
+    'id="premLugarTeller" />' +
+    '<p class="col-10  m-0">Premium Lugar(er)</p>' +
+    '</div>';
+
+var luggarInfoHTML = '<div id="lugarInformasjon" class="card mb-2 p-4">' +
+    '<div class="card-body">' +
+    '<h2 class="card-title ">Bestill lugar</h2>' +
+    '<hr>' +
+    '<div class="row mb-3">' +
+    '<div class="col p-3">' +
+    '<h4>Standard lugar</h4>' +
+    '<p>' +
+    'Commodorelugarene inkluderer en dobbeltseng med myke sengeklær, håndklær, bad med dusj og' +
+    'toalett, hårføner, tilgang til wifi, flatskjerm-TV og herlig havutsikt.' +
+    '</p>' +
+    '<form class="needs-validation" novalidate="">' +
+    '<div class="input-group">' +
+    '<button type="button" onclick="fjernStandLugar()" class="btn btn-dark">' +
+    '<i class="bi bi-dash"></i>' +
+    '</button>' +
+    '<input readonly id="antallStandLugar" type="number" min="1" value="1" class="form-control text-center"' +
+    'placeholder="0" size="4">' +
+    '<button type="button" onclick="leggTilStandLugar()" class="btn btn-dark">' +
+    '<i class="bi bi-plus"></i>' +
+    '</button>' +
+    '</div>' +
+    '<p class="card-text mt-3">' +
+    '<small class="text-muted">' +
+    'kr.  <span id="standardLuggarPris"></span>,- per lugar / 4 personer' +
+    '</small>' +
+    '</p>' +
+    '</form>' +
+    '</div>' +
+    '<div class="col p-3 d-md-none d-sm-none d-lg-block">' +
+    '<img style="object-fit: cover; height: 250px; width: 100%" class="img-fluid "' +
+    'src="https://images.unsplash.com/photo-1600488999129-e49662f4020c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80"' +
+    'alt="Responsive image">' +
+    '</div>' +
+    '</div>' +
+
+    ' <div class="row  mb-4">' +
+    '<div class="col p-3">' +
+    '<h4>Premium lugar</h4>' +
+    '<p>' +
+    'Commodorelugarene inkluderer en dobbeltseng med myke sengeklær, håndklær, bad med dusj og' +
+    'toalett, hårføner, tilgang til wifi, flatskjerm-TV og herlig havutsikt.' +
+    '</p>' +
+    ' <form class="needs-validation" novalidate="">' +
+    '<div class="input-group">' +
+    '<button type="button" onclick="fjernPremLugar()" class="btn btn-dark">' +
+    '<i class="bi bi-dash"></i>' +
+    '</button>' +
+    '<input readonly id="antallPremLugar" type="number" min="0" class="form-control text-center"' +
+    'value="0" size="4">' +
+    '<button type="button" onclick="leggTilPremLugar()" class="btn btn-dark">' +
+    '<i class="bi bi-plus"></i>' +
+    '</button>' +
+    '</div>' +
+    '   <p class="card-text mt-3">' +
+    '<small class="text-muted">' +
+    'kr.  <span id="premiumLuggarPris"></span>,- per lugar / 4 personer' +
+    '</small>' +
+    '</p>' +
+    '</form>' +
+    '</div>' +
+    ' <div class="col p-3 d-md-none d-sm-none d-lg-block">' +
+    '<img style="object-fit: cover; height: 250px; width: 100%" class="img-fluid "' +
+    'src="https://images.unsplash.com/photo-1587874522487-fe10e954d035?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"' +
+    'alt="Responsive image">' +
+    '</div>' +
+    '   </div>' +
+    '</div>' +
+    '</div>';

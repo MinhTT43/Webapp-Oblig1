@@ -63,8 +63,6 @@ namespace DeezSalings.DAL
 
             try
             {
-
-
                 // Finn avreise-id
                 Avreise valgtAvreise = await _db.Avreiser.FirstOrDefaultAsync(
                     a => a.rute.avreisested == b.avreisested &&
