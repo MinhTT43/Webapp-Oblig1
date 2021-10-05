@@ -23,7 +23,9 @@ namespace DeezSalings.DAL
                     prisBarn = 250,
                     prisVoksen = 350,
                     standardLugar = 175,
-                    premiumLugar = 350
+                    premiumLugar = 350,
+                    dagstur = false
+
                 };
 
                 var kielOslo = new Reiserute
@@ -33,28 +35,31 @@ namespace DeezSalings.DAL
                     prisBarn = 250,
                     prisVoksen = 350,
                     standardLugar = 175,
-                    premiumLugar = 350
+                    premiumLugar = 350,
+                    dagstur = false
                 };
 
                 var norgeDanmark = new Reiserute
                 {
-                    avreisested = "Norge",
-                    destinasjon = "Danmark",
+                    avreisested = "Larvik",
+                    destinasjon = "Hirtshals",
                     prisBarn = 150,
                     prisVoksen = 250,
                     standardLugar = 125,
-                    premiumLugar = 250
+                    premiumLugar = 250,
+                    dagstur = false
 
                 };
 
                 var danmarkNorge = new Reiserute
                 {
-                    avreisested = "Danmark",
-                    destinasjon = "Norge",
+                    avreisested = "Hirtshals",
+                    destinasjon = "Larvik",
                     prisBarn = 150,
                     prisVoksen = 250,
                     standardLugar = 125,
-                    premiumLugar = 250
+                    premiumLugar = 250,
+                    dagstur = true,
                 };
 
                 var sandefjordStrømstad = new Reiserute
@@ -64,7 +69,8 @@ namespace DeezSalings.DAL
                     prisBarn = 125,
                     prisVoksen = 200,
                     standardLugar = 100,
-                    premiumLugar = 200
+                    premiumLugar = 200,
+                    dagstur = true,
                 };
 
                 var strømstadSandefjord = new Reiserute
@@ -74,7 +80,8 @@ namespace DeezSalings.DAL
                     prisBarn = 125,
                     prisVoksen = 200,
                     standardLugar = 100,
-                    premiumLugar = 200
+                    premiumLugar = 200,
+                    dagstur = false
                 };
 
                 context.Reiseruter.Add(osloKiel);

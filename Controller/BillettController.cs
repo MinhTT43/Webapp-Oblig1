@@ -46,6 +46,10 @@ namespace DeezSalings.Controller
             return BadRequest("Feil i inputvalidering");
         }
 
+        public async Task<Avreise> avreisetest(Billett b)
+        {
+            return await _db.avreisetest(b);
+        }
 
     }
 }
