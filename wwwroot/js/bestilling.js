@@ -1,8 +1,7 @@
 ﻿$(() => {
     console.log("bestilline.js ready")
     hentData();
-    setTimeout(totalpris, 500);
-    console.log(dagsreise)
+    setTimeout(totalpris, 500); // Beregn pris på onload
 
 })
 
@@ -14,26 +13,14 @@ var premium = 0;
 var dagsreise = false;
 
 
-
-
-// Lagre data for rute
-
 function lagreData() {
 
-}
+    var today = new Date(); // Henter dagens dato
+    validerEpost(); // Valider epost
+    validerTelefonnr(); // Valider telefonnr
+    validerFornavn();  // Valider fornavn
+    validerEtternavn(); // Valider etternavn
 
-function functionLagreData() {
-
-    var today = new Date();
-    validerEpost();
-    validerTelefonnr();
-    validerFornavn();
-    validerEtternavn();
-    validerPersoner();
-    validerLuggarPersonRatio
-
-
-    console.log("Sucess")
     const bestilling = {
         fornavn: $("#fornavn").val(),
         etternavn: $("#etternavn").val(),
@@ -56,9 +43,10 @@ function functionLagreData() {
 
     console.log(bestilling)
 
-    //$.post("billett/lagre", bestilling, function (OK) {
-    //  window.location.href = "kvittering.html";
-    //});
+    $.post("billett/lagre", bestilling, function (id) {
+        console.log("Bestilling funket")
+        window.location.href = "kvittering.html?id=" + id;
+    });
 
 
 }

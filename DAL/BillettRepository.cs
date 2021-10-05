@@ -58,7 +58,7 @@ namespace DeezSalings.DAL
             }
         }
 
-        public async Task<bool> Lagre(Billett b)
+        public async Task<int> Lagre(Billett b)
         {
 
             try
@@ -103,21 +103,42 @@ namespace DeezSalings.DAL
                 await _db.Bestillinger.AddAsync(nyBestilling);
                 _db.SaveChanges();
 
-                return true;
+                return nyBestilling.billettNr;
             }
             catch
             {
-                return false;
+                return -1;
             }
         }
 
-        public async Task<Avreise> avreisetest(Billett b)
+        public async Task<Billett> Billett(int id)
         {
-            Avreise valgtAvreise = await _db.Avreiser.FirstOrDefaultAsync(
-                         a => a.rute.avreisested == b.avreisested &&
-                         a.avreisetid == b.avreisetid);
+            try
+            {
+                Bestilling enBestilling = await _db.Bestillinger.FirstOrDefaultAsync(b => b.billettNr == id);
 
-            return valgtAvreise;
+                Billett enBillett = new Billett
+                {
+                    fornavn = enBestilling.kunde.fornavn,
+                    etternavn = enBestilling.kunde.etternavn,
+                    epost = enBestilling.kunde.epost,
+                    telefon = enBestilling.kunde.telefon,
+                    antallBarn = enBestilling.antallBarn,
+                    antallVoksen = enBestilling.antallVoksen,
+                    antallStandLugar = enBestilling.antallStandLugar,
+                    antallPremLugar = enBestilling.antallPremLugar,
+                    datoBestilt = enBestilling.datoBestilt,
+                    totalPris = enBestilling.totalPris,
+                    avreisested = enBestilling.avreise.rute.avreisested,
+                    destinasjon = enBestilling.avreise.rute.destinasjon,
+                };
+
+                return enBillett;
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }

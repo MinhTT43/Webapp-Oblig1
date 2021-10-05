@@ -8,7 +8,7 @@ namespace DeezSalings.DAL
     public interface IBillettRepository
     {
         Task<List<Billett>> Billetter();
-        Task<bool> Lagre(Billett billett);
-        Task<Avreise> avreisetest(Billett b);
+        Task<int> Lagre(Billett billett);
+        Task<Billett> Billett(int id);
     }
 }
