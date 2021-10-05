@@ -92,7 +92,6 @@ namespace DeezSalings.DAL
             for (int i = 2; i > 0; i--)
             {
                 var nyTid = tid.AddDays(-i);
-                Console.Write("i : " + nyTid + " ");
                 funnetAvreiser.Add(await _db.Avreiser.FirstOrDefaultAsync(a => a.avreisetid.Month == nyTid.Month && a.avreisetid.Date == nyTid.Date && a.avreisetid.Year == nyTid.Year && a.rute.ruteNr == id));
             }
 
@@ -102,7 +101,6 @@ namespace DeezSalings.DAL
             for (int i = 1; i < 4; i++)
             {
                 var nyTid = tid.AddDays(+i);
-                Console.Write("i : " + nyTid);
                 if (nyTid.Day == 31)
                 {
                     nyTid.AddDays(-30);

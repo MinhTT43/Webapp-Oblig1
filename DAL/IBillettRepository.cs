@@ -9,5 +9,6 @@ namespace DeezSalings.DAL
     {
         Task<List<Billett>> Billetter();
         Task<bool> Lagre(Billett billett);
+        Task<Avreise> avreisetest(Billett b);
     }
 }

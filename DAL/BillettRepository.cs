@@ -63,6 +63,8 @@ namespace DeezSalings.DAL
 
             try
             {
+
+
                 // Finn avreise-id
                 Avreise valgtAvreise = await _db.Avreiser.FirstOrDefaultAsync(
                     a => a.rute.avreisested == b.avreisested &&
@@ -96,7 +98,6 @@ namespace DeezSalings.DAL
                     totalPris = b.totalPris,
                     avreise = valgtAvreise,
                     kunde = valgtKunde,
-
                 };
 
                 await _db.Bestillinger.AddAsync(nyBestilling);
@@ -108,6 +109,15 @@ namespace DeezSalings.DAL
             {
                 return false;
             }
+        }
+
+        public async Task<Avreise> avreisetest(Billett b)
+        {
+            Avreise valgtAvreise = await _db.Avreiser.FirstOrDefaultAsync(
+                         a => a.rute.avreisested == b.avreisested &&
+                         a.avreisetid == b.avreisetid);
+
+            return valgtAvreise;
         }
     }
 }

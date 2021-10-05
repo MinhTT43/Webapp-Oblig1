@@ -52,6 +52,7 @@ namespace DeezSalings.DAL
         public int standardLugar { get; set; }
         public int premiumLugar { get; set; }
 
+        public bool dagstur { get; set; }
     }
 
 
