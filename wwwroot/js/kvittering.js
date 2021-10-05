@@ -13,7 +13,6 @@ const hentBillett = () => {
     const params = new URLSearchParams(innUrl.search)
 
 
-
     const url = "billett/billett?id=" + params.get('id'); // url med id
 
     $.get(url, (data) => { // hent billett fra databasen
@@ -22,8 +21,11 @@ const hentBillett = () => {
         .fail(function () {
 
             print = `        <div class="text-center vh-75">
-            <h1 class="text-danger">En feil oppstod. Vennligst kontakt kundeservice</h1>
-        </div>`
+            <h2 class="text-danger">
+            <i class="bi bi-emoji-dizzy"></i> Oops!<br> 
+            Det har oppstått en feil. <br>
+            Vennligst kontakt kundeservice</h2>
+            </div>`
 
             $("#kvitteringPrint").html(print);
         })

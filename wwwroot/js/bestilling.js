@@ -70,8 +70,8 @@ function hentData() {
 
         reiseruteNr = ruter.ruteNr
 
-        $("#fraText").html(`<h1>${ruter.avreisested}-</h1>`)
-        $("#tilText").html(`<h1>${ruter.destinasjon}</h1>`)
+        $("#fraText").html(`${ruter.avreisested}`)
+        $("#tilText").html(`${ruter.destinasjon}`)
 
         prisBarn = ruter.prisBarn;
         prisVoksen = ruter.prisVoksen;
@@ -95,7 +95,6 @@ function hentData() {
         }
     })
 }
-
 
 
 // Øker antall barn
@@ -213,16 +212,16 @@ var luggarOversiktHTML = '<div class="row">' +
     '<p class="col-10  m-0">Premium Lugar(er)</p>' +
     '</div>';
 
-var luggarInfoHTML = '<div id="lugarInformasjon" class="card mb-2 p-4">' +
+var luggarInfoHTML = '<div id="lugarInformasjon" class="card mb-4 p-4">' +
     '<div class="card-body">' +
-    '<h2 class="card-title ">Bestill lugar</h2>' +
+    '<h2 class="card-title fw-bold"><i class="bi bi-columns"></i> Bestill lugar</h2>' +
     '<hr>' +
     '<div class="row mb-3">' +
     '<div class="col p-3">' +
-    '<h4>Standard lugar</h4>' +
+    '<h4 class="fw-bold">Standard lugar</h4>' +
     '<p>' +
-    'Commodorelugarene inkluderer en dobbeltseng med myke sengeklær, håndklær, bad med dusj og' +
-    'toalett, hårføner, tilgang til wifi, flatskjerm-TV og herlig havutsikt.' +
+    'Commodorelugarene inkluderer en dobbeltseng med harde sengeklær, håndklær, bad uten dusj og ' +
+    'toalett.' +
     '</p>' +
     '<form class="needs-validation" novalidate="">' +
     '<div class="input-group">' +
@@ -243,7 +242,7 @@ var luggarInfoHTML = '<div id="lugarInformasjon" class="card mb-2 p-4">' +
     '</form>' +
     '</div>' +
     '<div class="col p-3 d-md-none d-sm-none d-lg-block">' +
-    '<img style="object-fit: cover; height: 250px; width: 100%" class="img-fluid "' +
+    '<img style="object-fit: cover; height: 220px; width: 100%" class="img-fluid "' +
     'src="https://images.unsplash.com/photo-1600488999129-e49662f4020c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80"' +
     'alt="Responsive image">' +
     '</div>' +
@@ -251,10 +250,10 @@ var luggarInfoHTML = '<div id="lugarInformasjon" class="card mb-2 p-4">' +
 
     ' <div class="row  mb-4">' +
     '<div class="col p-3">' +
-    '<h4>Premium lugar</h4>' +
+    '<h4 class="fw-bold">Premium lugar</h4>' +
     '<p>' +
-    'Commodorelugarene inkluderer en dobbeltseng med myke sengeklær, håndklær, bad med dusj og' +
-    'toalett, hårføner, tilgang til wifi, flatskjerm-TV og herlig havutsikt.' +
+    'Commodorelugarene inkluderer en dobbeltseng med myke sengeklær, håndklær, bad med dusj og ' +
+    'toalett.' +
     '</p>' +
     ' <form class="needs-validation" novalidate="">' +
     '<div class="input-group">' +
@@ -275,10 +274,18 @@ var luggarInfoHTML = '<div id="lugarInformasjon" class="card mb-2 p-4">' +
     '</form>' +
     '</div>' +
     ' <div class="col p-3 d-md-none d-sm-none d-lg-block">' +
-    '<img style="object-fit: cover; height: 250px; width: 100%" class="img-fluid "' +
+    '<img style="object-fit: cover; height: 220px; width: 100%" class="img-fluid "' +
     'src="https://images.unsplash.com/photo-1587874522487-fe10e954d035?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"' +
     'alt="Responsive image">' +
     '</div>' +
     '   </div>' +
     '</div>' +
     '</div>';
+
+var luggarDisabledHTML = `
+    <div id="luggarInfoHTML">
+    <div id="lugarInformasjon" class="card mb-4 p-4">
+    <div class="card-body">
+    <h2 class="card-title class="fw-bold">Bestill lugar</h2><hr> </div>
+    </div>
+    </div>`;

@@ -35,7 +35,7 @@ const validerTelefonnr = () => {
     let regex = /^[+]?[0-9]{2,4}?[-\s ]?[0-9]{6,8}$/;
     let ok = regex.test(telefon);
     if (!ok) {
-        $("#errorTelefon").html("Telefonnummer må bestå av 2-20 bokstaver");
+        $("#errorTelefon").html("Telefonnummer må bestå av 6-12 tall");
         return false;
     } else {
         $("#errorTelefon").html("");
