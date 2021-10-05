@@ -114,7 +114,27 @@ namespace DeezSalings.DAL
         // Hent informasjon knytte til reiserute
         public async Task<Reiserute> Reiserute(int id)
         {
-            return await _db.Reiseruter.FirstOrDefaultAsync(r => r.ruteNr == id);
+            try
+            {
+                Avreise enAvreise = await _db.Avreiser.FirstOrDefaultAsync(a => a.avreiseId == id);
+                return enAvreise.rute;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<Avreise> EnAvreise(int id)
+        {
+            try
+            {
+                return await _db.Avreiser.FirstOrDefaultAsync(a => a.avreiseId == id);
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 

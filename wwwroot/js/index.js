@@ -1,10 +1,20 @@
+// Variabler
+var idTracker;
+
 $(() => {
     console.log("index.js ready")
-    hentRuter();
+
 })
 
+// Gå videre
+function videre() {
 
-// Hent rute informasjon
+    let avreiseId = $('input[name="datochecked"]:checked').val();
+
+    window.location.href = "bestilling.html?id=" + avreiseId;
+}
+
+// Hent rute informasjon 
 const hentRuter = () => {
     validerKalender();
 
@@ -23,20 +33,17 @@ const hentRuter = () => {
     `;
 
     $("#title").html(changeTitleHTML);
-    $("#title").html(changeTitle);
 
 }
 
+// Formater reiseruter som printes i HTML
 const formaterRuter = (data) => {
     let deck = "";
 
     for (d of data) {
-        let card = `
+        deck += `
         <div class="col-lg-4 col-md-6 mb-2 ">
             <div class="card fade-in-card">
-                <img class="card-img-top card-img-cover  d-none d-sm-block" style="height: 150px;"
-                src="https://images.unsplash.com/photo-1543169108-32ac15a21e05?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1169&q=80"
-                alt="Card image cap card-img-cover">
                 <div class="card-body">
                 <h5 href="#" class="" style="color: black; font-weight: bold;">
                 <span id="avreiseSted">${d.avreisested}</span>
@@ -46,91 +53,74 @@ const formaterRuter = (data) => {
                 <div id="tripDates${d.id}"></div>
                 </div>
                 <div class="card-footer">
-                <button class="btn btn-cta btn-sm m-0" onclick="hentReiser(${d.id})">Se reiser</button>
+                <button class="btn btn-cta btn-sm m-0" onclick="hentReiserTider(${d.id})">Se reiser</button>
                 </div>
+                <div id="avreisetid${d.id}" class="row p-3"></div>
             </div>
         </div>
-        `;
-        deck += card;
+        `
     }
+
+    deck += `<div><button class="btn btn-cta btn-sm m-0" onclick="videre()">Videre</button></div>`
+
     window.location.hash = "#ticketFirst";
-    $("#ticketOffice").html(deck);
+    $("#title").html(deck);
 };
 
 // Hent reise informasjon
-const hentReiser = (id) => {
+const hentReiserTider = (id) => {
+    idTracker = id;
+
     var date = new Date($("#kalender").val());
     let dd = date.getDate();
     let mm = date.getMonth() + 1;
     let yyyy = date.getFullYear();
 
     url = `reise/valgtAvreisetid?id=${id}&day=${dd}&month=${mm}&year=${yyyy}`;
-    url = `reise/valgtAvreisetid?id=1&day=29&month=9&year=2021`;
+
 
     $.get(url, (data) => {
-        console.log(data)
+        formaterReiseDato(data)
     })
 
 };
 
-const formaterReiser = () => {
-
-};
-
-
-// Hent avreise informasjon
-
-function hentDato(id) {
-    var date = new Date($('#datoinput').val());
-    var day = date.getDate();
-    var month = date.getMonth() + 1;
-    var year = date.getFullYear();
-
-    let url = "reise/valgtAvreisetid?" + id + "&day=" + day + "&month=" + month + "&year=" + year;
-    $.get(url, function (data) {
-        console.log(data)
-        formaterAvreiseDato(data);
-    })
-}
-
-function formaterAvreiseDato(data) {
-    let print
-    `
-    <div className="btn-group" role="group" aria-label="Basic radio toggle button group">
-    <input type="radio" className="btn-check" name="btnradio" id="btnradio1" autoComplete="off" checked>
-    <label className="btn btn-outline-primary" htmlFor="btnradio1">Radio 1</label>
-    <input type="radio" className="btn-check" name="btnradio" id="btnradio2" autoComplete="off">
-    <label className="btn btn-outline-primary" htmlFor="btnradio2">Radio 2</label>
-    <input type="radio" className="btn-check" name="btnradio" id="btnradio3" autoComplete="off">
-    <label className="btn btn-outline-primary" htmlFor="btnradio3">Radio 3</label>
-    </div>
-    `;
+function formaterReiseDato(datoListe) {
 
     const måneder = ['Januar', 'Februar', 'Mars', 'April', 'Mai', 'Juni'
-        , 'Juli', 'August', 'September', 'Oktober', 'November', 'Desember']
-    const dager = ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag']
+        , 'Juli', 'August', 'September', 'Oktober', 'November', 'Desember'];
 
-    for (var dato of data) {
-        let enDato = new Date(dato.avreisetid);
-        let månedIndex = enDato.getMonth();
-        let dagIndex = enDato.getDay();
-        let time = enDato.getHours();
-        let minutter = enDato.getMinutes();
-        let måned = måneder[månedIndex];
-        let dag = dager[dagIndex];
-        let dagdato = enDato.getDate();
+    const dager = ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag'];
+
+    console.log(datoListe)
+
+    let printDato = `<div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">`
+        ;
+
+    for (var dato of datoListe) {
+
+        if (dato != null) {
+            let enDato = new Date(dato.avreisetid);
+            let månedIndex = enDato.getMonth();
+            let dagIndex = enDato.getDay();
+            let time = enDato.getHours();
+            let minutter = enDato.getMinutes();
+            let måned = måneder[månedIndex];
+            let dag = dager[dagIndex];
+            let dagdato = enDato.getDate();
 
 
-        print += '<div class="col-lg-3 card p-4 my-3 text-center hover">' +
-            '<label><input type="radio" value="' + dato.avreisetid + '" name="datoAvreise"/>' + '<p>' +
-            dag + "<br> " + dagdato + "." + måned + '</p></label></div>'
+            printDato += ` <input type="radio" class="btn-check" name="datochecked" id="btnradio${dato.avreiseId}" autocomplete="off" value="${dato.avreiseId}">
+        <label class="btn btn-outline-primary col-lg-12 " for="btnradio${dato.avreiseId}">${dag}(${dagdato}.${måned})</label>`
+        }
+
+        print += `</div>`
+
+        $(`#avreisetid${idTracker}`).html(printDato);
+
     }
 
-    $("#printAvreise").html(print);
-
-}
-
-const testDates = (id) => {
+    const testDates = (id) => {
         let dates = `
 <hr>
     <p>newDate</p>
@@ -139,9 +129,9 @@ const testDates = (id) => {
     `;
         $("#tripDates" + id).html(dates);
     }
-;
+        ;
 
-const showDate = () => {
+    const showDate = () => {
         //HTML for inputboks
         let visibleHTML = `
     <div class="col-4"></div>
@@ -160,4 +150,4 @@ const showDate = () => {
         }
 
     }
-;
+}
