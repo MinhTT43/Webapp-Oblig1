@@ -93,6 +93,7 @@ const formaterRuter = (data) => {
 
 // Hent reise informasjon for en-veis-reiser   
 const hentReiserTider = (id) => {
+    $(`#avreisetid${idTracker}`).html(`<button class="btn btn-cta m-0" onclick="hentReiserTider(${idTracker})">Se reiser</button>`)
     idTracker = id;
 
     var date = new Date($("#kalender").val());
