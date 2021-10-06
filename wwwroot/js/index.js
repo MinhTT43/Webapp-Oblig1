@@ -18,13 +18,19 @@ $(() => {
 // Gå videre til bestilling 
 const videreTilBestilling = () => {
     var valgtDato = new Date($('input[name="datochecked"]:checked').val())
-    console.log(valgtDato)
+    var mm = parseInt(valgtDato.getMonth()) + 1;
 
     if (isNaN(valgtDato)) {
         $("#errorNeste").html("Mangler valg av dato");
     } else {
         $("#errorNeste").html("");
-        window.location.href = "bestilling.html?id=" + idTracker;
+
+        url = `reise/AvreiseId?ruteNr=${idTracker}&dd=${valgtDato.getDate()}&mm=${mm}&yyyy=${valgtDato.getFullYear()}`;
+        console.log(url)
+        $.get(url, (AvreiseId) => {
+            window.location.href = "bestilling.html?id=" + AvreiseId;
+        });
+
     }
 }
 

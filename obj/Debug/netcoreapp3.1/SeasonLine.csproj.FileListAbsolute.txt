@@ -133,7 +133,6 @@ C:\Users\charl\Documents\GitHub\Webapp-Oblig1_1\package-lock.json\obj\Debug\netc
 C:\Users\charl\Documents\GitHub\Webapp-Oblig1_1\package-lock.json\obj\Debug\netcoreapp3.1\staticwebassets\SeasonLine.StaticWebAssets.xml
 C:\Users\charl\Documents\GitHub\Webapp-Oblig1_1\package-lock.json\obj\Debug\netcoreapp3.1\scopedcss\bundle\SeasonLine.styles.css
 C:\Users\charl\Documents\GitHub\Webapp-Oblig1_1\package-lock.json\obj\Debug\netcoreapp3.1\SeasonLine.RazorTargetAssemblyInfo.cache
-C:\Users\charl\Documents\GitHub\Webapp-Oblig1_1\package-lock.json\obj\Debug\netcoreapp3.1\SeasonLine.csproj.CopyComplete
 C:\Users\charl\Documents\GitHub\Webapp-Oblig1_1\package-lock.json\obj\Debug\netcoreapp3.1\SeasonLine.dll
 C:\Users\charl\Documents\GitHub\Webapp-Oblig1_1\package-lock.json\obj\Debug\netcoreapp3.1\SeasonLine.pdb
 C:\Users\charl\Documents\GitHub\Webapp-Oblig1_1\package-lock.json\obj\Debug\netcoreapp3.1\SeasonLine.genruntimeconfig.cache

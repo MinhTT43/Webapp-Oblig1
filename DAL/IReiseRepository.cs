@@ -11,5 +11,8 @@ namespace DeezSalings.DAL
         Task<Reiserute> Reiserute(int id);
         Task<List<Avreise>> Avreisetider(int id, int day, int month, int year);
         Task<Avreise> Avreise(int id);
+
+        Task<int> AvreiseId(int ruteNr, int dd, int mm, int yyyy);
+
     }
 }

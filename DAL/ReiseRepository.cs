@@ -130,6 +130,27 @@ namespace DeezSalings.DAL
                 return null;
             }
         }
+
+        public async Task<int> AvreiseId(int ruteNr, int dd, int mm, int yyyy)
+        {
+            try
+            {
+                DateTime tid = new DateTime(yyyy, mm, dd, 00, 00, 00);
+                Avreise enAvreise = await _db.Avreiser.FirstOrDefaultAsync(
+                   a => a.rute.ruteNr == ruteNr
+                   && a.avreisetid.Date == tid.Date
+                   && a.avreisetid.Month == tid.Month
+                   && a.avreisetid.Year == tid.Year);
+
+                return enAvreise.avreiseId;
+            }
+            catch
+            {
+                return -1;
+            }
+
+        }
+
     }
 
 }

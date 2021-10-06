@@ -83,5 +83,18 @@ namespace DeezSalings.Controller
             }
         }
 
+        public async Task<ActionResult> AvreiseId(int ruteNr, int dd, int mm, int yyyy) {
+            int avreiseId = await _db.AvreiseId(ruteNr, dd, mm, yyyy);
+
+            if (avreiseId == -1) {
+                _log.LogInformation("Ingen avreiseid funnet.");
+                return BadRequest("Ingen avreiseid funnet.");
+            }
+            else {
+                return Ok(avreiseId);
+                
+            }
+        
+        }
     }
 }
