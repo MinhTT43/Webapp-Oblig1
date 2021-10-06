@@ -119,7 +119,7 @@ const validerGyldigReise = () => {
         $("#errorDato").html("");
         return true;
     } else {
-        $("#errorDato").html("Bestill må være fra og med imorgen");
+        $("#errorDato").html("Reisen må være fra og med imorgen");
         return false;
     }
 

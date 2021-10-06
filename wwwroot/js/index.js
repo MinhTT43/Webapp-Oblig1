@@ -83,7 +83,7 @@ const formaterRuter = (data) => {
                 </h5>
                 <div id="tripDates${d.id}" hidden></div>
                 <div id="avreisetid${d.id}" class="row p-3">
-                <button class="btn btn-cta btn-sm m-0" onclick="hentReiserTider(${d.id})">Se reiser</button>
+                <button class="btn btn-cta m-0" onclick="hentReiserTider(${d.id})">Se reiser</button>
                 </div>
                 </div>
             </div>
