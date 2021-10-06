@@ -81,9 +81,10 @@ const validerLuggarPersonRatio = () => {
     var antallPlasser = (antallStand + antallPrem) * 4;
 
     if (parseInt(antallPlasser) < parseInt(personer)) {
-        $("#errorPersonLuggar").html("For mange personer, trenger flere luggarer")
+        $("#errorFailHTML").html("For mange personer, trenger flere luggarer")
         return true;
     } else {
+        $("#errorFailHTML").html("")
         return false;
     }
 }
@@ -124,12 +125,14 @@ const validerGyldigReise = () => {
 
     if (fra.getTime() > idag.getTime()) {
         $("#errorDato").html("");
+        return true;
 
     } else {
+        console.log("ValiderReise")
         $("#errorDato").html("Reisen må være fra og med imorgen");
         $("#billettTittel").html(errorMessage);
         $("#billettBoks").html("")
-        
+        return false;
 
     }
 

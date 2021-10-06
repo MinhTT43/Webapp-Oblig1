@@ -109,6 +109,7 @@ namespace DeezSalings.DAL
                 var dateTime14 = new DateTime(2021, 11, 09, 17, 30, 00);
                 var dateTime15 = new DateTime(2021, 11, 10, 17, 30, 00);
                 var dateTime16 = new DateTime(2021, 11, 11, 17, 30, 00);
+                var dateTime17 = new DateTime(2021, 10, 07, 12, 15, 00);
 
                 var avreise1 = new Avreise
                 {
@@ -277,6 +278,12 @@ namespace DeezSalings.DAL
                     rute = sandefjordStrømstad
                 };
 
+                var avreise29 = new Avreise
+                {
+                    avreisetid = dateTime17,
+                    rute = osloKiel,
+                };
+
                 context.Avreiser.Add(avreise1);
                 context.Avreiser.Add(avreise2);
                 context.Avreiser.Add(avreise3);
@@ -305,6 +312,7 @@ namespace DeezSalings.DAL
                 context.Avreiser.Add(avreise26);
                 context.Avreiser.Add(avreise27);
                 context.Avreiser.Add(avreise28);
+                context.Avreiser.Add(avreise29);
 
                 context.SaveChanges();
 

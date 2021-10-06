@@ -25,36 +25,42 @@ function lagreData() {
     validerTelefonnr();
     validerFornavn();
     validerEtternavn();
+    validerLuggarPersonRatio();
 
-    // Oppretter bestilling objekt    
-    const bestilling = {
-        fornavn: $("#fornavn").val(),
-        etternavn: $("#etternavn").val(),
-        telefon: $("#telefon").val(),
-        epost: $("#epost").val(),
+    if (validerEpost() == true && validerTelefonnr == true
+        && validerFornavn == true && validerEtternavn == true &&
+        validerLuggarPersonRatio == true) {
+        // Oppretter bestilling objekt    
+        const bestilling = {
+            fornavn: $("#fornavn").val(),
+            etternavn: $("#etternavn").val(),
+            telefon: $("#telefon").val(),
+            epost: $("#epost").val(),
 
-        avreiseSted: $("#fraHidden").val(),
-        destinasjon: $("#tilHidden").val(),
-        avreisetid: $("#dato").val(),
+            avreiseSted: $("#fraHidden").val(),
+            destinasjon: $("#tilHidden").val(),
+            avreisetid: $("#dato").val(),
 
-        antallBarn: $("#antallBarn").val(),
-        antallVoksen: $("#antallVoksen").val(),
-        antallStandLugar: $("#antallStandLugar").val(),
-        antallPremLugar: $("#antallPremLugar").val(),
-        datoBestilt: today.toISOString(),
+            antallBarn: $("#antallBarn").val(),
+            antallVoksen: $("#antallVoksen").val(),
+            antallStandLugar: $("#antallStandLugar").val(),
+            antallPremLugar: $("#antallPremLugar").val(),
+            datoBestilt: today.toISOString(),
 
-        totalPris: $("#prisHidden").val(),
+            totalPris: $("#prisHidden").val(),
+        }
+
+        console.log(bestilling)
+
+        $.post("billett/lagre", bestilling, function (id) {
+            window.location.href = "kvittering.html?id=" + id
+        })
+            .fail(function () {
+                $("#errorFailHTML").html("Feil oppstod vennligst prøv igjen!")
+            });
+    } else {
+        console.log("Noe gikk galt i bestillingen")
     }
-
-    console.log(bestilling)
-
-    $.post("billett/lagre", bestilling, function (id) {
-        window.location.href = "kvittering.html?id=" + id
-    })
-        .fail(function () {
-            $("#errorFailHTML").html("Feil oppstod vennligst prøv igjen!")
-        });
-
 
 }
 

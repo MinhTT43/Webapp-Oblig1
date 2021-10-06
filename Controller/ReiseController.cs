@@ -56,7 +56,8 @@ namespace DeezSalings.Controller
         {
 
             List<Avreise> avreiser = await _db.Avreisetider(id, day, month, year);
-            if (avreiser == null)
+            if (avreiser == null || (avreiser[0] == null &&
+                avreiser[0] == null && avreiser[0] == null))
             {
                 _log.LogInformation("Ingen avreiser funnet");
                 return BadRequest("Ingen avreiser funnet");

@@ -28,16 +28,13 @@ const videreTilBestilling = () => {
     }
 }
 
-// Videre for å velge returdato
-const velgReturDato = () => {
-
-}
 
 // Hent rute informasjon
 const hentRuter = () => {
 
     validerKalender();
-    if (validerKalender() == true) {
+    validerGyldigReise();
+    if (validerKalender() == true && validerGyldigReise() == true) {
         $.get("Reise/Reiseruter", (data) => {
             console.log(data)
             formaterRuter(data);
@@ -88,7 +85,7 @@ const formaterRuter = (data) => {
 
 };
 
-// Hent reise informasjon for en-veis-reiser 
+// Hent reise informasjon for en-veis-reiser   
 const hentReiserTider = (id) => {
     idTracker = id;
 
@@ -101,8 +98,8 @@ const hentReiserTider = (id) => {
     $.get(url, (data) => {
         formaterEnVeiReiseDato(data)
     })
-        .fail((data) => {
-            $("#errorNeste").html(data)
+        .fail(() => {
+            $(`#avreisetid${id}`).html("Ingen avreisedatoer funnet for : " + dd + "-" + mm + "-" + yyyy)
         })
 
 };
@@ -111,6 +108,8 @@ function formaterEnVeiReiseDato(datoListe) {
     let printDato = `<div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">`;
 
     for (var dato of datoListe) {
+
+        console.log(dato)
 
         // Sjekk om dato er null 
         if (dato != null) {
