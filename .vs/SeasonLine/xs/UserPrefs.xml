@@ -1,19 +1,13 @@
 ﻿<Properties StartupConfiguration="{3BA7347E-B461-4588-B5B1-874DA04AEDAD}|DeezSalings">
   <MonoDevelop.Ide.ItemProperties.SeasonLine PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="wwwroot/js/kvittering.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DAL/DBInit.cs">
     <Files>
-      <File FileName="wwwroot/index.html" Line="13" Column="1" />
-      <File FileName="wwwroot/js/bestilling.js" Line="123" Column="55" />
-      <File FileName="DAL/ReiseRepository.cs" />
-      <File FileName="DAL/IReiseRepository.cs" />
-      <File FileName="wwwroot/kvittering.html" Line="27" Column="55" />
-      <File FileName="wwwroot/js/kvittering.js" Line="4" Column="88" />
-      <File FileName="wwwroot/js/index.js" Line="4" Column="1" NotebookId="1" />
-      <File FileName="DAL/DB.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Controller/ReiseController.cs" NotebookId="1" />
-      <File FileName="Startup.cs" NotebookId="1" />
-      <File FileName="Properties/launchSettings.json" NotebookId="1" />
-      <File FileName="wwwroot/bestilling.html" Line="71" Column="36" NotebookId="1" />
+      <File FileName="wwwroot/index.html" Line="36" Column="18" />
+      <File FileName="wwwroot/kvittering.html" Line="1" Column="16" />
+      <File FileName="wwwroot/bestilling.html" Line="1" Column="1" />
+      <File FileName="wwwroot/js/bestilling.js" Line="234" Column="40" NotebookId="1" />
+      <File FileName="wwwroot/js/kvittering.js" Line="1" Column="32" NotebookId="1" />
+      <File FileName="DAL/DBInit.cs" Line="1" Column="1" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -21,14 +15,15 @@
           <Node name="SeasonLine" expanded="True">
             <Node name="SeasonLine" expanded="True">
               <Node name="Controller" expanded="True" />
-              <Node name="DAL" expanded="True" />
+              <Node name="DAL" expanded="True">
+                <Node name="DBInit.cs" selected="True" />
+              </Node>
+              <Node name="Logs" expanded="True" />
               <Node name="Model" expanded="True" />
               <Node name="Properties" expanded="True" />
               <Node name="wwwroot" expanded="True">
                 <Node name="css" expanded="True" />
-                <Node name="js" expanded="True">
-                  <Node name="kvittering.js" selected="True" />
-                </Node>
+                <Node name="js" expanded="True" />
               </Node>
             </Node>
           </Node>

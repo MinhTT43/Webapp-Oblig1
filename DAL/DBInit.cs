@@ -92,15 +92,23 @@ namespace DeezSalings.DAL
                 context.Reiseruter.Add(strømstadSandefjord);
 
 
-                // Avreisetid
-                var dateTime1 = new DateTime(2021, 9, 26, 17, 30, 00);
-                var dateTime2 = new DateTime(2021, 9, 27, 17, 30, 00);
-                var dateTime3 = new DateTime(2021, 9, 28, 17, 30, 00);
-                var dateTime4 = new DateTime(2021, 9, 29, 17, 30, 00);
-                var dateTime5 = new DateTime(2021, 9, 30, 17, 30, 00);
-                var dateTime6 = new DateTime(2021, 10, 01, 17, 30, 00);
-                var dateTime7 = new DateTime(2021, 10, 02, 17, 30, 00);
-                var dateTime8 = new DateTime(2021, 10, 03, 17, 30, 00);
+                // Avreisetid for Oslo-Kiel
+                var dateTime1 = new DateTime(2021, 10, 26, 17, 30, 00);
+                var dateTime2 = new DateTime(2021, 10, 27, 17, 30, 00);
+                var dateTime3 = new DateTime(2021, 10, 28, 17, 30, 00);
+                var dateTime4 = new DateTime(2021, 10, 29, 17, 30, 00);
+                var dateTime5 = new DateTime(2021, 10, 30, 17, 30, 00);
+                var dateTime6 = new DateTime(2021, 11, 01, 17, 30, 00);
+                var dateTime7 = new DateTime(2021, 11, 02, 17, 30, 00);
+                var dateTime8 = new DateTime(2021, 11, 03, 17, 30, 00);
+                var dateTime9 = new DateTime(2021, 11, 04, 17, 30, 00);
+                var dateTime10 = new DateTime(2021, 11, 05, 17, 30, 00);
+                var dateTime11 = new DateTime(2021, 11, 06, 17, 30, 00);
+                var dateTime12 = new DateTime(2021, 11, 07, 17, 30, 00);
+                var dateTime13 = new DateTime(2021, 11, 08, 17, 30, 00);
+                var dateTime14 = new DateTime(2021, 11, 09, 17, 30, 00);
+                var dateTime15 = new DateTime(2021, 11, 10, 17, 30, 00);
+                var dateTime16 = new DateTime(2021, 11, 11, 17, 30, 00);
 
                 var avreise1 = new Avreise
                 {
@@ -151,8 +159,122 @@ namespace DeezSalings.DAL
 
                 var avreise9 = new Avreise
                 {
+                    avreisetid = dateTime9,
+                    rute = osloKiel
+                };
+
+                var avreise10 = new Avreise
+                {
+                    avreisetid = dateTime10,
+                    rute = osloKiel
+                };
+
+                var avreise11 = new Avreise
+                {
+                    avreisetid = dateTime11,
+                    rute = osloKiel
+                };
+
+                var avreise12 = new Avreise
+                {
+                    avreisetid = dateTime12,
+                    rute = osloKiel
+                };
+
+                var avreise13 = new Avreise
+                {
+                    avreisetid = dateTime13,
+                    rute = osloKiel
+                };
+
+                var avreise14 = new Avreise
+                {
+                    avreisetid = dateTime14,
+                    rute = osloKiel
+                };
+
+                var avreise15 = new Avreise
+                {
+                    avreisetid = dateTime15,
+                    rute = osloKiel
+                };
+
+                var avreise16 = new Avreise
+                {
+                    avreisetid = dateTime16,
+                    rute = osloKiel
+                };
+
+                var avreise17 = new Avreise
+                {
+                    avreisetid = dateTime1,
+                    rute = sandefjordStrømstad
+                };
+
+                var avreise18 = new Avreise
+                {
+                    avreisetid = dateTime1,
+                    rute = sandefjordStrømstad
+                };
+
+                var avreise19 = new Avreise
+                {
+                    avreisetid = dateTime2,
+                    rute = sandefjordStrømstad
+                };
+
+                var avreise20 = new Avreise
+                {
+                    avreisetid = dateTime3,
+                    rute = sandefjordStrømstad
+                };
+
+                var avreise21 = new Avreise
+                {
+                    avreisetid = dateTime4,
+                    rute = sandefjordStrømstad
+                };
+
+                var avreise22 = new Avreise
+                {
+                    avreisetid = dateTime5,
+                    rute = sandefjordStrømstad
+                };
+
+                var avreise23 = new Avreise
+                {
+                    avreisetid = dateTime6,
+                    rute = sandefjordStrømstad
+                };
+
+                var avreise24 = new Avreise
+                {
+                    avreisetid = dateTime7,
+                    rute = sandefjordStrømstad
+                };
+
+                var avreise25 = new Avreise
+                {
                     avreisetid = dateTime8,
-                    rute = kielOslo
+                    rute = sandefjordStrømstad
+                };
+
+                var avreise26 = new Avreise
+                {
+                    avreisetid = dateTime9,
+                    rute = sandefjordStrømstad
+                };
+
+                var avreise27 = new Avreise
+                {
+                    avreisetid = dateTime10,
+                    rute = sandefjordStrømstad
+                };
+
+                var avreise28 = new Avreise
+                {
+                    avreisetid = dateTime11,
+                    rute = sandefjordStrømstad
                 };
 
                 context.Avreiser.Add(avreise1);
@@ -164,6 +286,25 @@ namespace DeezSalings.DAL
                 context.Avreiser.Add(avreise7);
                 context.Avreiser.Add(avreise8);
                 context.Avreiser.Add(avreise9);
+                context.Avreiser.Add(avreise10);
+                context.Avreiser.Add(avreise11);
+                context.Avreiser.Add(avreise12);
+                context.Avreiser.Add(avreise13);
+                context.Avreiser.Add(avreise14);
+                context.Avreiser.Add(avreise15);
+                context.Avreiser.Add(avreise16);
+                context.Avreiser.Add(avreise17);
+                context.Avreiser.Add(avreise18);
+                context.Avreiser.Add(avreise19);
+                context.Avreiser.Add(avreise20);
+                context.Avreiser.Add(avreise21);
+                context.Avreiser.Add(avreise22);
+                context.Avreiser.Add(avreise23);
+                context.Avreiser.Add(avreise24);
+                context.Avreiser.Add(avreise25);
+                context.Avreiser.Add(avreise26);
+                context.Avreiser.Add(avreise27);
+                context.Avreiser.Add(avreise28);
 
                 context.SaveChanges();
 

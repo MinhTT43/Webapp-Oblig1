@@ -13,8 +13,6 @@ const hentBillett = () => {
 
     var innUrl = new URL(window.location.href);
 
-    console.log(innUrl)
-
     const params = new URLSearchParams(innUrl.search)
 
 

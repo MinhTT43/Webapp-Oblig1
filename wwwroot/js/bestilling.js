@@ -161,7 +161,7 @@ function fjernVoksen() {
     }
 }
 
-// Reduserer antall voksne
+// Reduserer antall voksne  
 function leggTilVoksen() {
     let kvantitet = $("#antallVoksen").val();
     kvantitet++;
@@ -209,9 +209,8 @@ function leggTilStandLugar() {
     totalpris();
 }
 
-// Beregn pris
+// Beregn pris  
 function totalpris() {
-
     let antallBarn = $("#barnTeller").val();
     let barnPris = antallBarn * prisBarn;
 
@@ -233,9 +232,6 @@ function totalpris() {
 }
 
 // HTML-kode som printes ut på html-doc
-
-
-
 var luggarOversiktHTML = '<div class="row">' +
     '<input readonly class="no-border col-2 text-center" type="number" value="1" min="0"' +
     'id="standLugarTeller" />' +
