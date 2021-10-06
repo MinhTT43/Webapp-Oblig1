@@ -20,8 +20,15 @@ $(() => {
 
 // Gå videre til bestilling 
 const videreTilBestilling = () => {
-    let avreiseId = $('input[name="datochecked"]:checked').val();
-    window.location.href = "bestilling.html?id=" + avreiseId;
+    var valgtDato = new Date($('input[name="datochecked"]:checked').val())
+    console.log(valgtDato)
+
+    if (isNaN(valgtDato)) {
+        $("#errorNeste").html("Mangler valg av dato");
+    } else {
+        $("#errorNeste").html("");
+        window.location.href = "bestilling.html?id=" + idTracker;
+    }
 }
 
 // Videre for å velge returdato
@@ -39,7 +46,10 @@ const hentRuter = () => {
             $.get("Reise/Reiser", (data) => {
                 console.log(data)
                 formaterRuter(data);
-            });
+            })
+                .fail(() => {
+                    $("#errorDato").html("Ingen reiser funnet!")
+                })
         }
     }
     // Sjekk om det er to-veis-tur
@@ -57,20 +67,24 @@ const hentRuter = () => {
 // Formater reiseruter som printes i HTML 
 const formaterRuter = (data) => {
     let deck = "";
+    let printTittel = `
+    <h2 class="text-uppercase" style="font-weight: bold; color: #ff6600">Reiser funnet!</h2>
+    <h4 id="subtitle" class="pb-4">Du vil få reisevalg baser på dato valgt over.</h4>`;
 
     for (d of data) {
         deck += `
         <div class="col-lg-4 col-md-6 mb-2 ">
             <div class="card fade-in-card">
                 <div class="card-body">
-                <h5 href="#" class="" style="color: black; font-weight: bold;">
+                <h5 href="#" class="text-center" style="color: black; font-weight: bold;">
                 <span id="avreiseSted">${d.avreisested}</span>
                 <span> - </span>
                 <span id="avreiseDestinasjon">${d.destinasjon}</span>
                 </h5>
-                <div id="tripDates${d.id}"></div>
-                <div id="avreisetid${d.id}" class="row p-3"></div>
+                <div id="tripDates${d.id}" hidden></div>
+                <div id="avreisetid${d.id}" class="row p-3">
                 <button class="btn btn-cta btn-sm m-0" onclick="hentReiserTider(${d.id})">Se reiser</button>
+                </div>
                 </div>
             </div>
         </div>
@@ -78,14 +92,17 @@ const formaterRuter = (data) => {
     }
 
     if (turRetur == false) {
-        deck += `<div><button class="btn btn-cta btn-sm m-0" onclick="videreTilBestilling()">Videre</button></div>`
+        deck += `<div><button class="btn btn-cta btn-lg" onclick="videreTilBestilling()" style="width: 150px">Neste</button></div>
+                <p id="errorNeste" style="color: red"></p>
+                `
     } else if (turRetur == true) {
         deck += `<div><button class="btn btn-cta btn-sm m-0" onclick="velgReturDato()">Velg retur dato</button></div>`
     }
 
-    $("#title").html(deck);
-    $("#firstTicket").scrollIntoView();
-    
+    $("#billettTittel").html(printTittel);
+    $("#billettBoks").html(deck);
+    $("#ticketFirst")[0].scrollIntoView();
+
 };
 
 // Hent reise informasjon for en-veis-reiser 
@@ -101,6 +118,9 @@ const hentReiserTider = (id) => {
     $.get(url, (data) => {
         formaterEnVeiReiseDato(data)
     })
+        .fail((data) => {
+            $("#errorNeste").html(data)
+        })
 
 };
 
@@ -122,13 +142,15 @@ function formaterEnVeiReiseDato(datoListe) {
             let dagdato = enDato.getDate();
 
             // HTML som skal printes 
-            printDato += ` <input type="radio" class="btn-check" name="datochecked" id="btnradio${dato.avreiseId}" autocomplete="off" value="${dato.avreiseId}">
-            <label class="btn btn-outline-primary col-lg-12 " for="btnradio${dato.avreiseId}">${dag}(${dagdato}.${måned})</label>`
+            printDato += ` 
+            <input type="radio" class="btn-check" name="datochecked" id="btnradio${dato.avreiseId}" autocomplete="off" value="${dato.avreisetid}">
+            <label class="btn btn-outline-primary col-lg-12 " for="btnradio${dato.avreiseId}">${dag}(${dagdato}.${måned})</label>
+            `;
         }
-        printDato += `</div>`
-
-        $(`#avreisetid${idTracker}`).html(printDato);
     }
+
+    printDato += `</div>`
+    $(`#avreisetid${idTracker}`).html(printDato);
 }
 
 function formaterToVeisDato(datoListe) {

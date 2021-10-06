@@ -54,13 +54,15 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 col-sm-12">
-                <h1 class="text-uppercase" style="font-size: 3rem">Klar for ferie?</h1>
+                <h1 class="text-uppercase" style="font-size: 3rem;color: #ff6600">Klar for ferie?</h1>
                 <h4 class="pb-3">Har ferien dins tartet? Da har du ingen tid å miste!</h4>
                 <forms>
                     <div class="row">
                         <div class="col-5">
                             <input size="150" id="kalender" type="date" class="form-control text-center" value=""
-                                   placeholder="Date" aria-label="" width="300px" onchange="">
+                                   placeholder="Date" aria-label="" width="300px" onchange="validerGyldigReise()">
+                            <p class="pt-2" id="errorDato" style="color:red"></p>
+                            
                         </div>
                         <div class="col-5">
                             <button class="btn btn-cta" onclick="hentRuter()">La oss dra!</button>
@@ -91,25 +93,25 @@
 <div id="ticketFirst" class="py-5 h-sm-100 d-flex align-items-center">
     <div id="bookBilletter" class="container ">
         <div class="p-5">
-            <div class=" pb-2 pt-4 text-center">
-                <div id="title" class="row">
-                    <h2 class="text-uppercase" style="font-weight: bold; color: #ff6600">
-                        Ingen reiser er valgt
-                        enda
-                    </h2>
-                    <h4 id="subtitle" class="pb-4">Du vil få reisevalg baser på dato valgt over.</h4>
-                    <div class="d-flex justify-content-center">
-                        <a class="btn btn-cta w-25 " href="#landing">Den er grei !</a>
+            <div class="pt-4">
+                <div id="billettTittel" class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <h2 class="text-uppercase" style="font-weight: bold; color: #ff6600">Ingen reiser er valgt
+                            enda </h2>
+                        <h4 id="subtitle" class="pb-4">Du vil få reisevalg baser på dato valgt over.</h4>
+                        <a class="btn btn-cta btn-lg" href="#landing">Den er grei !</a>
                     </div>
+                    <div class="col-md-6 col-sm-12 d-none d-md-block">
+                        <img src="images/think.svg" alt="" width="80%">
+                    </div>
+                </div>
+                <div id="billettBoks" class="row">
+
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div id="spanContainer">
-
-</div>
-
 
 <footer id="contact-us" class="bg-cta">
     <section class="py-5 ">
