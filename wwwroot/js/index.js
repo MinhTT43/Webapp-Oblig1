@@ -84,7 +84,8 @@ const formaterRuter = (data) => {
     }
 
     $("#title").html(deck);
-    document.location.hash = "#ticketFirst"
+    $("#firstTicket").scrollIntoView();
+    
 };
 
 // Hent reise informasjon for en-veis-reiser 
@@ -122,9 +123,9 @@ function formaterEnVeiReiseDato(datoListe) {
 
             // HTML som skal printes 
             printDato += ` <input type="radio" class="btn-check" name="datochecked" id="btnradio${dato.avreiseId}" autocomplete="off" value="${dato.avreiseId}">
-        <label class="btn btn-outline-primary col-lg-12 " for="btnradio${dato.avreiseId}">${dag}(${dagdato}.${måned})</label>`
+            <label class="btn btn-outline-primary col-lg-12 " for="btnradio${dato.avreiseId}">${dag}(${dagdato}.${måned})</label>`
         }
-        print += `</div>`
+        printDato += `</div>`
 
         $(`#avreisetid${idTracker}`).html(printDato);
     }
@@ -133,55 +134,3 @@ function formaterEnVeiReiseDato(datoListe) {
 function formaterToVeisDato(datoListe) {
 
 }
-
-
-const testDates = (id) => {
-    let dates = `
-            <hr>
-            <p>newDate</p>
-            <p>newDate</p>
-            <p>newDate</p>
-            `;
-    $("#tripDates" + id).html(dates);
-}
-    ;
-const showCalendar = () => {
-    //HTML for inputboks
-    let visibleHTML = `
-        <input id="kalender2" type="date" class="form-control " value=""
-        placeholder="Date">
-        `;
-
-    if ($("#tur").is(':checked')) {
-        $("#calendarDiv").html(visibleHTML);
-
-    } else {
-        $("#calendarDiv").html("");
-        $("#kalender2").val("");
-    }
-
-}
-
-const showDate = () => {
-    //HTML for inputboks
-    let visibleHTML = `
-    <div class="col-4"></div>
-    <div class="col-5">
-    <input id="kalender2" type="date" class="form-control " value=""
-    placeholder="Date">
-    </div>
-    `;
-
-    if ($("#tur").is(':checked')) {
-        $("#calendarDiv").html(visibleHTML);
-        turRetur = true;
-
-    } else {
-        $("#calendarDiv").html("");
-        $("#kalender").val("");
-        turRetur = false;
-    }
-
-    console.log(turRetur)
-}
-
