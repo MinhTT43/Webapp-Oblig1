@@ -1,13 +1,9 @@
 ﻿<Properties StartupConfiguration="{3BA7347E-B461-4588-B5B1-874DA04AEDAD}|DeezSalings">
   <MonoDevelop.Ide.ItemProperties.SeasonLine PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DAL/DBInit.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="wwwroot/js/index.js">
     <Files>
-      <File FileName="wwwroot/index.html" Line="36" Column="18" />
-      <File FileName="wwwroot/kvittering.html" Line="1" Column="16" />
-      <File FileName="wwwroot/bestilling.html" Line="1" Column="1" />
-      <File FileName="wwwroot/js/bestilling.js" Line="234" Column="40" NotebookId="1" />
-      <File FileName="wwwroot/js/kvittering.js" Line="1" Column="32" NotebookId="1" />
-      <File FileName="DAL/DBInit.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="wwwroot/js/index.js" Line="39" Column="13" />
+      <File FileName="wwwroot/js/kvittering.js" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,15 +11,12 @@
           <Node name="SeasonLine" expanded="True">
             <Node name="SeasonLine" expanded="True">
               <Node name="Controller" expanded="True" />
-              <Node name="DAL" expanded="True">
-                <Node name="DBInit.cs" selected="True" />
-              </Node>
+              <Node name="DAL" expanded="True" />
               <Node name="Logs" expanded="True" />
-              <Node name="Model" expanded="True" />
-              <Node name="Properties" expanded="True" />
               <Node name="wwwroot" expanded="True">
-                <Node name="css" expanded="True" />
-                <Node name="js" expanded="True" />
+                <Node name="js" expanded="True">
+                  <Node name="index.js" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>

@@ -16,65 +16,21 @@ namespace DeezSalings.DAL
             _db = db;
         }
 
-        public async Task<List<Billett>> Billetter()
-        {
-            try
-            {
-                List<Bestilling> alleBestillinger = await _db.Bestillinger.ToListAsync();
-                List<Billett> alleBilletter = new List<Billett>();
-
-                foreach (var billett in alleBestillinger)
-                {
-                    Billett nyBillett = new Billett
-                    {
-                        // Kunde informasjon
-                        fornavn = billett.kunde.fornavn,
-                        etternavn = billett.kunde.etternavn,
-                        epost = billett.kunde.epost,
-                        telefon = billett.kunde.telefon,
-
-                        // Bestilling informasjon
-                        antallBarn = billett.antallBarn,
-                        antallVoksen = billett.antallVoksen,
-                        antallStandLugar = billett.antallStandLugar,
-                        antallPremLugar = billett.antallPremLugar,
-                        datoBestilt = billett.datoBestilt,
-                        totalPris = billett.totalPris,
-
-                        // Rute informasjon
-                        avreisested = billett.avreise.rute.avreisested,
-                        destinasjon = billett.avreise.rute.destinasjon,
-                        avreisetid = billett.avreise.avreisetid
-                    };
-
-                    alleBilletter.Add(nyBillett);
-                }
-
-                return alleBilletter;
-            }
-            catch
-            {
-                return null;
-            }
-        }
-
+        // Metode som lagrer billetten til db og returnerer billetten sin id
         public async Task<int> Lagre(Billett b)
         {
-
             try
             {
-
-
-                // Finn avreise-id
+                // Hent avreisen
                 Avreise valgtAvreise = await _db.Avreiser.FirstOrDefaultAsync(
                     a => a.rute.avreisested == b.avreisested &&
                     a.avreisetid == b.avreisetid);
 
-                // Finn kunden ved hjelp av epost
+                // Hent kunde vha. epost
                 Kunde valgtKunde = await _db.Kunder.FirstOrDefaultAsync(
                     k => k.epost == b.epost);
 
-                // Dersom kunde ikke eksisterer opprett kunde
+                // Opprett kunde om de ikke eksisterer
                 if (valgtKunde == null)
                 {
                     valgtKunde = new Kunde
@@ -88,6 +44,7 @@ namespace DeezSalings.DAL
                     await _db.Kunder.AddAsync(valgtKunde);
                 }
 
+                // Opprett en ny bestilling
                 Bestilling nyBestilling = new Bestilling
                 {
                     antallBarn = b.antallBarn,
@@ -102,20 +59,24 @@ namespace DeezSalings.DAL
 
                 await _db.Bestillinger.AddAsync(nyBestilling);
                 _db.SaveChanges();
-
                 return nyBestilling.billettNr;
             }
             catch
             {
+                // Nøkkelverdier starter fra 0.
+                // -1 blir derfor en ugyldig verdi.
                 return -1;
             }
         }
 
+        // Metode for å hente en billett
         public async Task<Billett> Billett(int id)
         {
             try
             {
-                Bestilling enBestilling = await _db.Bestillinger.FirstOrDefaultAsync(b => b.billettNr == id);
+                Bestilling enBestilling =
+                    await _db.Bestillinger.FirstOrDefaultAsync(
+                        b => b.billettNr == id);
 
                 Billett enBillett = new Billett
                 {
@@ -128,6 +89,7 @@ namespace DeezSalings.DAL
                     antallStandLugar = enBestilling.antallStandLugar,
                     antallPremLugar = enBestilling.antallPremLugar,
                     datoBestilt = enBestilling.datoBestilt,
+                    avreisetid = enBestilling.avreise.avreisetid,
                     totalPris = enBestilling.totalPris,
                     avreisested = enBestilling.avreise.rute.avreisested,
                     destinasjon = enBestilling.avreise.rute.destinasjon,

@@ -1,40 +1,32 @@
 ﻿// Variabler
-
 var prisBarn = 0;
 var prisVoksen = 0;
 var prisStandardLuggar = 0;
 var prisPremiumLuggar = 0;
 var erDagsreise = false;
 var reiseruteNr;
-
 const måneder = ['Januar', 'Februar', 'Mars', 'April', 'Mai', 'Juni'
     , 'Juli', 'August', 'September', 'Oktober', 'November', 'Desember'];
 
-const dager = ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag'];
+const dager = ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag'
+    , 'Lørdag'];
 
 $(() => {
     console.log("bestilline.js ready")
-
-    // Hent informasjon om reiseruten
     hentData();
-
-    // Beregn prisen 0.5 sekunder etter page-load 
     setTimeout(totalpris, 500);
 })
 
-// Post-kall for å lagre billetten i db 
+// Post-kall for å lagre billetten i db    
 function lagreData() {
-
-    // Henter dagens dato
     var today = new Date();
 
-    // Validerer input
     validerEpost();
     validerTelefonnr();
     validerFornavn();
     validerEtternavn();
 
-    // Oppretter billett objekt 
+    // Oppretter bestilling objekt    
     const bestilling = {
         fornavn: $("#fornavn").val(),
         etternavn: $("#etternavn").val(),
@@ -55,9 +47,9 @@ function lagreData() {
     }
 
     console.log(bestilling)
-    // Post-kall
+
     $.post("billett/lagre", bestilling, function (id) {
-        window.location.href = "kvittering.html?id=" + id + "&ruteNr=" + reiseruteNr;
+        window.location.href = "kvittering.html?id=" + id
     })
         .fail(function () {
             $("#errorFailHTML").html("Feil oppstod vennligst prøv igjen!")
@@ -66,13 +58,14 @@ function lagreData() {
 
 }
 
-// Hente informasjon om reiseruten
+// Hente informasjon som skal printes til HTML-siden
 function hentData() {
 
 
     const id = window.location.search.substring(1);
     const url = "reise/reiserute?" + id;
 
+    // Hent informasjon om reiseruten 
     $.get(url, function (ruter) {
 
         reiseruteNr = ruter.ruteNr
@@ -83,7 +76,6 @@ function hentData() {
         $("#til").html(`<h1>${ruter.destinasjon}</h1>`)
         $("#fraHidden").val(ruter.avreisested);
         $("#tilHidden").val(ruter.destinasjon);
-
         prisBarn = ruter.prisBarn;
         prisVoksen = ruter.prisVoksen;
 
@@ -106,7 +98,8 @@ function hentData() {
         }
     })
 
-    const url2 = "reise/enavreise?" + id;
+    // Hent avreisetiden
+    const url2 = "reise/avreise?" + id;
     $.get(url2, function (data) {
 
         // Konverter DateTime
@@ -124,6 +117,8 @@ function hentData() {
 
         $("#datoPrint").html(avreiseDatoHTML);
         $("#dato").val(data.avreisetid);
+
+        console.log($("#dato").val())
 
     })
 }

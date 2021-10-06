@@ -36,69 +36,80 @@ const hentBillett = () => {
 
 const formaterKvittering = (d) => {
 
-    // Konvert DateTime
-    let enDato = new Date(d.datoBestilt);
-    let månedIndex = enDato.getMonth();
-    let dagIndex = enDato.getDay();
-    let time = enDato.getHours();
-    let minutter = enDato.getMinutes();
-    let måned = måneder[månedIndex];
-    let dag = dager[dagIndex];
-    let dagdato = enDato.getDate();
-    let år = enDato.getFullYear();
+    let d_best = new Date(d.datoBestilt);
+    let d_best_mnd_index = d_best.getMonth();
+    let d_best_dag_index = d_best.getDay();
+    let d_best_time = d_best.getHours();
+    let d_best_minutter = d_best.getMinutes();
+    let d_best_mnd = måneder[d_best_mnd_index];
+    let d_best_dag = dager[d_best_dag_index];
+    let d_best_dd = d_best.getDate();
+    let d_best_yyyy = d_best.getFullYear();
+
+
+    let a_best = new Date(d.avreisetid);
+    let a_best_mnd_index = a_best.getMonth();
+    let a_best_dag_index = a_best.getDay();
+    let a_best_time = a_best.getHours();
+    let a_best_minutter = a_best.getMinutes();
+    let a_best_mnd = måneder[a_best_mnd_index];
+    let a_best_dag = dager[a_best_dag_index];
+    let a_best_dd = a_best.getDate();
+    let a_best_yyyy = a_best.getFullYear();
 
     let print = ""; // string som printes i HTML
 
-    print += `        <div class="border border-primary p-5">
+    print += `        <div class="shadow-none p-3 mb-5 bg-light rounded p-5">
             <h1 class="my-3 py-3 border-bottom">Oppsummering</h1>
             <div class="row">
-                <div class="col-lg-10">
-                    <p>Destinasjon :</p>
+                <div class="col-lg-8 col-md-12">
+                    <p class="m-0 p-0">Destinasjon :</p>
                     <h1>${d.avreisested} → ${d.destinasjon}</h1>
+                    <p class="fw-bold">Avreise - 
+                            ${a_best_dd} .${a_best_mnd}
+                             Kl.${a_best_time}:${a_best_minutter} </p>
                 </div>
-                <div class="col-lg-2 position-relative">
-                    <div class="position-absolute bottom-0 end-0">
-                        <p class="m-0 p-0">Dato bestilt : ${dagdato}.${måned}.${år} Kl.${time}:${minutter}</p>
+                <div class="col-lg-4 col-md-12 position-relative">
+                    <div class=text-center"">
+                        <p class="m-0 py-3 fw-bold text-end">Dato bestilt <br>
+                              ${d_best_dd} .${d_best_mnd}
+                             Kl.${d_best_time}:${d_best_minutter}</p>
                     </div>
                 </div>
             </div>
             <div class="d-flex my-4">
                 <div>
-                    <p>Fornavn :</p>
-                    <h3>${d.fornavn}</h3>
-                </div>
-                <div class="mx-5">
-                    <p>Etternavn :</p>
-                    <h3>${d.etternavn}</h3>
+                    <p class="m-0 p-0">Fullt navn :</p>
+                    <h3>${d.fornavn} ${d.etternavn}</h3>
                 </div>
             </div>
             <div class="my-4 row">
                 <div class="col-lg-6">
-                    <p>Person(er) :</p>
+                    <p class="m-0 p-0">Person(er) :</p>
                     <div>
-                        <h3>Barn → ${d.antallBarn} </h3>
+                        <h3>Barn x ${d.antallBarn} </h3>
                     </div>
                     <div>
-                        <h3>Voksen(e) → ${d.antallVoksen}</h3>
+                        <h3>Voksen(e) x ${d.antallVoksen}</h3>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <p>Luggar(er) :</p>
                     <div>
-                        <h3>Standard luggar → ${d.antallStandLugar}</h3>
+                        <h3>Standard luggar x ${d.antallStandLugar}</h3>
                     </div>
                     <div>
-                        <h3>Standard luggar → ${d.antallPremLugar}</h3>
+                        <h3>Premium luggar x ${d.antallPremLugar}</h3>
                     </div>
                 </div>
             </div>
             <div class="border-top row">
                 <div class="my-4 col-lg-6">
-                    <h2>Totalbeløp </h2>
+                    <h2>Totalbeløp : </h2>
                 </div>
                 <div class="col-lg-6 position-relative">
                     <div class="position-absolute end-0 my-4 ">
-                        <h2>Kr.${d.totalPris},-</h2>
+                        <h2>Kr. ${d.totalPris},-</h2>
                     </div>
                 </div>
             </div>

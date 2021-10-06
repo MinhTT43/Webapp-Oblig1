@@ -13,7 +13,9 @@ namespace DeezSalings.Model
         [RegularExpression(@"^[a-zæøåA-ZÆØÅ. \-]{1,40}$")]
         [Required]
         public string etternavn { get; set; }
-        [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$")] // Hentet fra https://www.c-sharpcorner.com/blogs/validate-email-address-in-c-sharp1
+
+        // Hentet fra https://www.c-sharpcorner.com/blogs/validate-email-address-in-c-sharp1
+        [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$")]
         [Required]
         public string epost { get; set; }
         [RegularExpression(@"^\(?([0-9 +]{8,})$")]

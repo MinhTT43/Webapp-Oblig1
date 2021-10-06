@@ -22,25 +22,19 @@ namespace DeezSalings.Controller
             _log = log;
         }
 
-        public async Task<ActionResult> Billetter()
-        {
-            List<Billett> alleBilletter = await _db.Billetter();
-
-            return Ok(alleBilletter);
-        }
-
         public async Task<ActionResult> Lagre(Billett b)
         {
+            // Validering
             if (ModelState.IsValid)
             {
-                int returOk = await _db.Lagre(b);
-                if (returOk == -1)
+                int billettId = await _db.Lagre(b);
+                if (billettId == -1)
                 {
                     _log.LogInformation("Bestilling mislykket");
                     return BadRequest("Bestilling mislykket");
                 }
 
-                return Ok(returOk);
+                return Ok(billettId);
             }
             _log.LogInformation("Feil i inputvalidering");
             return BadRequest("Feil i inputvalidering");
@@ -48,14 +42,14 @@ namespace DeezSalings.Controller
 
         public async Task<ActionResult> Billett(int id)
         {
-            Billett returBillett = await _db.Billett(id);
-            if (returBillett == null)
+            Billett billett = await _db.Billett(id);
+            if (billett == null)
             {
                 _log.LogInformation("Billett ikke funnet");
                 return BadRequest("Billett ikke funnet");
             }
 
-            return Ok(returBillett);
+            return Ok(billett);
         }
     }
 }
