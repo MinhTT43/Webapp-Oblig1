@@ -104,17 +104,6 @@ const hentReiserTider = (id) => {
 };
 
 function formaterEnVeiReiseDato(datoListe) {
-
-<<<<<<< Updated upstream
-    const måneder = ['Januar', 'Februar', 'Mars', 'April', 'Mai', 'Juni'
-        , 'Juli', 'August', 'September', 'Oktober', 'November', 'Desember'];
-
-    const dager = ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag'];
-
-    console.log(datoListe)
-
-=======
->>>>>>> Stashed changes
     let printDato = `<div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">`;
 
     for (var dato of datoListe) {
@@ -131,16 +120,9 @@ function formaterEnVeiReiseDato(datoListe) {
             let dag = dager[dagIndex];
             let dagdato = enDato.getDate();
 
-<<<<<<< Updated upstream
-
-            printDato += ` 
-            <input type="radio" class="btn-check" name="datochecked" id="btnradio${dato.avreiseId}" autocomplete="off" value="${dato.avreiseId}">
-            <label class="btn btn-outline-primary col-lg-12 " for="btnradio${dato.avreiseId}">${dag}, ${dagdato}.${måned}</label>`
-=======
-            // HTML som skal printes
+            // HTML som skal printes 
             printDato += ` <input type="radio" class="btn-check" name="datochecked" id="btnradio${dato.avreiseId}" autocomplete="off" value="${dato.avreiseId}">
         <label class="btn btn-outline-primary col-lg-12 " for="btnradio${dato.avreiseId}">${dag}(${dagdato}.${måned})</label>`
->>>>>>> Stashed changes
         }
         print += `</div>`
 
@@ -152,19 +134,17 @@ function formaterToVeisDato(datoListe) {
 
 }
 
-<<<<<<< Updated upstream
-}
 
 const testDates = (id) => {
-        let dates = `
+    let dates = `
             <hr>
             <p>newDate</p>
             <p>newDate</p>
             <p>newDate</p>
             `;
-        $("#tripDates" + id).html(dates);
-    }
-;
+    $("#tripDates" + id).html(dates);
+}
+    ;
 const showCalendar = () => {
     //HTML for inputboks
     let visibleHTML = `
@@ -181,7 +161,6 @@ const showCalendar = () => {
     }
 
 }
-=======
 
 const showDate = () => {
     //HTML for inputboks
@@ -204,6 +183,5 @@ const showDate = () => {
     }
 
     console.log(turRetur)
-
 }
->>>>>>> Stashed changes
+
