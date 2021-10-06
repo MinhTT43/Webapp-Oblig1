@@ -1,4 +1,9 @@
-﻿$(() => {
+﻿const måneder = ['Januar', 'Februar', 'Mars', 'April', 'Mai', 'Juni'
+    , 'Juli', 'August', 'September', 'Oktober', 'November', 'Desember'];
+
+const dager = ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag'];
+
+$(() => {
     console.log("kvittering.js => ok");
     hentBillett();
 })
@@ -33,6 +38,17 @@ const hentBillett = () => {
 
 const formaterKvittering = (d) => {
 
+    // Konvert DateTime
+    let enDato = new Date(d.datoBestilt);
+    let månedIndex = enDato.getMonth();
+    let dagIndex = enDato.getDay();
+    let time = enDato.getHours();
+    let minutter = enDato.getMinutes();
+    let måned = måneder[månedIndex];
+    let dag = dager[dagIndex];
+    let dagdato = enDato.getDate();
+    let år = enDato.getFullYear();
+
     let print = ""; // string som printes i HTML
 
     print += `        <div class="border border-primary p-5">
@@ -44,7 +60,7 @@ const formaterKvittering = (d) => {
                 </div>
                 <div class="col-lg-2 position-relative">
                     <div class="position-absolute bottom-0 end-0">
-                        <p class="m-0 p-0">Dato bestilt : ${d.datoBestilt}</p>
+                        <p class="m-0 p-0">Dato bestilt : ${dagdato}.${måned}.${år} Kl.${time}:${minutter}</p>
                     </div>
                 </div>
             </div>

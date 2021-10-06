@@ -7,6 +7,11 @@ var prisPremiumLuggar = 0;
 var erDagsreise = false;
 var reiseruteNr;
 
+const måneder = ['Januar', 'Februar', 'Mars', 'April', 'Mai', 'Juni'
+    , 'Juli', 'August', 'September', 'Oktober', 'November', 'Desember'];
+
+const dager = ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag'];
+
 $(() => {
     console.log("bestilline.js ready")
 
@@ -103,7 +108,23 @@ function hentData() {
 
     const url2 = "reise/enavreise?" + id;
     $.get(url2, function (data) {
+
+        // Konverter DateTime
+        let enDato = new Date(data.avreisetid);
+        let månedIndex = enDato.getMonth();
+        let dagIndex = enDato.getDay();
+        let time = enDato.getHours();
+        let minutter = enDato.getMinutes();
+        let måned = måneder[månedIndex];
+        let dag = dager[dagIndex];
+        let dagdato = enDato.getDate();
+
+        var avreiseDatoHTML = `${dag} (${dagdato} .${måned}) <br>
+                                Kl. ${time}.${minutter}`
+
+        $("#datoPrint").html(avreiseDatoHTML);
         $("#dato").val(data.avreisetid);
+
     })
 }
 
@@ -212,6 +233,8 @@ function totalpris() {
 }
 
 // HTML-kode som printes ut på html-doc
+
+
 
 var luggarOversiktHTML = '<div class="row">' +
     '<input readonly class="no-border col-2 text-center" type="number" value="1" min="0"' +
