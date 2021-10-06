@@ -1,9 +1,11 @@
 ﻿<Properties StartupConfiguration="{3BA7347E-B461-4588-B5B1-874DA04AEDAD}|DeezSalings">
   <MonoDevelop.Ide.ItemProperties.SeasonLine PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="wwwroot/js/index.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="wwwroot/js/kvittering.js">
     <Files>
-      <File FileName="wwwroot/js/index.js" Line="39" Column="13" />
-      <File FileName="wwwroot/js/kvittering.js" />
+      <File FileName="wwwroot/js/index.js" Line="83" Column="1" />
+      <File FileName="wwwroot/js/kvittering.js" Line="1" Column="1" />
+      <File FileName="wwwroot/js/valider.js" Line="112" Column="1" />
+      <File FileName="wwwroot/index.html" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,7 +17,7 @@
               <Node name="Logs" expanded="True" />
               <Node name="wwwroot" expanded="True">
                 <Node name="js" expanded="True">
-                  <Node name="index.js" selected="True" />
+                  <Node name="kvittering.js" selected="True" />
                 </Node>
               </Node>
             </Node>

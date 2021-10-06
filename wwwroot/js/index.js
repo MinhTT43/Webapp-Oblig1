@@ -6,9 +6,6 @@ const måneder = ['Januar', 'Februar', 'Mars', 'April', 'Mai', 'Juni'
     , 'Juli', 'August', 'September', 'Oktober', 'November', 'Desember'];
 const dager = ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag'
     , 'Lørdag'];
-var turRetur = false;
-var datoFram;
-var datoTilbake;
 
 /*-----Funksjoner------*/
 /*-----Funksjoner------*/
@@ -39,29 +36,17 @@ const velgReturDato = () => {
 // Hent rute informasjon
 const hentRuter = () => {
 
-    // Sjekk om det er en-veis-tur  
-    if (turRetur == false) {
-        validerKalender();
-        if (validerKalender() == true) {
-            $.get("Reise/Reiser", (data) => {
-                console.log(data)
-                formaterRuter(data);
+    validerKalender();
+    if (validerKalender() == true) {
+        $.get("Reise/Reiseruter", (data) => {
+            console.log(data)
+            formaterRuter(data);
+        })
+            .fail(() => {
+                $("#errorDato").html("Ingen reiser funnet!")
             })
-                .fail(() => {
-                    $("#errorDato").html("Ingen reiser funnet!")
-                })
-        }
     }
-    // Sjekk om det er to-veis-tur
-    else if (turRetur == true) {
-        validerKalender2();
-        if (validerKalender2() == true) {
-            $.get("Reise/Reiser", (data) => {
-                console.log(data)
-                formaterRuter(data);
-            });
-        }
-    }
+
 }
 
 // Formater reiseruter som printes i HTML 
@@ -91,13 +76,11 @@ const formaterRuter = (data) => {
         `
     }
 
-    if (turRetur == false) {
-        deck += `<div><button class="btn btn-cta btn-lg" onclick="videreTilBestilling()" style="width: 150px">Neste</button></div>
+
+    deck += `<div><button class="btn btn-cta btn-lg" onclick="videreTilBestilling()" style="width: 150px">Neste</button></div>
                 <p id="errorNeste" style="color: red"></p>
                 `
-    } else if (turRetur == true) {
-        deck += `<div><button class="btn btn-cta btn-sm m-0" onclick="velgReturDato()">Velg retur dato</button></div>`
-    }
+
 
     $("#billettTittel").html(printTittel);
     $("#billettBoks").html(deck);
@@ -114,7 +97,7 @@ const hentReiserTider = (id) => {
     let mm = date.getMonth() + 1;
     let yyyy = date.getFullYear();
 
-    url = `reise/valgtAvreisetid?id=${id}&day=${dd}&month=${mm}&year=${yyyy}`;
+    url = `reise/Avreisetider?id=${id}&day=${dd}&month=${mm}&year=${yyyy}`;
     $.get(url, (data) => {
         formaterEnVeiReiseDato(data)
     })

@@ -113,14 +113,15 @@ const validerKalender = () => {
 const validerGyldigReise = () => {
     let idag = new Date();
     let fra = new Date($("#kalender").val());
-    
+
 
     if (fra.getTime() > idag.getTime()) {
         $("#errorDato").html("");
-        return true;
+
     } else {
         $("#errorDato").html("Reisen må være fra og med imorgen");
-        return false;
+        $("#billettBoks").html("")
+
     }
 
 }
