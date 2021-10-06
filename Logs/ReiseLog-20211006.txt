@@ -225,3 +225,6 @@ System.ArgumentOutOfRangeException: Year, Month, and Day parameters describe an 
 2021-10-06T18:53:40.6946237+02:00 8000008e-000a-fa00-b63f-84710c7967bb [INF] Ingen avreiser funnet (22327793)
 2021-10-06T18:53:44.9417655+02:00 80000099-0008-ff00-b63f-84710c7967bb [INF] Ingen avreiser funnet (22327793)
 2021-10-06T18:53:54.0172415+02:00 80000059-0004-fa00-b63f-84710c7967bb [INF] Ingen avreiser funnet (22327793)
+2021-10-06T19:00:45.7625721+02:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-10-06T19:00:45.7751472+02:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-10-06T19:00:45.7775462+02:00  [INF] Content root path: "C:\Users\charl\Documents\GitHub\Webapp-Oblig1_1\package-lock.json" (b5d60022)

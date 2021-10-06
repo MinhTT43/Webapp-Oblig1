@@ -118,7 +118,7 @@ const validerGyldigReise = () => {
     <div class="col-md-6 col-sm-12">
     <h2 class="text-uppercase" style="font-weight: bold; color: #ff6600">Ingen reiser funnet!</h2>
     <h4 id="subtitle" class="pb-4">Fant ingen dato basert på dato som ble valgt</h4>
-    <a class="btn btn-cta btn-lg" href="#landing">Velg en annen dato</a>
+    <button class="btn btn-cta btn-lg" onclick="scrollToLanding()">Velg en annen dato</button>
     </div>
     `;
 

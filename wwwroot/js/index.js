@@ -145,3 +145,7 @@ function formaterEnVeiReiseDato(datoListe) {
 function formaterToVeisDato(datoListe) {
 
 }
+
+const scrollToLanding = () => {
+    $("#landing")[0].scrollIntoView();
+};
