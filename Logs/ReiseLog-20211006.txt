@@ -71,3 +71,6 @@ System.ArgumentOutOfRangeException: Year, Month, and Day parameters describe an 
 2021-10-06T16:54:30.0613400+02:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
 2021-10-06T16:54:30.0635290+02:00  [INF] Hosting environment: "Development" (c3307c92)
 2021-10-06T16:54:30.0644780+02:00  [INF] Content root path: "/Users/minh/Documents/GitHub/Webapp-Oblig1" (b5d60022)
+2021-10-06T17:09:58.3992714+02:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-10-06T17:09:58.4098189+02:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-10-06T17:09:58.4100038+02:00  [INF] Content root path: "C:\Users\charl\Documents\GitHub\Webapp-Oblig1_1\package-lock.json" (b5d60022)

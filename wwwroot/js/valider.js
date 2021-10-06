@@ -113,6 +113,13 @@ const validerKalender = () => {
 const validerGyldigReise = () => {
     let idag = new Date();
     let fra = new Date($("#kalender").val());
+    let errorMessage = `
+    <div class="col-md-6 col-sm-12">
+    <h2 class="text-uppercase" style="font-weight: bold; color: #ff6600">Ingen reiser funnet!</h2>
+    <h4 id="subtitle" class="pb-4">Fant ingen dato basert på dato som ble valgt</h4>
+    <a class="btn btn-cta btn-lg" href="#landing">Velg en annen dato</a>
+    </div>
+    `;
 
 
     if (fra.getTime() > idag.getTime()) {
@@ -120,9 +127,13 @@ const validerGyldigReise = () => {
 
     } else {
         $("#errorDato").html("Reisen må være fra og med imorgen");
+        $("#billettTittel").html(errorMessage);
         $("#billettBoks").html("")
+        
 
     }
+
+
 
 }
 
