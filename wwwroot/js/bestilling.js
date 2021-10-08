@@ -17,52 +17,67 @@ $(() => {
     setTimeout(totalpris, 500);
 })
 
-// Post-kall for å lagre billetten i db    
+// Post-kall for å lagre billetten i db     
 function lagreData() {
-    var today = new Date();
+    console.log(erDagsreise)
 
     validerEpost();
     validerTelefonnr();
     validerFornavn();
     validerEtternavn();
-    validerLuggarPersonRatio();
+    validerPersoner();
 
-    if (validerEpost() == true && validerTelefonnr == true
-        && validerFornavn == true && validerEtternavn == true &&
-        validerLuggarPersonRatio == true) {
-        // Oppretter bestilling objekt    
-        const bestilling = {
-            fornavn: $("#fornavn").val(),
-            etternavn: $("#etternavn").val(),
-            telefon: $("#telefon").val(),
-            epost: $("#epost").val(),
-
-            avreiseSted: $("#fraHidden").val(),
-            destinasjon: $("#tilHidden").val(),
-            avreisetid: $("#dato").val(),
-
-            antallBarn: $("#antallBarn").val(),
-            antallVoksen: $("#antallVoksen").val(),
-            antallStandLugar: $("#antallStandLugar").val(),
-            antallPremLugar: $("#antallPremLugar").val(),
-            datoBestilt: today.toISOString(),
-
-            totalPris: $("#prisHidden").val(),
+    if (erDagsreise == false) {
+        validerLuggarPersonRatio();
+        if (validerEpost() == true && validerTelefonnr() == true
+            && validerFornavn() == true && validerEtternavn() == true &&
+            validerLuggarPersonRatio() == true && validerPersoner() == true) {
+            funksjonLagreBestilling();
+        }
+    } else if (erDagsreise == true) {
+        if (validerEpost() == true && validerTelefonnr() == true
+            && validerFornavn() == true && validerEtternavn() == true && validerPersoner() == true) {
+            funksjonLagreBestilling();
         }
 
-        console.log(bestilling)
+    }
+}
 
-        $.post("billett/lagre", bestilling, function (id) {
-            window.location.href = "kvittering.html?id=" + id
-        })
-            .fail(function () {
-                $("#errorFailHTML").html("Feil oppstod vennligst prøv igjen!")
-            });
-    } else {
-        console.log("Noe gikk galt i bestillingen")
+const funksjonLagreBestilling = () => {
+
+    var today = new Date();
+
+    // Oppretter bestilling objekt
+    const bestilling = {
+
+        fornavn: $("#fornavn").val(),
+        etternavn: $("#etternavn").val(),
+        telefon: $("#telefon").val(),
+        epost: $("#epost").val(),
+
+        avreiseSted: $("#fraHidden").val(),
+        destinasjon: $("#tilHidden").val(),
+        avreisetid: $("#dato").val(),
+
+        antallBarn: $("#antallBarn").val(),
+        antallVoksen: $("#antallVoksen").val(),
+        antallStandLugar: $("#antallStandLugar").val(),
+        antallPremLugar: $("#antallPremLugar").val(),
+        datoBestilt: today.toISOString(),
+
+        totalPris: $("#prisHidden").val(),
     }
 
+    console.log(bestilling)
+
+    $.post("billett/lagre", bestilling, function (id) {
+        window.location.href = "kvittering.html?id=" + id
+    })
+        .fail(function () {
+            $("#errorFailHTML").html("Feil oppstod vennligst prøv igjen!")
+        });
 }
+
 
 // Hente informasjon som skal printes til HTML-siden
 function hentData() {
@@ -99,8 +114,9 @@ function hentData() {
             $("#standardLuggarPris").html(prisStandardLuggar);
             $("#premiumLuggarPris").html(prisPremiumLuggar);
 
-        } else if (ruter.dagsreise == true) {
+        } else {
             erDagsreise = true;
+            console.log(erDagsreise)
         }
     })
 
@@ -125,6 +141,8 @@ function hentData() {
         $("#dato").val(data.avreisetid);
 
         console.log($("#dato").val())
+
+        console.log(data.rute.dagstur)
 
     })
 }
@@ -231,6 +249,7 @@ function totalpris() {
     $("#pris").html(totalPris);
     $("#prisHidden").val(totalPris);
 }
+
 
 // HTML-kode som printes ut på html-doc
 var luggarOversiktHTML = '<div class="row">' +

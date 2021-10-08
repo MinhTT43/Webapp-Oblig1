@@ -1,3 +1,4 @@
+
 $(() => {
     console.log("valider.js ready")
 })
@@ -44,7 +45,7 @@ const validerTelefonnr = () => {
 }
 
 //https://ihateregex.io/expr/email/
-// Eksempel epost: s1889010@oslomet.no
+// Eksempel epost: s1889010@oslomet.no  
 const validerEpost = () => {
     let epost = $("#epost").val();
     let regex = /^[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+$/
@@ -82,10 +83,10 @@ const validerLuggarPersonRatio = () => {
 
     if (parseInt(antallPlasser) < parseInt(personer)) {
         $("#errorFailHTML").html("For mange personer, trenger flere luggarer")
-        return true;
+        return false;
     } else {
         $("#errorFailHTML").html("")
-        return false;
+        return true;
     }
 }
 
@@ -115,11 +116,11 @@ const validerGyldigReise = () => {
     let idag = new Date();
     let fra = new Date($("#kalender").val());
     let errorMessage = `
-    <div class="col-md-6 col-sm-12">
+    < div class="col-md-6 col-sm-12" >
     <h2 class="text-uppercase" style="font-weight: bold; color: #ff6600">Ingen reiser funnet!</h2>
     <h4 id="subtitle" class="pb-4">Fant ingen dato basert på dato som ble valgt</h4>
     <button class="btn btn-cta btn-lg" onclick="scrollToLanding()">Velg en annen dato</button>
-    </div>
+    </div >
     `;
 
 
@@ -139,4 +140,3 @@ const validerGyldigReise = () => {
 
 
 }
-

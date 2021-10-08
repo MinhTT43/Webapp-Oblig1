@@ -60,7 +60,7 @@ const formaterKvittering = (d) => {
     let print = ""; // string som printes i HTML
 
     print += `        <div class="shadow-none p-3 mb-5 bg-light rounded p-5">
-            <h1 class="my-3 py-3 border-bottom">Oppsummering</h1>
+            <h1 class="my-3 py-3 border-bottom">Oppsummering (Kvittering)</h1>
             <div class="row">
                 <div class="col-lg-8 col-md-12">
                     <p class="m-0 p-0">Destinasjon :</p>
